@@ -225,20 +225,20 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <motion.div
-          className="border-t border-gray-800 pt-8 mt-20 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-gray-400 text-sm">
-            &copy; 2025 UniMatch.
-          </p>
-        </motion.div>
       </section>
+
+      {/* Footer */}
+      <motion.div
+        className="border-t border-gray-800 pt-8 pb-8 text-center bg-gradient-to-br from-gray-900 via-primary/10 to-purple-900/30"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <p className="text-gray-400 text-sm">
+          &copy; 2025 UniMatch.
+        </p>
+      </motion.div>
       </div>
     </>
   )
