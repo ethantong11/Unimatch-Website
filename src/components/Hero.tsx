@@ -102,7 +102,7 @@ const Hero = () => {
   }, [infiniteScreens.length])
   
   return (
-    <div className="relative">
+    <div className="relative snap-y snap-mandatory overflow-y-scroll h-screen">
       {/* Landing Section with 3D Push Back Effect */}
       <motion.section 
         ref={landingRef}
@@ -112,7 +112,7 @@ const Hero = () => {
           transformStyle: 'preserve-3d',
           perspective: '1000px'
         }}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always"
       >
         {/* Background Elements */}
         <div className="absolute inset-0">
@@ -172,7 +172,7 @@ const Hero = () => {
       </motion.section>
 
       {/* UI Screens Section - Infinite Horizontal Carousel */}
-      <section className="relative min-h-screen py-20 overflow-hidden">
+      <section className="relative h-screen py-20 overflow-hidden snap-start snap-always">
         {/* Same gradient background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary/10 to-purple-900/30" />
