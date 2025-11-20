@@ -54,22 +54,28 @@ const Hero = () => {
         return
       }
 
-      // Trigger scroll immediately
+      // Trigger a single page scroll based on current position
       isScrollingRef.current = true
-      
+
       const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
-      const screenWidth = 280 + 32 // width + gap
-      
-      container.scrollBy({
-        left: direction * screenWidth,
+      const screenWidth = 280 + 32 // width + gap (must match CSS)
+
+      const currentIndex = Math.round(container.scrollLeft / screenWidth)
+      const nextIndex = currentIndex + direction
+      const clampedIndex = Math.max(0, Math.min(infiniteScreens.length - 1, nextIndex))
+      const targetLeft = clampedIndex * screenWidth
+
+      container.scrollTo({
+        left: targetLeft,
         behavior: 'smooth'
       })
 
-      // Lock scrolling for animation duration
+      // Lock scrolling during the animation so only one page moves
       setTimeout(() => {
         isScrollingRef.current = false
-      }, 600)
+      }, 500)
     }
+
 
     handleScroll()
     container.addEventListener('scroll', handleScroll)
