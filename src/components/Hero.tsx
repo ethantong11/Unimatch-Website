@@ -183,20 +183,20 @@ const Hero = () => {
                 const distance = scrollPositions[index] || 0
                 const absDistance = Math.abs(distance)
                 
-                // Enhanced depth calculations
-                const opacity = Math.max(0, 1 - absDistance * 1.2)
-                const scale = Math.max(0.3, 1 - absDistance * 0.6)
-                const rotateY = distance * 45
-                const translateZ = -absDistance * 400
-                const translateX = distance * 150
-                const blur = Math.min(8, absDistance * 8)
+                // Smoother depth calculations
+                const opacity = Math.max(0, 1 - absDistance * 1.0)
+                const scale = Math.max(0.4, 1 - absDistance * 0.4)
+                const rotateY = distance * 35
+                const translateZ = -absDistance * 320
+                const translateX = distance * 120
+                const blur = Math.min(6, absDistance * 6)
                 const zIndex = Math.round((1 - absDistance) * 100)
                 
                 return (
-                    <motion.div
-                      key={`${screen.name}-${index}`}
-                      className="flex-shrink-0 w-[280px] snap-center snap-always"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                  <motion.div
+                    key={`${screen.name}-${index}`}
+                    className="flex-shrink-0 w-[280px] snap-center snap-always"
+                    initial={{ opacity: 0, scale: 0.9, translateZ: -200 }}
                     animate={{ 
                       opacity,
                       scale,
@@ -209,13 +209,14 @@ const Hero = () => {
                     style={{ 
                       transformStyle: 'preserve-3d',
                       transformOrigin: 'center center',
+                      willChange: 'transform, filter'
                     }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
                   >
                     <div 
                       className="relative overflow-hidden rounded-2xl"
                       style={{
-                        boxShadow: `0 ${20 + absDistance * 30}px ${40 + absDistance * 40}px rgba(0, 0, 0, ${0.5 + absDistance * 0.3})`
+                        boxShadow: `0 ${20 + absDistance * 20}px ${40 + absDistance * 30}px rgba(0, 0, 0, ${0.45 + absDistance * 0.25})`
                       }}
                     >
                       <img
