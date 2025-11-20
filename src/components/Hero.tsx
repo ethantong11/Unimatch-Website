@@ -156,13 +156,21 @@ const Hero = () => {
           />
         </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center" style={{ perspective: '1500px' }}>
+        <div className="relative z-10 h-full flex items-center justify-center">
           <div 
             ref={containerRef}
             className="w-full max-w-7xl overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory scroll-smooth" 
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              perspective: '2000px',
+              perspectiveOrigin: 'center center'
+            }}
           >
-            <div className="flex gap-8 px-[calc(50vw-140px)] pb-4">
+            <div 
+              className="flex gap-8 px-[calc(50vw-140px)] pb-4"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
               {infiniteScreens.map((screen, index) => {
                 const distance = scrollPositions[index] || 0
                 const absDistance = Math.abs(distance)
@@ -173,10 +181,10 @@ const Hero = () => {
                     className="flex-shrink-0 w-[280px] snap-center"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
-                      opacity: 1 - absDistance * 0.4,
-                      scale: 1 - absDistance * 0.3,
-                      rotateY: distance * 25,
-                      z: -absDistance * 150,
+                      opacity: 1 - absDistance * 0.5,
+                      scale: 1 - absDistance * 0.4,
+                      rotateY: distance * 35,
+                      translateZ: -absDistance * 250,
                     }}
                     style={{ 
                       transformStyle: 'preserve-3d',
