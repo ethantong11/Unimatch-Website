@@ -59,7 +59,7 @@ const Hero = () => {
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
 
       // Ignore tiny jitters and very fast micro-gestures
-      const threshold = 30
+      const threshold = 60
       if (Math.abs(delta) < threshold) return
 
       isScrollingRef.current = true
@@ -83,7 +83,7 @@ const Hero = () => {
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false
-      }, 550)
+      }, 800)
     }
     
     handleScroll()
@@ -250,7 +250,7 @@ const Hero = () => {
                       transformOrigin: 'center center',
                       willChange: 'transform, filter'
                     }}
-                    transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
+                    transition={{ duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
                   >
                     <div 
                       className="relative overflow-hidden rounded-2xl"
