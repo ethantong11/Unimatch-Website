@@ -9,6 +9,8 @@ const Hero = () => {
   
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollPositions, setScrollPositions] = useState<Record<number, number>>({})
+  const isScrollingRef = useRef(false)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout>()
 
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
@@ -44,13 +46,44 @@ const Hero = () => {
       setScrollPositions(positions)
     }
 
+    const handleWheel = (e: WheelEvent) => {
+      if (isScrollingRef.current) {
+        e.preventDefault()
+        return
+      }
+
+      e.preventDefault()
+      isScrollingRef.current = true
+
+      const direction = e.deltaY > 0 || e.deltaX > 0 ? 1 : -1
+      const screenWidth = 280 + 32 // width + gap
+      
+      container.scrollBy({
+        left: direction * screenWidth,
+        behavior: 'smooth'
+      })
+
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false
+      }, 600)
+    }
+
     handleScroll()
     container.addEventListener('scroll', handleScroll)
+    container.addEventListener('wheel', handleWheel, { passive: false })
     window.addEventListener('resize', handleScroll)
     
     return () => {
       container.removeEventListener('scroll', handleScroll)
+      container.removeEventListener('wheel', handleWheel)
       window.removeEventListener('resize', handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
     }
   }, [infiniteScreens.length])
   
