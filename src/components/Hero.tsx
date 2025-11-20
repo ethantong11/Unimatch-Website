@@ -11,6 +11,7 @@ const Hero = () => {
   const [scrollPositions, setScrollPositions] = useState<Record<number, number>>({})
   const isScrollingRef = useRef(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout>()
+  const scrollDeltaRef = useRef(0)
 
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
@@ -47,29 +48,39 @@ const Hero = () => {
     }
 
     const handleWheel = (e: WheelEvent) => {
+      e.preventDefault()
+      
       if (isScrollingRef.current) {
-        e.preventDefault()
         return
       }
 
-      e.preventDefault()
-      isScrollingRef.current = true
-
-      const direction = e.deltaY > 0 || e.deltaX > 0 ? 1 : -1
-      const screenWidth = 280 + 32 // width + gap
-      
-      container.scrollBy({
-        left: direction * screenWidth,
-        behavior: 'smooth'
-      })
+      // Accumulate scroll delta
+      scrollDeltaRef.current += Math.abs(e.deltaY) + Math.abs(e.deltaX)
 
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current)
       }
 
       scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false
-      }, 600)
+        if (scrollDeltaRef.current > 30 && !isScrollingRef.current) {
+          isScrollingRef.current = true
+          
+          const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
+          const screenWidth = 280 + 32 // width + gap
+          
+          container.scrollBy({
+            left: direction * screenWidth,
+            behavior: 'smooth'
+          })
+
+          setTimeout(() => {
+            isScrollingRef.current = false
+            scrollDeltaRef.current = 0
+          }, 800)
+        } else {
+          scrollDeltaRef.current = 0
+        }
+      }, 50)
     }
 
     handleScroll()
