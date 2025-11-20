@@ -13,6 +13,7 @@ const Hero = () => {
   const scrollTimeoutRef = useRef<NodeJS.Timeout>()
   const scrollDeltaRef = useRef(0)
   const currentIndexRef = useRef(0)
+  const lastScrollLeftRef = useRef(0)
 
   const { scrollYProgress } = useScroll()
   
@@ -30,13 +31,19 @@ const Hero = () => {
     const container = containerRef.current
     if (!container) return
 
+    lastScrollLeftRef.current = container.scrollLeft
+
     const handleScroll = () => {
       const containerRect = container.getBoundingClientRect()
       const containerCenter = containerRect.left + containerRect.width / 2
       const positions: Record<number, number> = {}
+
+      const delta = container.scrollLeft - lastScrollLeftRef.current
+      lastScrollLeftRef.current = container.scrollLeft
+      scrollDeltaRef.current += delta
       
       Array.from(container.children[0]?.children || []).forEach((child, index) => {
-        const screenRect = child.getBoundingClientRect()
+        const screenRect = (child as HTMLElement).getBoundingClientRect()
         const screenCenter = screenRect.left + screenRect.width / 2
         const distance = (screenCenter - containerCenter) / containerRect.width
         positions[index] = distance
@@ -57,6 +64,66 @@ const Hero = () => {
       }
     }
   }, [infiniteScreens.length])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+    if (isScrollingRef.current) return
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current)
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      const entries = Object.entries(scrollPositions).map(([index, distance]) => ({
+        index: Number(index),
+        distance,
+      }))
+
+      if (!entries.length) return
+
+      const nearest = entries.reduce((prev, curr) =>
+        Math.abs(curr.distance) < Math.abs(prev.distance) ? curr : prev
+      )
+
+      const direction = scrollDeltaRef.current > 0 ? 1 : scrollDeltaRef.current < 0 ? -1 : 0
+
+      let targetIndex = nearest.index
+      if (direction !== 0) {
+        const diff = nearest.index - currentIndexRef.current
+        if (Math.abs(diff) > 1) {
+          targetIndex = currentIndexRef.current + direction
+        }
+      }
+
+      currentIndexRef.current = targetIndex
+      scrollDeltaRef.current = 0
+
+      const track = container.children[0] as HTMLElement | undefined
+      const targetChild = track?.children[targetIndex] as HTMLElement | undefined
+      if (!targetChild) return
+
+      const containerRect = container.getBoundingClientRect()
+      const childRect = targetChild.getBoundingClientRect()
+      const offset =
+        childRect.left -
+        containerRect.left -
+        (containerRect.width - childRect.width) / 2
+
+      isScrollingRef.current = true
+      container.scrollBy({ left: offset, behavior: 'smooth' })
+
+      setTimeout(() => {
+        isScrollingRef.current = false
+      }, 400)
+    }, 120)
+
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+    }
+  }, [scrollPositions])
   
   return (
     <>
