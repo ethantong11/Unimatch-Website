@@ -183,16 +183,28 @@ const Hero = () => {
                 const distance = scrollPositions[index] || 0
                 const absDistance = Math.abs(distance)
                 
+                // Enhanced depth calculations
+                const opacity = Math.max(0, 1 - absDistance * 1.2)
+                const scale = Math.max(0.3, 1 - absDistance * 0.6)
+                const rotateY = distance * 45
+                const translateZ = -absDistance * 400
+                const translateX = distance * 150
+                const blur = Math.min(8, absDistance * 8)
+                const zIndex = Math.round((1 - absDistance) * 100)
+                
                 return (
                     <motion.div
                       key={`${screen.name}-${index}`}
                       className="flex-shrink-0 w-[280px] snap-center snap-always"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
-                      opacity: 1 - absDistance * 0.5,
-                      scale: 1 - absDistance * 0.4,
-                      rotateY: distance * 35,
-                      translateZ: -absDistance * 250,
+                      opacity,
+                      scale,
+                      rotateY,
+                      translateZ,
+                      translateX,
+                      zIndex,
+                      filter: `blur(${blur}px)`
                     }}
                     style={{ 
                       transformStyle: 'preserve-3d',
@@ -200,7 +212,12 @@ const Hero = () => {
                     }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
                   >
-                    <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <div 
+                      className="relative overflow-hidden rounded-2xl"
+                      style={{
+                        boxShadow: `0 ${20 + absDistance * 30}px ${40 + absDistance * 40}px rgba(0, 0, 0, ${0.5 + absDistance * 0.3})`
+                      }}
+                    >
                       <img
                         src={screen.image}
                         alt={screen.name}
