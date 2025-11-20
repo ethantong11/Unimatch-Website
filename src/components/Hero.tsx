@@ -54,33 +54,21 @@ const Hero = () => {
         return
       }
 
-      // Accumulate scroll delta
-      scrollDeltaRef.current += Math.abs(e.deltaY) + Math.abs(e.deltaX)
+      // Trigger scroll immediately
+      isScrollingRef.current = true
+      
+      const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
+      const screenWidth = 280 + 32 // width + gap
+      
+      container.scrollBy({
+        left: direction * screenWidth,
+        behavior: 'smooth'
+      })
 
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current)
-      }
-
-      scrollTimeoutRef.current = setTimeout(() => {
-        if (scrollDeltaRef.current > 30 && !isScrollingRef.current) {
-          isScrollingRef.current = true
-          
-          const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
-          const screenWidth = 280 + 32 // width + gap
-          
-          container.scrollBy({
-            left: direction * screenWidth,
-            behavior: 'smooth'
-          })
-
-          setTimeout(() => {
-            isScrollingRef.current = false
-            scrollDeltaRef.current = 0
-          }, 800)
-        } else {
-          scrollDeltaRef.current = 0
-        }
-      }, 50)
+      // Lock scrolling for animation duration
+      setTimeout(() => {
+        isScrollingRef.current = false
+      }, 600)
     }
 
     handleScroll()
