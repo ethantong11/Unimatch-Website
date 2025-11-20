@@ -1,8 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useDeviceType } from '@/hooks/useDeviceType'
 
 const Hero = () => {
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === 'mobile'
+  
   const [landingRef, landingInView] = useInView({
     threshold: 0.3,
   })
@@ -16,6 +20,7 @@ const Hero = () => {
   const lastScrollLeftRef = useRef(0)
   const hasUserScrolledRef = useRef(false)
   const snapPendingRef = useRef(false)
+  const lastFrameTimeRef = useRef(0)
 
   const { scrollYProgress } = useScroll()
   
@@ -26,8 +31,9 @@ const Hero = () => {
     { name: 'Profile', image: '/images/profile.png' },
   ]
 
-  // Create infinite array for circular scrolling
-  const infiniteScreens = [...screens, ...screens, ...screens, ...screens, ...screens]
+  // Create infinite array for circular scrolling - fewer repetitions on mobile for performance
+  const repetitions = isMobile ? 3 : 5
+  const infiniteScreens = Array(repetitions).fill(screens).flat()
   
   useEffect(() => {
     const container = containerRef.current
@@ -36,6 +42,12 @@ const Hero = () => {
     lastScrollLeftRef.current = container.scrollLeft
 
     const handleScroll = () => {
+      // Throttle on mobile for better performance
+      const now = performance.now()
+      const throttleTime = isMobile ? 32 : 16 // ~30fps on mobile, ~60fps on desktop
+      if (now - lastFrameTimeRef.current < throttleTime) return
+      lastFrameTimeRef.current = now
+
       const containerRect = container.getBoundingClientRect()
       const containerCenter = containerRect.left + containerRect.width / 2
       const positions: Record<number, number> = {}
@@ -251,13 +263,13 @@ const Hero = () => {
                 const distance = scrollPositions[index] || 0
                 const absDistance = Math.abs(distance)
                 
-                // Smoother depth calculations
+                // Smoother depth calculations - less aggressive on mobile for better performance
                 const opacity = Math.max(0, 1 - absDistance * 1.0)
                 const scale = Math.max(0.4, 1 - absDistance * 0.4)
-                const rotateY = distance * 35
-                const translateZ = -absDistance * 320
-                const translateX = distance * 120
-                const blur = Math.min(6, absDistance * 6)
+                const rotateY = distance * (isMobile ? 20 : 35)
+                const translateZ = -absDistance * (isMobile ? 200 : 320)
+                const translateX = distance * (isMobile ? 80 : 120)
+                const blur = Math.min(6, absDistance * (isMobile ? 3 : 6))
                 const zIndex = Math.round((1 - absDistance) * 100)
                 
                 return (
@@ -277,7 +289,8 @@ const Hero = () => {
                     style={{ 
                       transformStyle: 'preserve-3d',
                       transformOrigin: 'center center',
-                      willChange: 'transform, filter'
+                      willChange: 'transform, filter',
+                      contain: 'paint'
                     }}
                     transition={{ duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
                   >
