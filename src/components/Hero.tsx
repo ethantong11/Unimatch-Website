@@ -12,6 +12,7 @@ const Hero = () => {
   const isScrollingRef = useRef(false)
   const scrollTimeoutRef = useRef<NodeJS.Timeout>()
   const scrollDeltaRef = useRef(0)
+  const currentIndexRef = useRef(0)
 
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
@@ -54,26 +55,27 @@ const Hero = () => {
         return
       }
 
-      // Trigger a single page scroll based on current position
+      // Trigger a single page scroll based only on direction
       isScrollingRef.current = true
 
       const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
       const screenWidth = 280 + 32 // width + gap (must match CSS)
 
-      const currentIndex = Math.round(container.scrollLeft / screenWidth)
-      const nextIndex = currentIndex + direction
-      const clampedIndex = Math.max(0, Math.min(infiniteScreens.length - 1, nextIndex))
-      const targetLeft = clampedIndex * screenWidth
+      const maxIndex = infiniteScreens.length - 1
+      const nextIndex = Math.max(0, Math.min(maxIndex, currentIndexRef.current + direction))
+      currentIndexRef.current = nextIndex
+
+      const targetLeft = nextIndex * screenWidth
 
       container.scrollTo({
         left: targetLeft,
         behavior: 'smooth'
       })
 
-      // Lock scrolling during the animation so only one page moves
+      // Lock scrolling during the animation so only one page moves per gesture
       setTimeout(() => {
         isScrollingRef.current = false
-      }, 500)
+      }, 400)
     }
 
 
