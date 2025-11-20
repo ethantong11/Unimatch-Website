@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
+import { useDeviceType } from '@/hooks/useDeviceType';
 
 const splotchColors = [
   'rgba(133, 42, 194, 0.38)',  // Purple
@@ -7,52 +8,69 @@ const splotchColors = [
   'rgba(146, 79, 191, 0.45)',   // Dark Purple
 ];
 
-const Splotch = ({ color, index, baseX = 0, baseY = 0, theta }) => {
-  const splotchRef = useRef(null);
+interface SplotchProps {
+  color: string;
+  index: number;
+  baseX?: number;
+  baseY?: number;
+  isMobile: boolean;
+}
+
+const Splotch = ({ color, index, baseX = 0, baseY = 0, isMobile }: SplotchProps) => {
+  const splotchRef = useRef<HTMLDivElement>(null);
   
-  // Generate stable random values for orbital motion (only once on mount)
+  // Device-specific animation config
   const animationConfig = useMemo(() => {
-    const speedMultiplier = 1.2; // Much faster movement
+    const speedMultiplier = isMobile ? 0.6 : 1.0;
+    const amplitudeMultiplier = isMobile ? 0.4 : 1.0;
+    const sizeMultiplier = isMobile ? 0.4 : 1.0;
+    
     return {
-      amplitudeX: 400 + Math.random() * 200, // Even larger orbit
-      amplitudeY: 200 + Math.random() * 150, // Even larger orbit
+      amplitudeX: (400 + Math.random() * 200) * amplitudeMultiplier,
+      amplitudeY: (200 + Math.random() * 150) * amplitudeMultiplier,
       speedX: (0.3 + Math.random() * 0.7) * speedMultiplier,
       speedY: (0.3 + Math.random() * 0.7) * speedMultiplier,
       phaseX: Math.random() * Math.PI * 2,
       phaseY: Math.random() * Math.PI * 2,
-      size: 400 + Math.random() * 600, // Larger splotches
-      initialX: baseX + (Math.random() - 0.5) * window.innerWidth,
-      initialY: baseY + (Math.random() - 0.5) * window.innerHeight,
+      size: (400 + Math.random() * 600) * sizeMultiplier,
+      initialX: baseX + (Math.random() - 0.5) * window.innerWidth * 0.5,
+      initialY: baseY + (Math.random() - 0.5) * window.innerHeight * 0.5,
     };
-  }, [baseX, baseY]);
+  }, [baseX, baseY, isMobile]);
 
   useEffect(() => {
     const element = splotchRef.current;
     if (!element) return;
 
-    let animationFrameId;
+    let animationFrameId: number;
     let startTime = performance.now();
+    let lastFrameTime = startTime;
 
-    const animate = (currentTime) => {
-      const t = (currentTime - startTime) / 1000; // Convert to seconds
+    const animate = (currentTime: number) => {
+      // Throttle animation frames on mobile
+      if (isMobile && currentTime - lastFrameTime < 32) { // ~30fps on mobile
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTime = currentTime;
+
+      const t = (currentTime - startTime) / 1000;
       
-      // Elliptical orbit using sine/cosine waves
       const offsetX = Math.sin(t * animationConfig.speedX + animationConfig.phaseX) * animationConfig.amplitudeX;
       const offsetY = Math.cos(t * animationConfig.speedY + animationConfig.phaseY) * animationConfig.amplitudeY;
       
-      // Total position (initial + animated offset)
       const x = animationConfig.initialX + offsetX;
       const y = animationConfig.initialY + offsetY;
       
-      // Scale variation for breathing effect
-      const scale = 0.8 + Math.sin(t * 0.5 + index) * 0.2;
-      
-      // Opacity variation
-      const opacity = 0.5 + Math.sin(t * 0.3 + index * 0.5) * 0.2;
-
-      // Apply transform: first center the element, then move it to calculated position
-      element.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(${scale})`;
-      element.style.opacity = opacity;
+      // Simplified animations on mobile (no scale/opacity variations)
+      if (isMobile) {
+        element.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0)`;
+      } else {
+        const scale = 0.8 + Math.sin(t * 0.5 + index) * 0.2;
+        const opacity = 0.5 + Math.sin(t * 0.3 + index * 0.5) * 0.2;
+        element.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0) scale(${scale})`;
+        element.style.opacity = opacity.toString();
+      }
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -64,12 +82,14 @@ const Splotch = ({ color, index, baseX = 0, baseY = 0, theta }) => {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [animationConfig, index]);
+  }, [animationConfig, index, isMobile]);
+
+  const blurAmount = isMobile ? 40 : 80;
 
   return (
     <div
       ref={splotchRef}
-      className="absolute rounded-full mix-blend-screen filter blur-[120px] will-change-transform"
+      className="absolute rounded-full mix-blend-screen will-change-transform"
       style={{
         backgroundColor: color,
         width: `${animationConfig.size}px`,
@@ -77,51 +97,43 @@ const Splotch = ({ color, index, baseX = 0, baseY = 0, theta }) => {
         left: '50%',
         top: '50%',
         pointerEvents: 'none',
+        filter: `blur(${blurAmount}px)`,
+        backfaceVisibility: 'hidden',
+        contain: 'layout style paint',
       }}
     />
   );
 };
 
 const BackgroundGradient = () => {
-  const thetaRef = useRef(0);
-
-  useEffect(() => {
-    // Continuously increment theta for infinite animation
-    let startTime = performance.now();
-    let animationFrameId;
-
-    const updateTheta = (currentTime) => {
-      thetaRef.current = (currentTime - startTime) / 1000;
-      animationFrameId = requestAnimationFrame(updateTheta);
-    };
-
-    animationFrameId = requestAnimationFrame(updateTheta);
-
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, []);
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+  
+  // Device-specific splotch count
+  const splotchCount = isMobile ? 5 : 12;
+  const backdropBlur = isMobile ? 20 : 50;
 
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#0f0c14]">
       {/* Splotches Layer */}
       <div className="absolute inset-0">
-        {Array.from({ length: 30 }).map((_, i) => (
+        {Array.from({ length: splotchCount }).map((_, i) => (
           <Splotch
             key={i}
             index={i}
             color={splotchColors[i % splotchColors.length]}
             baseX={0}
             baseY={0}
-            theta={thetaRef}
+            isMobile={isMobile}
           />
         ))}
       </div>
       
       {/* Blur Overlay for smooth blending */}
-      <div className="absolute inset-0 backdrop-blur-[80px]" />
+      <div 
+        className="absolute inset-0" 
+        style={{ backdropFilter: `blur(${backdropBlur}px)` }}
+      />
     </div>
   );
 };
