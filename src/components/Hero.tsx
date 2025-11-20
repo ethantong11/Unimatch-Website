@@ -60,13 +60,7 @@ const Hero = () => {
 
         <div className="relative z-10 text-center px-4">
           <motion.h1 
-            className="text-8xl md:text-9xl font-pacifico mb-6"
-            style={{
-              background: 'linear-gradient(to right, #934FBF, #A866D3, #9b87f5)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
+            className="text-8xl md:text-9xl font-pacifico text-white mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
