@@ -27,12 +27,12 @@ function Navigation() {
                   }`} />
                   <span className={`hidden md:inline ${
                     isActive
-                      ? 'bg-gradient-to-r from-primary via-primary-light to-purple-400 bg-clip-text text-transparent'
+                      ? 'text-primary'
                       : 'text-gray-400 hover:text-white'
                   }`}>{label}</span>
                   <span className={`md:hidden text-[10px] mt-0.5 ${
                     isActive
-                      ? 'bg-gradient-to-r from-primary via-primary-light to-purple-400 bg-clip-text text-transparent'
+                      ? 'text-primary'
                       : 'text-gray-400'
                   }`}>{label}</span>
                 </>
