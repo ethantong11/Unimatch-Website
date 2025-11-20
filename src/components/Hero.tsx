@@ -65,7 +65,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            unimatch
+            Unimatch
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto"
