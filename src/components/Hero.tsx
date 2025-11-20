@@ -14,6 +14,7 @@ const Hero = () => {
   const scrollDeltaRef = useRef(0)
   const currentIndexRef = useRef(0)
   const lastScrollLeftRef = useRef(0)
+  const hasUserScrolledRef = useRef(false)
 
   const { scrollYProgress } = useScroll()
   
@@ -39,8 +40,13 @@ const Hero = () => {
       const positions: Record<number, number> = {}
 
       const delta = container.scrollLeft - lastScrollLeftRef.current
-      lastScrollLeftRef.current = container.scrollLeft
-      scrollDeltaRef.current += delta
+      if (delta !== 0) {
+        lastScrollLeftRef.current = container.scrollLeft
+        scrollDeltaRef.current += delta
+        if (Math.abs(scrollDeltaRef.current) > 15) {
+          hasUserScrolledRef.current = true
+        }
+      }
       
       Array.from(container.children[0]?.children || []).forEach((child, index) => {
         const screenRect = (child as HTMLElement).getBoundingClientRect()
@@ -69,6 +75,7 @@ const Hero = () => {
     const container = containerRef.current
     if (!container) return
     if (isScrollingRef.current) return
+    if (!hasUserScrolledRef.current) return
 
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current)
@@ -97,7 +104,6 @@ const Hero = () => {
       }
 
       currentIndexRef.current = targetIndex
-      scrollDeltaRef.current = 0
 
       const track = container.children[0] as HTMLElement | undefined
       const targetChild = track?.children[targetIndex] as HTMLElement | undefined
@@ -115,6 +121,8 @@ const Hero = () => {
 
       setTimeout(() => {
         isScrollingRef.current = false
+        scrollDeltaRef.current = 0
+        hasUserScrolledRef.current = false
       }, 400)
     }, 120)
 
