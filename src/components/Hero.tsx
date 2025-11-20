@@ -50,16 +50,28 @@ const Hero = () => {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault()
-      
+
+      // If we're already animating to the next screen, ignore further swipe events
       if (isScrollingRef.current) {
         return
       }
 
-      // Trigger a single page scroll based only on direction
+      // Accumulate swipe distance (trackpad generates many small wheel events)
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+      scrollDeltaRef.current += delta
+
+      const threshold = 25 // how far user must swipe before we move one screen
+
+      // Not enough movement yet – wait for the swipe to build up
+      if (Math.abs(scrollDeltaRef.current) < threshold) {
+        return
+      }
+
+      // Decide direction based on accumulated swipe, then immediately snap ONE screen
       isScrollingRef.current = true
 
-      const direction = (e.deltaY > 0 || e.deltaX > 0) ? 1 : -1
-      const screenWidth = 280 + 32 // width + gap (must match CSS)
+      const direction = scrollDeltaRef.current > 0 ? 1 : -1
+      const screenWidth = 280 + 32
 
       const maxIndex = infiniteScreens.length - 1
       const nextIndex = Math.max(0, Math.min(maxIndex, currentIndexRef.current + direction))
@@ -72,10 +84,12 @@ const Hero = () => {
         behavior: 'smooth'
       })
 
-      // Lock scrolling during the animation so only one page moves per gesture
+      // Reset accumulated swipe and lock for the duration of the animation
+      scrollDeltaRef.current = 0
+
       setTimeout(() => {
         isScrollingRef.current = false
-      }, 400)
+      }, 600)
     }
 
 
