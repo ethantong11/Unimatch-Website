@@ -15,9 +15,6 @@ const Hero = () => {
   const currentIndexRef = useRef(0)
 
   const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.5])
-  const z = useTransform(scrollYProgress, [0, 0.3], [0, -200])
   
   const screens = [
     { name: 'Match', image: '/images/shot.png' },
@@ -105,14 +102,8 @@ const Hero = () => {
     <>
       <div className="snap-y snap-mandatory h-screen overflow-y-auto">
         {/* Landing Section with 3D Push Back Effect */}
-        <motion.section 
+        <section 
           ref={landingRef}
-          style={{ 
-            opacity, 
-            scale,
-            transformStyle: 'preserve-3d',
-            perspective: '1000px'
-          }}
           className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always"
         >
         {/* Background Elements */}
@@ -146,12 +137,8 @@ const Hero = () => {
           />
         </div>
 
-        <motion.div 
+        <div 
           className="relative z-10 text-center px-4"
-          style={{
-            z,
-            transformStyle: 'preserve-3d'
-          }}
         >
           <motion.h1 
             className="text-8xl md:text-9xl font-pacifico text-white mb-6"
@@ -169,8 +156,8 @@ const Hero = () => {
           >
             The exclusive dating app for university students.
           </motion.p>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* UI Screens Section - Infinite Horizontal Carousel */}
       <section className="relative h-screen py-20 overflow-hidden snap-start snap-always">
