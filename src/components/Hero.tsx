@@ -45,52 +45,12 @@ const Hero = () => {
       setScrollPositions(positions)
     }
 
-    const handleWheel = (e: WheelEvent) => {
-      // Custom snapping so each swipe only moves exactly one screen
-      e.preventDefault()
-
-      // If we're already animating to the next screen, ignore further swipe events
-      if (isScrollingRef.current) return
-
-      // Trackpad can send both X and Y deltas, use the dominant axis
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-
-      // Ignore tiny jitters and very fast micro-gestures
-      const threshold = 60
-      if (Math.abs(delta) < threshold) return
-
-      isScrollingRef.current = true
-
-      const direction = delta > 0 ? 1 : -1
-      const screenWidth = 280 + 32 // width + gap (must match CSS)
-      const maxIndex = infiniteScreens.length - 1
-      const nextIndex = Math.max(0, Math.min(maxIndex, currentIndexRef.current + direction))
-      currentIndexRef.current = nextIndex
-
-      const targetLeft = nextIndex * screenWidth
-
-      // Jump instantly; Framer Motion handles the visual easing
-      container.scrollTo({
-        left: targetLeft,
-        behavior: 'auto'
-      })
-
-      // Keep the lock slightly longer than the visual animation so
-      // momentum events from the same physical swipe are ignored
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
-      scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false
-      }, 800)
-    }
-    
     handleScroll()
     container.addEventListener('scroll', handleScroll)
-    container.addEventListener('wheel', handleWheel, { passive: false })
     window.addEventListener('resize', handleScroll)
     
     return () => {
       container.removeEventListener('scroll', handleScroll)
-      container.removeEventListener('wheel', handleWheel)
       window.removeEventListener('resize', handleScroll)
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current)
