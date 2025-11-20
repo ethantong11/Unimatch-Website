@@ -102,18 +102,19 @@ const Hero = () => {
   }, [infiniteScreens.length])
   
   return (
-    <div className="relative snap-y snap-mandatory overflow-y-scroll h-screen">
-      {/* Landing Section with 3D Push Back Effect */}
-      <motion.section 
-        ref={landingRef}
-        style={{ 
-          opacity, 
-          scale,
-          transformStyle: 'preserve-3d',
-          perspective: '1000px'
-        }}
-        className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always"
-      >
+    <>
+      <div className="snap-y snap-mandatory h-screen overflow-y-auto">
+        {/* Landing Section with 3D Push Back Effect */}
+        <motion.section 
+          ref={landingRef}
+          style={{ 
+            opacity, 
+            scale,
+            transformStyle: 'preserve-3d',
+            perspective: '1000px'
+          }}
+          className="relative h-screen flex items-center justify-center overflow-hidden snap-start snap-always"
+        >
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary/10 to-purple-900/30" />
@@ -291,7 +292,8 @@ const Hero = () => {
           </p>
         </motion.div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 
