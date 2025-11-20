@@ -48,59 +48,13 @@ const Hero = () => {
       setScrollPositions(positions)
     }
 
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault()
-
-      // If we're already animating to the next screen, ignore further swipe events
-      if (isScrollingRef.current) {
-        return
-      }
-
-      // Accumulate swipe distance (trackpad generates many small wheel events)
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-      scrollDeltaRef.current += delta
-
-      const threshold = 25 // how far user must swipe before we move one screen
-
-      // Not enough movement yet – wait for the swipe to build up
-      if (Math.abs(scrollDeltaRef.current) < threshold) {
-        return
-      }
-
-      // Decide direction based on accumulated swipe, then immediately snap ONE screen
-      isScrollingRef.current = true
-
-      const direction = scrollDeltaRef.current > 0 ? 1 : -1
-      const screenWidth = 280 + 32
-
-      const maxIndex = infiniteScreens.length - 1
-      const nextIndex = Math.max(0, Math.min(maxIndex, currentIndexRef.current + direction))
-      currentIndexRef.current = nextIndex
-
-      const targetLeft = nextIndex * screenWidth
-
-      container.scrollTo({
-        left: targetLeft,
-        behavior: 'smooth'
-      })
-
-      // Reset accumulated swipe and lock for the duration of the animation
-      scrollDeltaRef.current = 0
-
-      setTimeout(() => {
-        isScrollingRef.current = false
-      }, 600)
-    }
-
-
+    
     handleScroll()
     container.addEventListener('scroll', handleScroll)
-    container.addEventListener('wheel', handleWheel, { passive: false })
     window.addEventListener('resize', handleScroll)
     
     return () => {
       container.removeEventListener('scroll', handleScroll)
-      container.removeEventListener('wheel', handleWheel)
       window.removeEventListener('resize', handleScroll)
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current)
@@ -230,9 +184,9 @@ const Hero = () => {
                 const absDistance = Math.abs(distance)
                 
                 return (
-                  <motion.div
-                    key={`${screen.name}-${index}`}
-                    className="flex-shrink-0 w-[280px] snap-center"
+                    <motion.div
+                      key={`${screen.name}-${index}`}
+                      className="flex-shrink-0 w-[280px] snap-center snap-always"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ 
                       opacity: 1 - absDistance * 0.5,
