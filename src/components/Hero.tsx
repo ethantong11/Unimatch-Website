@@ -15,6 +15,7 @@ const Hero = () => {
   const currentIndexRef = useRef(0)
   const lastScrollLeftRef = useRef(0)
   const hasUserScrolledRef = useRef(false)
+  const snapPendingRef = useRef(false)
 
   const { scrollYProgress } = useScroll()
   
@@ -79,7 +80,11 @@ const Hero = () => {
 
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current)
+      scrollTimeoutRef.current = undefined
     }
+
+    if (snapPendingRef.current) return
+    snapPendingRef.current = true
 
     scrollTimeoutRef.current = setTimeout(() => {
       const entries = Object.entries(scrollPositions).map(([index, distance]) => ({
@@ -123,8 +128,9 @@ const Hero = () => {
         isScrollingRef.current = false
         scrollDeltaRef.current = 0
         hasUserScrolledRef.current = false
+        snapPendingRef.current = false
       }, 400)
-    }, 120)
+    }, 220)
 
     return () => {
       if (scrollTimeoutRef.current) {
