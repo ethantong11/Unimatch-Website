@@ -13,15 +13,14 @@ const Hero = () => {
   const z = useTransform(scrollYProgress, [0, 0.3], [0, -200])
   
   const screens = [
+    { name: 'Match', image: '/images/shot.png' },
     { name: 'Main Feed', image: '/images/main-feed.png' },
     { name: 'Chat', image: '/images/chat.png' },
     { name: 'Profile', image: '/images/profile.png' },
-    { name: 'Match', image: '/images/shot.png' },
-    { name: 'Discover', image: '/images/main-feed.png' },
   ]
 
   // Create infinite array for circular scrolling
-  const infiniteScreens = [...screens, ...screens, ...screens, ...screens]
+  const infiniteScreens = [...screens, ...screens, ...screens, ...screens, ...screens]
 
   return (
     <div className="relative">
@@ -125,13 +124,13 @@ const Hero = () => {
           />
         </div>
 
-        <div className="relative z-10 h-full flex items-center">
-          <div className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <div className="flex gap-6 px-8 pb-4">
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="w-full max-w-7xl overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="flex gap-8 px-8 pb-4 justify-center">
               {infiniteScreens.map((screen, index) => (
                 <motion.div
                   key={`${screen.name}-${index}`}
-                  className="flex-shrink-0 w-[220px]"
+                  className="flex-shrink-0 w-[280px] snap-center"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
