@@ -49,7 +49,7 @@ const Hero = () => {
     }
 
     const handleWheel = (e: WheelEvent) => {
-      // Use custom snapping so each swipe only moves exactly one screen
+      // Custom snapping so each swipe only moves exactly one screen
       e.preventDefault()
 
       // If we're already animating to the next screen, ignore further swipe events
@@ -58,8 +58,8 @@ const Hero = () => {
       // Trackpad can send both X and Y deltas, use the dominant axis
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
 
-      // Ignore tiny jitters
-      const threshold = 20
+      // Ignore tiny jitters and very fast micro-gestures
+      const threshold = 30
       if (Math.abs(delta) < threshold) return
 
       isScrollingRef.current = true
@@ -72,16 +72,18 @@ const Hero = () => {
 
       const targetLeft = nextIndex * screenWidth
 
+      // Jump instantly; Framer Motion handles the visual easing
       container.scrollTo({
         left: targetLeft,
-        behavior: 'smooth'
+        behavior: 'auto'
       })
 
-      // Unlock after the scroll animation completes so we don't skip screens
+      // Keep the lock slightly longer than the visual animation so
+      // momentum events from the same physical swipe are ignored
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
       scrollTimeoutRef.current = setTimeout(() => {
         isScrollingRef.current = false
-      }, 350)
+      }, 550)
     }
     
     handleScroll()
