@@ -229,7 +229,7 @@ const Hero = () => {
 
       {/* Footer */}
       <motion.div
-        className="border-t border-gray-800 pt-8 pb-8 text-center bg-gradient-to-br from-gray-900 via-primary/10 to-purple-900/30"
+        className="pt-8 pb-8 text-center bg-gradient-to-br from-gray-900 via-primary/10 to-purple-900/30"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
