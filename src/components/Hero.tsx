@@ -314,7 +314,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
       >
         <p className="text-gray-400 text-sm">
-          &copy; 2025 UniMatch.
+          &copy; 2025 unimatch. All rights reserved.
         </p>
       </motion.div>
       </div>
