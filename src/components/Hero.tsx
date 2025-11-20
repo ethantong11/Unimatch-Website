@@ -1,11 +1,14 @@
-import React from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import React, { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const Hero = () => {
   const [landingRef, landingInView] = useInView({
     threshold: 0.3,
   })
+  
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [scrollPositions, setScrollPositions] = useState<Record<number, number>>({})
 
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
@@ -21,7 +24,36 @@ const Hero = () => {
 
   // Create infinite array for circular scrolling
   const infiniteScreens = [...screens, ...screens, ...screens, ...screens, ...screens]
+  
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
 
+    const handleScroll = () => {
+      const containerRect = container.getBoundingClientRect()
+      const containerCenter = containerRect.left + containerRect.width / 2
+      const positions: Record<number, number> = {}
+      
+      Array.from(container.children[0]?.children || []).forEach((child, index) => {
+        const screenRect = child.getBoundingClientRect()
+        const screenCenter = screenRect.left + screenRect.width / 2
+        const distance = (screenCenter - containerCenter) / containerRect.width
+        positions[index] = distance
+      })
+      
+      setScrollPositions(positions)
+    }
+
+    handleScroll()
+    container.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+    
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [infiniteScreens.length])
+  
   return (
     <div className="relative">
       {/* Landing Section with 3D Push Back Effect */}
@@ -124,35 +156,51 @@ const Hero = () => {
           />
         </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="w-full max-w-7xl overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <div className="flex gap-8 px-8 pb-4 justify-center">
-              {infiniteScreens.map((screen, index) => (
-                <motion.div
-                  key={`${screen.name}-${index}`}
-                  className="flex-shrink-0 w-[280px] snap-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative overflow-hidden rounded-2xl shadow-xl">
-                    <img
-                      src={screen.image}
-                      alt={screen.name}
-                      className="w-full h-auto object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/90 to-transparent p-3">
-                      <h3 className="text-sm font-bold text-white">{screen.name}</h3>
+        <div className="relative z-10 h-full flex items-center justify-center" style={{ perspective: '1500px' }}>
+          <div 
+            ref={containerRef}
+            className="w-full max-w-7xl overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory scroll-smooth" 
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <div className="flex gap-8 px-[calc(50vw-140px)] pb-4">
+              {infiniteScreens.map((screen, index) => {
+                const distance = scrollPositions[index] || 0
+                const absDistance = Math.abs(distance)
+                
+                return (
+                  <motion.div
+                    key={`${screen.name}-${index}`}
+                    className="flex-shrink-0 w-[280px] snap-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ 
+                      opacity: 1 - absDistance * 0.4,
+                      scale: 1 - absDistance * 0.3,
+                      rotateY: distance * 25,
+                      z: -absDistance * 150,
+                    }}
+                    style={{ 
+                      transformStyle: 'preserve-3d',
+                      transformOrigin: 'center center',
+                    }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                      <img
+                        src={screen.image}
+                        alt={screen.name}
+                        className="w-full h-auto object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/90 to-transparent p-3">
+                        <h3 className="text-sm font-bold text-white">{screen.name}</h3>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
         </div>
