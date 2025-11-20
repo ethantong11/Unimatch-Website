@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -12,8 +12,6 @@ const Hero = () => {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.5])
   const z = useTransform(scrollYProgress, [0, 0.3], [0, -200])
   
-  const [currentIndex, setCurrentIndex] = useState(0)
-
   const screens = [
     { name: 'Main Feed', image: '/images/main-feed.png' },
     { name: 'Chat', image: '/images/chat.png' },
@@ -23,14 +21,7 @@ const Hero = () => {
   ]
 
   // Create infinite array for circular scrolling
-  const infiniteScreens = [...screens, ...screens, ...screens]
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % screens.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
+  const infiniteScreens = [...screens, ...screens, ...screens, ...screens]
 
   return (
     <div className="relative">
@@ -135,29 +126,19 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 h-full flex items-center">
-          <div className="w-full overflow-hidden">
-            <motion.div
-              className="flex gap-8 px-8"
-              animate={{
-                x: `${-currentIndex * (400 + 32)}px`
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30
-              }}
-            >
+          <div className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className="flex gap-6 px-8 pb-4">
               {infiniteScreens.map((screen, index) => (
                 <motion.div
                   key={`${screen.name}-${index}`}
-                  className="flex-shrink-0 w-[400px]"
+                  className="flex-shrink-0 w-[220px]"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <div className="relative overflow-hidden rounded-2xl shadow-xl">
                     <img
                       src={screen.image}
                       alt={screen.name}
@@ -167,13 +148,13 @@ const Hero = () => {
                         target.style.display = 'none';
                       }}
                     />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/90 to-transparent p-6">
-                      <h3 className="text-xl font-bold text-white">{screen.name}</h3>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900/90 to-transparent p-3">
+                      <h3 className="text-sm font-bold text-white">{screen.name}</h3>
                     </div>
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
