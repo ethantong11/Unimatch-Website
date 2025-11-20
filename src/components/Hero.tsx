@@ -202,9 +202,6 @@ const Hero = () => {
                   >
                     <div 
                       className="relative overflow-hidden rounded-2xl"
-                      style={{
-                        boxShadow: `0 ${10 + absDistance * 15}px ${25 + absDistance * 20}px -5px rgba(0, 0, 0, ${0.3 + absDistance * 0.2})`
-                      }}
                     >
                       <img
                         src={screen.image}
