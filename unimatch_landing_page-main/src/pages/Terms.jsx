@@ -41,9 +41,56 @@ function Terms() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-3">4) Acceptable Use</h2>
-          <p className="text-gray-300 leading-relaxed">
-            You agree not to: (a) upload illegal, harmful, hateful, obscene, infringing, or misleading content; (b) harass, threaten, impersonate, or dox others; (c) spam, scrape, or engage in automated data collection; (d) upload malware or attempt to bypass security; (e) use the Service for commercial solicitation without our consent. We reserve the right to remove or restrict any content that we believe violates these Terms, our community standards, or applicable law.
+          <h2 className="text-2xl font-semibold text-white mb-3">4) Acceptable Use & Zero Tolerance Policy</h2>
+          
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">ZERO TOLERANCE POLICY</h3>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            Unimatch maintains a strict ZERO TOLERANCE policy for objectionable content and abusive behavior. We will immediately remove content and permanently ban users who violate these standards.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed mb-2">You agree not to upload, post, or share:</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Explicit, pornographic, or sexually suggestive content</li>
+            <li>Nude or partially clothed images</li>
+            <li>Violent, graphic, or disturbing content</li>
+            <li>Hate speech, discriminatory, or harassing content</li>
+            <li>Illegal content or content promoting illegal activities</li>
+            <li>Misleading, fraudulent, or impersonating content</li>
+            <li>Spam, commercial solicitation, or advertising</li>
+          </ul>
+
+          <p className="text-gray-300 leading-relaxed mb-2">You agree not to:</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Harass, threaten, bully, or intimidate other users</li>
+            <li>Send unsolicited explicit messages or images</li>
+            <li>Impersonate others or create fake profiles</li>
+            <li>Dox or share private information without consent</li>
+            <li>Use automated tools, bots, or scrapers</li>
+            <li>Attempt to bypass security measures or upload malware</li>
+            <li>Use the Service for commercial purposes without our consent</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">ENFORCEMENT ACTIONS:</h3>
+          <p className="text-gray-300 leading-relaxed mb-2 font-semibold">Immediate Permanent Ban (No Warning):</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Posting explicit sexual content or nudity</li>
+            <li>Severe harassment or threats of violence</li>
+            <li>Hate speech or discriminatory attacks</li>
+            <li>Sharing illegal content</li>
+            <li>Impersonation or catfishing with malicious intent</li>
+          </ul>
+
+          <p className="text-gray-300 leading-relaxed mb-2">We reserve the right to:</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Remove any content that violates these Terms or our community standards</li>
+            <li>Restrict or disable access to any User Content</li>
+            <li>Suspend or terminate accounts without prior notice</li>
+            <li>Report illegal content to law enforcement authorities</li>
+            <li>Refuse to reinstate banned accounts</li>
+          </ul>
+
+          <p className="text-gray-300 leading-relaxed font-semibold">
+            This is a ZERO TOLERANCE policy. Violations result in immediate and permanent consequences.
           </p>
         </section>
 
@@ -72,9 +119,59 @@ function Terms() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-3">6) Community Safety</h2>
+          <h2 className="text-2xl font-semibold text-white mb-3">6) Community Safety & Reporting</h2>
+          
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">CREATING A SAFE COMMUNITY</h3>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            Your safety and the safety of all users is our top priority. We actively monitor and moderate the platform to enforce our Zero Tolerance Policy.
+          </p>
+
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">YOUR RESPONSIBILITIES:</h3>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Respect consent and boundaries at all times</li>
+            <li>Treat all users with kindness and respect</li>
+            <li>Report any inappropriate content or behavior immediately</li>
+            <li>Block users who make you uncomfortable</li>
+            <li>Never share personal contact information prematurely</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">HOW TO REPORT VIOLATIONS:</h3>
+          <p className="text-gray-300 leading-relaxed mb-2 font-semibold">In-App Reporting (Fastest):</p>
+          <ol className="list-decimal list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Tap the three dots (⋮) on any profile or message</li>
+            <li>Select "Report User"</li>
+            <li>Choose the violation category</li>
+            <li>Add optional details or context</li>
+          </ol>
+
+          <p className="text-gray-300 leading-relaxed mb-2 font-semibold">Email Reporting:</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Email: base.unimatch@gmail.com</li>
+            <li>Subject: "Safety Report - [Violation Type]"</li>
+            <li>Include: Username, date/time, description, screenshots (optional)</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">SAFETY FEATURES:</h3>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Block any user at any time</li>
+            <li>Report button on all profiles and messages</li>
+            <li>Real-time content moderation</li>
+            <li>Human review of all safety reports</li>
+            <li>Permanent ban database (banned users cannot return)</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold text-white mb-2 mt-4">WHAT WE MONITOR:</h3>
+          <p className="text-gray-300 leading-relaxed mb-2">We actively monitor for:</p>
+          <ul className="list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4">
+            <li>Explicit or inappropriate images</li>
+            <li>Harassing or threatening messages</li>
+            <li>Fake or suspicious profiles</li>
+            <li>Spam or commercial solicitation</li>
+            <li>Underage users or age misrepresentation</li>
+          </ul>
+
           <p className="text-gray-300 leading-relaxed">
-            Respect consent and boundaries. Use in‑app reporting to flag safety issues. We may take actions including warnings, feature limits, or account removal.
+            If you feel unsafe or encounter concerning behavior, please report it immediately. We will take swift action to protect our community.
           </p>
         </section>
 
