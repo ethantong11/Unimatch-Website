@@ -7,7 +7,7 @@ function Privacy() {
       <div className="fixed inset-0 bg-black/60 pointer-events-none z-0" />
       
       <div className="relative z-10 max-w-4xl mx-auto glass-card p-8 md:p-12">
-        <h1 className="text-4xl font-bold gradient-text mb-4">Privacy Policy</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
         <p className="text-sm text-gray-300 mb-2"><strong>Effective date:</strong> November 06, 2025</p>
         <p className="text-sm text-gray-300 mb-2"><strong>Contact:</strong> base.unimatch@gmail.com</p>
 

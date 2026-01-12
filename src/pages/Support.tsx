@@ -14,7 +14,7 @@ function Support() {
       <div className="fixed inset-0 bg-black/60 pointer-events-none z-0" />
       
       <div className="relative z-10 max-w-4xl mx-auto glass-card p-8 md:p-12">
-        <h1 className="text-4xl font-bold gradient-text mb-4">Support</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">Support</h1>
         <p className="text-gray-300 mb-8">
           Find answers to common questions and learn how to manage your account.
         </p>

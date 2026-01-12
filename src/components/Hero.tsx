@@ -22,6 +22,25 @@ const Hero = () => {
           >
             The exclusive dating app for university students.
           </motion.p>
+          <motion.div
+            className="mt-12 flex justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <a
+              href="https://apps.apple.com/hk/app/unimatch-student-networking/id6753971746"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center hover:-translate-y-0.5 transition-transform duration-200"
+            >
+              <img
+                src="/Pre-order-on-the-App-Store/US-UK/Pre-order_on_App_Store/Black_badge/SVG/Pre-order_on_the_App_Store_Badge_US-UK_RGB_blk_121217.svg"
+                alt="Download on the App Store"
+                className="w-44 h-auto drop-shadow-lg"
+              />
+            </a>
+          </motion.div>
         </div>
       </section>
 

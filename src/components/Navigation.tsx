@@ -23,16 +23,16 @@ function Navigation() {
               {({ isActive }) => (
                 <>
                   <Icon className={`w-5 h-5 md:hidden mt-1 ${
-                    isActive ? 'text-primary' : 'text-gray-400'
+                    isActive ? 'text-white' : 'text-gray-400'
                   }`} />
                   <span className={`hidden md:inline ${
                     isActive
-                      ? 'text-primary'
+                      ? 'text-white'
                       : 'text-gray-400 hover:text-white'
                   }`}>{label}</span>
                   <span className={`md:hidden text-[10px] mt-0.5 ${
                     isActive
-                      ? 'text-primary'
+                      ? 'text-white'
                       : 'text-gray-400'
                   }`}>{label}</span>
                 </>
