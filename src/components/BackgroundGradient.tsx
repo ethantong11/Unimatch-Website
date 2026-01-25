@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useMemo } from 'react';
 import { useDeviceType } from '@/hooks/useDeviceType';
 
 const splotchColors = [
-  'rgba(133, 42, 194, 0.38)',  // Purple
-  'rgba(229, 122, 68, 0.70)',   // Orange
-  'rgba(181, 118, 223, 0.66)',  // Light Purple
-  'rgba(146, 79, 191, 0.45)',   // Dark Purple
+  '#852ac261', // Purple
+  '#e57a4459', // Orange
+  '#b576dfa8', // Light Purple
+  '#ff408033', // Pink
 ];
 
 interface SplotchProps {
