@@ -12,7 +12,7 @@ function Navigation() {
 
   return (
     <div className="fixed md:top-4 bottom-3 md:bottom-auto left-3 right-3 md:mx-0 z-50 flex justify-center">
-      <nav className="backdrop-blur-md rounded-2xl md:rounded-full px-2 md:px-4 py-2 md:py-0 w-full md:w-auto border border-white/10">
+      <nav className="backdrop-blur-md rounded-full px-2 md:px-4 py-2 md:py-0 w-full md:w-auto border border-white/10">
         <div className="flex justify-around md:justify-center md:space-x-8 h-12 md:h-16 items-center">
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink

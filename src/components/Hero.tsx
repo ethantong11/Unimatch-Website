@@ -7,7 +7,7 @@ const Hero = () => {
       <section className="relative flex-1 flex items-center justify-center">
         <div className="relative z-10 text-center px-4">
           <motion.h1 
-            className="text-8xl md:text-9xl font-pacifico text-white mb-6"
+            className="text-6xl md:text-7xl font-pacifico text-white mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -15,7 +15,7 @@ const Hero = () => {
             Unimatch
           </motion.h1>
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -23,7 +23,7 @@ const Hero = () => {
             The exclusive dating app for university students.
           </motion.p>
           <motion.div
-            className="mt-12 flex justify-center"
+            className="mt-8 flex justify-center"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -53,7 +53,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
       >
         <p className="text-sm">
-          &copy; 2025 unimatch. All rights reserved.
+          &copy; 2026 Unimatch. All rights reserved.
         </p>
       </motion.div>
     </div>

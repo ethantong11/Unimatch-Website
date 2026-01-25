@@ -1,0 +1,89 @@
+@layer components {
+  .common-page {
+    @apply relative min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .common-overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-xl pointer-events-none z-0;
+  }
+
+  .common-card {
+    @apply relative z-10 max-w-4xl mx-auto glass-card p-8 md:p-12;
+  }
+
+  .common-title {
+    @apply text-4xl font-bold text-white mb-4;
+  }
+
+  .common-meta {
+    @apply text-sm text-gray-300 mb-2;
+  }
+
+  .common-section {
+    @apply mb-8;
+  }
+
+  .common-section-title {
+    @apply text-2xl font-semibold text-white mb-3;
+  }
+
+  .common-section-subtitle {
+    @apply text-xl font-semibold text-white mb-2 mt-4;
+  }
+
+  .common-text {
+    @apply text-gray-300 leading-relaxed;
+  }
+
+  .common-list {
+    @apply list-disc list-inside text-gray-300 leading-relaxed space-y-2;
+  }
+
+  .common-list-tight {
+    @apply list-disc list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4;
+  }
+
+  .common-olist {
+    @apply list-decimal list-inside text-gray-300 leading-relaxed space-y-1 mb-4 ml-4;
+  }
+
+  .support-card {
+    @apply border border-gray-700 rounded-lg overflow-hidden bg-gray-800/30 backdrop-blur-sm;
+  }
+
+  .support-card-button {
+    @apply w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700/30 transition-colors duration-200;
+  }
+
+  .support-card-panel {
+    @apply px-6 py-4 border-t border-gray-700 bg-gray-900/30;
+  }
+
+  .support-contact {
+    @apply mt-12 p-6 bg-gray-800/30 border border-gray-700 rounded-lg;
+  }
+
+  .support-step {
+    @apply flex items-start;
+  }
+
+  .support-step-badge {
+    @apply inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-600 text-white text-sm font-semibold mr-3 mt-0.5 flex-shrink-0;
+  }
+
+  .support-steps {
+    @apply space-y-3 text-gray-300;
+  }
+
+  .support-warning {
+    @apply mt-4 p-4 bg-red-900/20 border border-red-800/50 rounded-lg;
+  }
+
+  .support-warning-text {
+    @apply text-red-300 text-sm;
+  }
+
+  .support-link {
+    @apply text-purple-400 hover:text-purple-300 underline;
+  }
+}

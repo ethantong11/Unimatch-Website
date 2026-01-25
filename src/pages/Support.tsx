@@ -9,25 +9,25 @@ function Support() {
   }
 
   return (
-    <div className="relative min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="common-page">
       {/* Dark overlay for better readability */}
-      <div className="fixed inset-0 bg-black/60 pointer-events-none z-0" />
+      <div className="common-overlay" />
       
-      <div className="relative z-10 max-w-4xl mx-auto glass-card p-8 md:p-12">
-        <h1 className="text-4xl font-bold text-white mb-4">Support</h1>
-        <p className="text-gray-300 mb-8">
+      <div className="common-card">
+        <h1 className="common-title">Support</h1>
+        <p className="common-text mb-8">
           Find answers to common questions and learn how to manage your account.
         </p>
 
         {/* Data Management Section */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">Data Management</h2>
+        <section className="common-section">
+          <h2 className="common-section-title mb-4">Data Management</h2>
           
           {/* Deleting Your Account Card */}
-          <div className="border border-gray-700 rounded-lg overflow-hidden bg-gray-800/30 backdrop-blur-sm">
+          <div className="support-card">
             <button
               onClick={() => toggleCard('deleteAccount')}
-              className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700/30 transition-colors duration-200"
+              className="support-card-button"
             >
               <span className="text-lg font-medium text-white">Deleting Your Account</span>
               {expandedCard === 'deleteAccount' ? (
@@ -38,38 +38,38 @@ function Support() {
             </button>
             
             {expandedCard === 'deleteAccount' && (
-              <div className="px-6 py-4 border-t border-gray-700 bg-gray-900/30">
-                <p className="text-gray-300 mb-4">
+              <div className="support-card-panel">
+                <p className="common-text mb-4">
                   Follow these steps to permanently delete your Unimatch account:
                 </p>
-                <ol className="space-y-3 text-gray-300">
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-600 text-white text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">
+                <ol className="support-steps">
+                  <li className="support-step">
+                    <span className="support-step-badge">
                       1
                     </span>
                     <span>Open the Unimatch app</span>
                   </li>
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-600 text-white text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">
+                  <li className="support-step">
+                    <span className="support-step-badge">
                       2
                     </span>
                     <span>Go to the profile page</span>
                   </li>
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-600 text-white text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">
+                  <li className="support-step">
+                    <span className="support-step-badge">
                       3
                     </span>
                     <span>Tap on the settings icon on the top right corner</span>
                   </li>
-                  <li className="flex items-start">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-600 text-white text-sm font-semibold mr-3 mt-0.5 flex-shrink-0">
+                  <li className="support-step">
+                    <span className="support-step-badge">
                       4
                     </span>
                     <span>Scroll to the bottom and you will find the "Delete Account" button</span>
                   </li>
                 </ol>
-                <div className="mt-4 p-4 bg-red-900/20 border border-red-800/50 rounded-lg">
-                  <p className="text-red-300 text-sm">
+                <div className="support-warning">
+                  <p className="support-warning-text">
                     <strong>Warning:</strong> Deleting your account is permanent and cannot be undone. All your data, matches, and messages will be permanently removed.
                   </p>
                 </div>
@@ -79,11 +79,11 @@ function Support() {
         </section>
 
         {/* Contact Section */}
-        <section className="mt-12 p-6 bg-gray-800/30 border border-gray-700 rounded-lg">
+        <section className="support-contact">
           <h3 className="text-xl font-semibold text-white mb-2">Need More Help?</h3>
-          <p className="text-gray-300">
+          <p className="common-text">
             If you have any questions or need assistance, please contact us at{' '}
-            <a href="mailto:base.unimatch@gmail.com" className="text-purple-400 hover:text-purple-300 underline">
+            <a href="mailto:base.unimatch@gmail.com" className="support-link">
               base.unimatch@gmail.com
             </a>
           </p>

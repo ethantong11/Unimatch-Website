@@ -21,7 +21,7 @@ const Splotch = ({ color, index, baseX = 0, baseY = 0, isMobile }: SplotchProps)
   
   // Device-specific animation config
   const animationConfig = useMemo(() => {
-    const speedMultiplier = isMobile ? 0.6 : 1.0;
+    const speedMultiplier = isMobile ? 0.4 : 0.7;
     const amplitudeMultiplier = isMobile ? 0.4 : 1.0;
     const sizeMultiplier = isMobile ? 0.4 : 1.0;
     
@@ -110,8 +110,8 @@ const BackgroundGradient = () => {
   const isMobile = deviceType === 'mobile';
   
   // Device-specific splotch count
-  const splotchCount = isMobile ? 5 : 12;
-  const backdropBlur = isMobile ? 20 : 50;
+  const splotchCount = isMobile ? 7 : 16;
+  const backdropBlur = isMobile ? 28 : 70;
 
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#0f0c14]">
