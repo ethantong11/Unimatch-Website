@@ -15,12 +15,12 @@ const Hero = () => {
             Unimatch
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            The exclusive dating app for university students.
+            The No.1 Social Networking App for University Students
           </motion.p>
           <motion.div
             className="mt-8 flex justify-center"
