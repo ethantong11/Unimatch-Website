@@ -19,6 +19,8 @@ function Support() {
             'radial-gradient(140% 120% at 50% 0%, #b54bff 0%, rgba(181, 75, 255, 0) 52%)',
             'linear-gradient(180deg, #f9f8fb 45%, #fdfdfd 100%)',
           ].join(', '),
+          filter: 'blur(36px)',
+          transform: 'scale(1.08)',
         }}
       />
       
