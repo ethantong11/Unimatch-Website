@@ -1,41 +1,32 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Home, FileText, Shield, MessageCircle } from 'lucide-react'
 
 function Navigation() {
   const navItems = [
-    { to: '/', label: 'Home', icon: Home },
-    { to: '/terms', label: 'Terms', icon: FileText },
-    { to: '/privacy', label: 'Privacy', icon: Shield },
-    { to: '/support', label: 'Support', icon: MessageCircle },
+    { to: '/', label: 'Home' },
+    { to: '/terms', label: 'Terms' },
+    { to: '/privacy', label: 'Privacy' },
+    { to: '/support', label: 'Support' },
   ]
 
   return (
-    <div className="fixed md:top-4 bottom-3 md:bottom-auto left-3 right-3 md:mx-0 z-50 flex justify-center">
-      <nav className="backdrop-blur-md rounded-full px-2 md:px-4 py-2 md:py-0 w-full md:w-auto border border-white/10">
-        <div className="flex justify-around md:justify-center md:space-x-8 h-12 md:h-16 items-center">
-          {navItems.map(({ to, label, icon: Icon }) => (
+    <div className="fixed top-4 left-0 right-0 z-30 flex justify-center">
+      <nav className="px-4">
+        <div className="flex space-x-6 text-base font-medium">
+          {navItems.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
-              className="inline-flex flex-col md:flex-row items-center justify-center px-2 md:px-4 text-sm font-semibold transition-all duration-300"
+              className="transition-colors duration-150"
             >
               {({ isActive }) => (
-                <>
-                  <Icon className={`w-5 h-5 md:hidden mt-1 ${
-                    isActive ? 'text-white' : 'text-gray-400'
-                  }`} />
-                  <span className={`hidden md:inline ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-gray-400 hover:text-white'
-                  }`}>{label}</span>
-                  <span className={`md:hidden text-[10px] mt-0.5 ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-gray-400'
-                  }`}>{label}</span>
-                </>
+                <span className={
+                  isActive
+                    ? 'text-[#0c0c0c]'
+                    : 'text-[#0c0c0c]/60 hover:text-[#0c0c0c]'
+                }>
+                  {label}
+                </span>
               )}
             </NavLink>
           ))}
