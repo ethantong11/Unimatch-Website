@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import RouteTransition from './components/RouteTransition'
 import HeaderLogo from './components/HeaderLogo'
 import HeaderThemeToggle from './components/HeaderThemeToggle'
 import Hero from './pages/Hero'
-import Terms from './pages/Terms'
-import Privacy from './pages/Privacy'
+import Legal from './pages/Legal'
+import Mission from './pages/Mission'
 import Support from './pages/Support'
 import NotFound from './pages/NotFound'
 import Cursor from './components/Cursor'
@@ -24,6 +24,11 @@ function App() {
     if (location.pathname !== displayLocation.pathname) {
       setPendingLocation(location)
       setIsTransitioning(true)
+      return
+    }
+
+    if (location.search !== displayLocation.search) {
+      setDisplayLocation(location)
     }
   }, [location, displayLocation])
 
@@ -129,8 +134,10 @@ function App() {
       <div className="relative z-content">
         <Routes location={displayLocation}>
           <Route path="/" element={<Hero />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/mission" element={<Mission />} />
+          <Route path="/terms" element={<Navigate to="/legal?policy=terms" replace />} />
+          <Route path="/privacy" element={<Navigate to="/legal?policy=privacy" replace />} />
           <Route path="/support" element={<Support />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

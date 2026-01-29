@@ -141,6 +141,13 @@ body {
   overscroll-behavior: none;
 }
 
+@media (max-width: 640px) {
+  html,
+  body {
+    background-color: #f7b2dd;
+  }
+}
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 0;

@@ -6,8 +6,8 @@ import PrimaryButton from './PrimaryButton'
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const navItems = [
-    { to: '/terms', label: 'Terms' },
-    { to: '/privacy', label: 'Privacy' },
+    { to: '/mission', label: 'Mission' },
+    { to: '/legal', label: 'Legal' },
     { to: '/support', label: 'Support' },
   ]
 
