@@ -72,3 +72,41 @@
     color: #ffffff;
   }
 }
+
+html {
+  overflow-y: scroll;
+}
+
+#cursor {
+  background-color: black;
+  border-radius: 25px;
+  height: 0.9vw;
+  width: 0.9vw;
+  position: fixed;
+  z-index: 10000;
+  opacity: 0;
+  filter: invert(1);
+  mix-blend-mode: difference;
+  transition: opacity 0.5s ease, transform 0.2s ease-out;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+#cursor.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#cursor.hover {
+  transform: scale(2.2);
+}
+
+button:hover,
+.button:hover,
+a:hover {
+  cursor: auto;
+}
+
+.App * {
+  cursor: none;
+}
