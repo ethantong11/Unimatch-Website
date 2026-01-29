@@ -135,6 +135,6 @@ a:hover {
 }
 
 .text-appear {
-  animation: textAppear 1s ease 0.2s both;
+  animation: textAppear 0.6s ease 0.2s both;
   will-change: transform, filter, clip-path;
 }
