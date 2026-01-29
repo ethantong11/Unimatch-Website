@@ -125,12 +125,10 @@ a:hover {
 
 @keyframes textAppear {
   from {
-    filter: blur(2px);
     transform: translateY(3vh);
     clip-path: inset(100% 0 0 0);
   }
   to {
-    filter: blur(0);
     transform: translateY(0);
     clip-path: inset(0 0 0 0);
   }

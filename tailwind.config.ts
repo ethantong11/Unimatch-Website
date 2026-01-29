@@ -115,7 +115,6 @@ export default {
         ".bg-top-splotches": {
           backgroundImage:
             "radial-gradient(95% 105% at 12% 0%, rgba(222, 11, 197, 0.75) 0%, rgba(222, 11, 197, 0) 75%), radial-gradient(100% 110% at 50% -2%, rgba(222, 11, 197, 0.6) 0%, rgba(222, 11, 197, 0) 76%), radial-gradient(105% 115% at 88% 0%, rgba(255, 106, 0, 0.75) 0%, rgba(255, 106, 0, 0) 75%)",
-          filter: "blur(12px)",
           transform: "translateZ(0)",
         },
       });
