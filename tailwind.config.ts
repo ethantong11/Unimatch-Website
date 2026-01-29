@@ -68,7 +68,7 @@ export default {
       },
       fontSize: {
         // Semantic type scale.
-        h1plus: ["20rem", { lineHeight: "0", fontWeight: "400", letterSpacing: "-0.08em" }],
+        h1plus: ["clamp(4rem, 23vw, 25rem)", { lineHeight: "0.7", fontWeight: "400", letterSpacing: "-0.08em" }],
         h1: ["2.25rem", { lineHeight: "1.15", fontWeight: "400" }],
         h2: ["1.5rem", { lineHeight: "1.3", fontWeight: "400" }],
         h3: ["1.25rem", { lineHeight: "1.35", fontWeight: "400" }],

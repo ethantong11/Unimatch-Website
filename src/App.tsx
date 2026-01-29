@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App relative min-h-screen bg-white text-[#0c0c0c] font-sans font-medium overflow-x-hidden">
       <div
-        className="pointer-events-none fixed -left-32 -right-32 -top-8 h-[85vh] z-0 bg-top-splotches"
+        className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[85vh] z-0 bg-top-splotches"
       />
       <div className="relative z-10">
         <Navigation />
