@@ -4,7 +4,7 @@ function Privacy() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="bg-white/85 backdrop-blur-md border border-black/5 rounded-3xl shadow-lg p-8 md:p-12 text-body">
+        <div className="bg-white/30 backdrop-blur-md border border-black/5 rounded-3xl shadow-lg p-8 md:p-12 text-body dark:bg-white/20 dark:border-white/15">
           <h1 className="text-h1 md:text-h1-md mb-6">Privacy Policy</h1>
           <section className="mb-8">
             <p className="text-body mb-2"><strong>Effective date:</strong> Jan 1, 2026</p>

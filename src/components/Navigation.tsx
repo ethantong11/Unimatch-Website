@@ -12,7 +12,7 @@ function Navigation() {
   return (
     <div className="fixed top-4 left-0 right-0 z-30 flex justify-center">
       <nav className="px-4">
-        <div className="flex space-x-6 text-bodysmall bg-white/30 backdrop-blur-md border border-black/5 rounded-full px-7 py-3 shadow-sm">
+        <div className="flex space-x-6 text-bodysmall bg-white/30 dark:bg-white/10 backdrop-blur-md border border-black/5 dark:border-white/10 rounded-full px-7 py-3 shadow-sm">
           {navItems.map(({ to, label }) => (
             <NavLink
               key={to}
@@ -22,8 +22,8 @@ function Navigation() {
               {({ isActive }) => (
                 <span className={
                   isActive
-                    ? 'text-[#0c0c0c]'
-                    : 'text-[#0c0c0c]/60 hover:text-[#0c0c0c]'
+                    ? 'text-[#0c0c0c] dark:text-white'
+                    : 'text-[#0c0c0c]/35 hover:text-[#0c0c0c]/70 dark:text-white/35 dark:hover:text-white/70'
                 }>
                   {label}
                 </span>

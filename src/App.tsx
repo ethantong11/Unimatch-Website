@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import RouteTransition from './components/RouteTransition'
+import LightModeCircle from './assets/lightmode-circle.svg'
+import DarkModeCircle from './assets/darkmode-circle.svg'
 import Hero from './pages/Hero'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
@@ -13,6 +15,7 @@ function App() {
   const [displayLocation, setDisplayLocation] = useState(location)
   const [pendingLocation, setPendingLocation] = useState(location)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isDark, setIsDark] = useState(false)
   const gradientRef = useRef<HTMLDivElement | null>(null)
   const rafRef = useRef<number | null>(null)
 
@@ -22,6 +25,14 @@ function App() {
       setIsTransitioning(true)
     }
   }, [location, displayLocation])
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const nextIsDark = stored ? stored === 'dark' : prefersDark
+    setIsDark(nextIsDark)
+    document.documentElement.classList.toggle('dark', nextIsDark)
+  }, [])
 
   useEffect(() => {
     const node = gradientRef.current
@@ -70,14 +81,42 @@ function App() {
     }
   }, [])
 
+  const handleThemeToggle = () => {
+    setIsDark((prev) => {
+      const next = !prev
+      document.documentElement.classList.toggle('dark', next)
+      window.localStorage.setItem('theme', next ? 'dark' : 'light')
+      return next
+    })
+  }
+
   return (
-    <div className="App relative min-h-screen bg-white text-[#0c0c0c] font-sans font-medium overflow-x-hidden cursor-none">
+    <div className="App relative min-h-screen bg-white text-[#0c0c0c] font-sans font-medium overflow-x-hidden cursor-none dark:bg-[#0c0c0c] dark:text-[#f5f5f5]">
       <Cursor />
       <RouteTransition
         active={isTransitioning}
         onCover={() => setDisplayLocation(pendingLocation)}
         onDone={() => setIsTransitioning(false)}
       />
+      <button
+        type="button"
+        aria-label="Toggle dark mode"
+        className="mode-toggle fixed right-6 top-6 z-40"
+        onClick={handleThemeToggle}
+      >
+        <img
+          className="mode-circle white"
+          src={LightModeCircle}
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="mode-circle black"
+          src={DarkModeCircle}
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
       <div
         ref={gradientRef}
         className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[85vh] z-0 bg-top-splotches transition-transform duration-300 ease-out will-change-transform"

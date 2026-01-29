@@ -75,18 +75,30 @@
 
 html {
   overflow-y: scroll;
+  overscroll-behavior: none;
 }
 
 html,
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  overscroll-behavior: none;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+html,
+body,
+.App {
+  transition: background-color 0.45s ease, color 0.45s ease;
+}
+
+.App * {
+  transition: color 0.45s ease, border-color 0.45s ease, background-color 0.45s ease;
 }
 
 #cursor {
@@ -121,6 +133,42 @@ a:hover {
 
 .App * {
   cursor: none;
+}
+
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  --toggle-swap: 1rem;
+}
+
+.mode-circle {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mode-circle.white {
+  background: transparent;
+}
+
+.mode-circle.black {
+  background: transparent;
+}
+
+.dark .mode-circle.white {
+  transform: translateX(var(--toggle-swap));
+}
+
+.dark .mode-circle.black {
+  transform: translateX(calc(var(--toggle-swap) * -1));
+}
+
+.dark .mode-circle.white,
+.dark .mode-circle.black {
+  filter: invert(1);
 }
 
 @keyframes textAppear {
