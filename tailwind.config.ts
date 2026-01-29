@@ -14,6 +14,15 @@ export default {
       },
     },
     extend: {
+      zIndex: {
+        // Semantic layering scale.
+        background: "0",
+        content: "10",
+        menu: "30",
+        header: "40",
+        transition: "50",
+        cursor: "10000",
+      },
       colors: {
         // CSS-variable driven color system.
         border: "hsl(var(--border))",

@@ -3,6 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Menu overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 105vw;
+  height: 100svh;
+  min-height: 100vh;
+  background-color: #0b0b0b;
+  transform-origin: top;
+  transform: translateX(-2.5vw) scaleY(0);
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1),
+    visibility 0s linear 0.7s;
+  visibility: hidden;
+}
+
+.menu-overlay.active {
+  transform: translateX(-2.5vw) scaleY(1);
+  visibility: visible;
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+/* Force header to white mode when menu is open. */
+.menu-open .app-header {
+  color: #ffffff;
+}
+
+.menu-open .app-header .menu-toggle-line {
+  background-color: #ffffff;
+}
+
+.menu-open .app-header .logo-link img {
+  filter: invert(1);
+}
+
+.menu-open .app-header .mode-circle.white,
+.menu-open .app-header .mode-circle.black {
+  filter: invert(1);
+}
+
 @layer base {
   :root {
     --primary: 280 70% 60%;
@@ -101,6 +141,37 @@ body,
   transition: color 0.45s ease, border-color 0.45s ease, background-color 0.45s ease;
 }
 
+.App .join-now {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.App .logo-link {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.App .logo-link:hover {
+  transform: translateZ(0) scale(1.1);
+}
+
+.dark .App .logo-link img {
+  filter: invert(1);
+}
+
+.app-header {
+  transition: color 0.35s ease;
+}
+
+.app-header .menu-toggle-line,
+.app-header .logo-link img,
+.app-header .mode-circle.white,
+.app-header .mode-circle.black {
+  transition: filter 0.35s ease, background-color 0.35s ease, transform 0.3s ease;
+}
+
 #cursor {
   background-color: black;
   border-radius: 25px;
@@ -121,6 +192,20 @@ body,
   transform: scale(1);
 }
 
+@media (max-width: 640px) {
+  #cursor {
+    display: none;
+  }
+
+  .App {
+    cursor: auto;
+  }
+
+  .App * {
+    cursor: auto;
+  }
+}
+
 #cursor.hover {
   transform: scale(2.2);
 }
@@ -128,7 +213,7 @@ body,
 button:hover,
 .button:hover,
 a:hover {
-  cursor: auto;
+  cursor: none;
 }
 
 .App * {
@@ -180,6 +265,25 @@ a:hover {
     transform: translateY(0);
     clip-path: inset(0 0 0 0);
   }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-3px) translateY(0);
+  }
+  50% {
+    transform: translateX(3px) translateY(0);
+  }
+  75% {
+    transform: translateX(-3px) translateY(0);
+  }
+}
+
+.logo-shake {
+  animation: shake 0.45s ease;
 }
 
 .text-appear {

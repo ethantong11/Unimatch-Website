@@ -64,7 +64,7 @@ const RouteTransition = ({ active, onCover, onDone }: RouteTransitionProps) => {
         </defs>
       </svg>
       <motion.div
-        className="pointer-events-none fixed -inset-y-24 inset-x-0 z-50 flex items-center justify-center bg-white dark:bg-[#0c0c0c]"
+        className="pointer-events-none fixed -inset-y-24 inset-x-0 z-transition flex items-center justify-center bg-white dark:bg-[#0c0c0c]"
         style={{
           height: 'calc(100% + 12rem)',
           clipPath: 'url(#route-transition-clip)',

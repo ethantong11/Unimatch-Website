@@ -3,7 +3,7 @@ import React from 'react'
 function Privacy() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative z-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="bg-white/30 backdrop-blur-md border border-black/5 rounded-3xl shadow-lg p-8 md:p-12 text-body dark:bg-white/20 dark:border-white/15">
           <h1 className="text-h1 md:text-h1-md mb-6">Privacy Policy</h1>
           <section className="mb-8">
@@ -14,7 +14,7 @@ function Privacy() {
           <section className="mb-8">
             <h2 className="text-h2 mb-3">1) Purpose</h2>
             <p className="text-body mb-2">
-              Hello! Welcome to Unimatch's privacy policy! Please take some time to read this before using our service.               This Privacy Policy explains how Unimatch ("we", "us") collects, uses, discloses, and protects personal data in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) of Hong Kong and its Data Protection Principles.
+              Hello! Welcome to Unimatch's privacy policy! Please take some time to read this before using our service. This Privacy Policy explains how Unimatch ("we", "us") collects, uses, discloses, and protects personal data in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) of Hong Kong and its Data Protection Principles.
             </p>
           </section>
 

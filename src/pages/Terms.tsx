@@ -3,7 +3,7 @@ import React from 'react'
 function Terms() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative z-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="bg-white/30 backdrop-blur-md border border-black/5 rounded-3xl shadow-lg p-8 md:p-12 text-body dark:bg-white/20 dark:border-white/15">
           <h1 className="text-h1 md:text-h1-md mb-6">Terms of Service</h1>
 
@@ -40,7 +40,7 @@ function Terms() {
           <section className="mb-8">
             <h2 className="text-h2 mb-3">4) Acceptable Use & Zero Tolerance Policy</h2>
 
-            <h3 className="text-h3 mb-2 mt-4">ZERO TOLERANCE POLICY</h3>
+            <h3 className="text-h3 mb-2 mt-4">Zero Tolerance Policy</h3>
             <p className="text-body mb-4">
               Unimatch maintains a strict ZERO TOLERANCE policy for objectionable content and abusive behavior. We will immediately remove content and permanently ban users who violate these standards.
             </p>
@@ -67,7 +67,7 @@ function Terms() {
               <li>Use the Service for commercial purposes without our consent</li>
             </ul>
 
-            <h3 className="text-h3 mb-2 mt-4">ENFORCEMENT ACTIONS:</h3>
+            <h3 className="text-h3 mb-2 mt-4">Enforcement Actions</h3>
             <p className="text-body mb-2 font-semibold">Immediate Permanent Ban (No Warning):</p>
             <ul className="list-disc list-inside text-body space-y-1 mb-4 ml-4">
               <li>Posting explicit sexual content or nudity</li>
@@ -87,7 +87,7 @@ function Terms() {
             </ul>
 
             <p className="text-body font-semibold">
-              This is a ZERO TOLERANCE policy. Violations result in immediate and permanent consequences.
+              This is a zero tolerance policy. Violations result in immediate and permanent consequences.
             </p>
           </section>
 
@@ -118,12 +118,12 @@ function Terms() {
           <section className="mb-8">
             <h2 className="text-h2 mb-3">6) Community Safety & Reporting</h2>
 
-            <h3 className="text-h3 mb-2 mt-4">CREATING A SAFE COMMUNITY</h3>
+            <h3 className="text-h3 mb-2 mt-4">Creating a Safe Community</h3>
             <p className="text-body mb-4">
               Your safety and the safety of all users is our top priority. We actively monitor and moderate the platform to enforce our Zero Tolerance Policy.
             </p>
 
-            <h3 className="text-h3 mb-2 mt-4">YOUR RESPONSIBILITIES:</h3>
+            <h3 className="text-h3 mb-2 mt-4">Your Responsibilities</h3>
             <ul className="list-disc list-inside text-body space-y-1 mb-4 ml-4">
               <li>Respect consent and boundaries at all times</li>
               <li>Treat all users with kindness and respect</li>
@@ -132,7 +132,7 @@ function Terms() {
               <li>Never share personal contact information prematurely</li>
             </ul>
 
-            <h3 className="text-h3 mb-2 mt-4">HOW TO REPORT VIOLATIONS:</h3>
+            <h3 className="text-h3 mb-2 mt-4">How to Report Violations</h3>
             <p className="text-body mb-2 font-semibold">In-App Reporting (Fastest):</p>
             <ol className="list-decimal list-inside text-body space-y-1 mb-4 ml-4">
               <li>Tap the three dots (⋮) on any profile or message</li>
@@ -148,7 +148,7 @@ function Terms() {
               <li>Include: Username, date/time, description, screenshots (optional)</li>
             </ul>
 
-            <h3 className="text-h3 mb-2 mt-4">SAFETY FEATURES:</h3>
+            <h3 className="text-h3 mb-2 mt-4">Safety Features</h3>
             <ul className="list-disc list-inside text-body space-y-1 mb-4 ml-4">
               <li>Block any user at any time</li>
               <li>Report button on all profiles and messages</li>
@@ -157,7 +157,7 @@ function Terms() {
               <li>Permanent ban database (banned users cannot return)</li>
             </ul>
 
-            <h3 className="text-h3 mb-2 mt-4">WHAT WE MONITOR:</h3>
+            <h3 className="text-h3 mb-2 mt-4">What We Monitor</h3>
             <p className="text-body mb-2">We actively monitor for:</p>
             <ul className="list-disc list-inside text-body space-y-1 mb-4 ml-4">
               <li>Explicit or inappropriate images</li>

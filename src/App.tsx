@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import RouteTransition from './components/RouteTransition'
-import LightModeCircle from './assets/lightmode-circle.svg'
-import DarkModeCircle from './assets/darkmode-circle.svg'
+import HeaderLogo from './components/HeaderLogo'
+import HeaderThemeToggle from './components/HeaderThemeToggle'
 import Hero from './pages/Hero'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
@@ -42,35 +42,41 @@ function App() {
 
     const maxShiftX = 70
     const maxShiftY = 40
+    const idleShiftX = 8
+    const idleShiftY = 6
+    const idleSpeedX = 5200
+    const idleSpeedY = 4300
     node.style.setProperty('--splotch-x', '0px')
     node.style.setProperty('--splotch-y', '0px')
+
+    let pointerX = 0
+    let pointerY = 0
 
     const handleMove = (event: PointerEvent) => {
       const x = (event.clientX / window.innerWidth - 0.5) * 2
       const y = (event.clientY / window.innerHeight - 0.5) * 2
 
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current)
-      }
-
-      rafRef.current = requestAnimationFrame(() => {
-        node.style.setProperty('--splotch-x', `${x * maxShiftX}px`)
-        node.style.setProperty('--splotch-y', `${y * maxShiftY}px`)
-      })
+      pointerX = x * maxShiftX
+      pointerY = y * maxShiftY
     }
 
     const handleLeave = () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current)
-      }
-      rafRef.current = requestAnimationFrame(() => {
-        node.style.setProperty('--splotch-x', '0px')
-        node.style.setProperty('--splotch-y', '0px')
-      })
+      pointerX = 0
+      pointerY = 0
+    }
+
+    const animate = () => {
+      const now = performance.now()
+      const idleX = Math.sin(now / idleSpeedX) * idleShiftX
+      const idleY = Math.cos(now / idleSpeedY) * idleShiftY
+      node.style.setProperty('--splotch-x', `${pointerX + idleX}px`)
+      node.style.setProperty('--splotch-y', `${pointerY + idleY}px`)
+      rafRef.current = requestAnimationFrame(animate)
     }
 
     window.addEventListener('pointermove', handleMove, { passive: true })
     window.addEventListener('pointerleave', handleLeave)
+    rafRef.current = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener('pointermove', handleMove)
@@ -98,35 +104,28 @@ function App() {
         onCover={() => setDisplayLocation(pendingLocation)}
         onDone={() => setIsTransitioning(false)}
       />
-      <button
-        type="button"
-        aria-label="Toggle dark mode"
-        className="mode-toggle fixed right-6 top-6 z-40"
-        onClick={handleThemeToggle}
-      >
-        <img
-          className="mode-circle white"
-          src={LightModeCircle}
-          alt=""
-          aria-hidden="true"
-        />
-        <img
-          className="mode-circle black"
-          src={DarkModeCircle}
-          alt=""
-          aria-hidden="true"
-        />
-      </button>
+      <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full backdrop-blur-sm">
+        <div className="flex h-full items-center justify-between px-2 sm:px-3">
+          <div className="order-2 sm:order-1">
+            <HeaderLogo />
+          </div>
+          <div className="order-1 sm:order-2">
+            <Navigation />
+          </div>
+          <div className="order-3">
+            <HeaderThemeToggle onToggleTheme={handleThemeToggle} />
+          </div>
+        </div>
+      </div>
       <div
         ref={gradientRef}
-        className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[85vh] z-0 bg-top-splotches transition-transform duration-300 ease-out will-change-transform"
+        className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[85vh] z-background bg-top-splotches transition-transform duration-300 ease-out will-change-transform"
         style={{
           transform:
             'translate3d(var(--splotch-x, 0px), var(--splotch-y, 0px), 0)',
         }}
       />
-      <div className="relative z-10">
-        <Navigation />
+      <div className="relative z-content">
         <Routes location={displayLocation}>
           <Route path="/" element={<Hero />} />
           <Route path="/terms" element={<Terms />} />
