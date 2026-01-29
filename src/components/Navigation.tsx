@@ -92,7 +92,7 @@ function Navigation() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full border border-white/40 px-5 py-2 text-bodysmall text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-2.5 text-base font-medium text-white"
                 >
                   Join Now
                 </a>

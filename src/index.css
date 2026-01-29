@@ -43,6 +43,22 @@
   filter: invert(1);
 }
 
+.transition-logo-bg {
+  fill: #0c0c0c;
+}
+
+.transition-logo-mark {
+  fill: #ffffff;
+}
+
+.dark .transition-logo-bg {
+  fill: #ffffff;
+}
+
+.dark .transition-logo-mark {
+  fill: #0c0c0c;
+}
+
 @layer base {
   :root {
     --primary: 280 70% 60%;

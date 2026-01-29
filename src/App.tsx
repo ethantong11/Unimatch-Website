@@ -104,7 +104,7 @@ function App() {
         onCover={() => setDisplayLocation(pendingLocation)}
         onDone={() => setIsTransitioning(false)}
       />
-      <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full backdrop-blur-sm">
+      <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full">
         <div className="flex h-full items-center justify-between px-2 sm:px-3">
           <div className="order-2 sm:order-1">
             <HeaderLogo />
