@@ -7,11 +7,11 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col h-screen">
         <motion.div
           className="flex-1 flex items-end justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h1 className="text-h1plus leading-none -translate-x-3 select-none">
+          <h1 className="text-h1plus leading-none -translate-x-3 select-none text-appear">
             Unimatch
           </h1>
         </motion.div>
