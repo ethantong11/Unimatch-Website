@@ -12,7 +12,7 @@ function Navigation() {
   return (
     <div className="fixed top-4 left-0 right-0 z-30 flex justify-center">
       <nav className="px-4">
-        <div className="flex space-x-6 text-base font-medium">
+        <div className="flex space-x-6 text-bodysmall bg-white/30 backdrop-blur-md border border-black/5 rounded-full px-7 py-3 shadow-sm">
           {navItems.map(({ to, label }) => (
             <NavLink
               key={to}

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
-@import './styles/commonStyles.css';
 
 @tailwind base;
 @tailwind components;
@@ -67,56 +65,5 @@
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-  }
-  
-  * {
-    @apply scroll-smooth;
-  }
-  
-  body {
-    @apply overflow-x-hidden;
-    background: #f7f5f9;
-    color: #0c0c0c;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    font-weight: 500;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-@layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary-light to-purple-400 bg-clip-text text-transparent;
-  }
-  
-  .glass-card {
-    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl;
-  }
-  
-  .glow-effect {
-    box-shadow: 0 0 50px rgba(147, 79, 191, 0.3);
-  }
-  
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 relative overflow-hidden;
-  }
-  
-  .btn-primary::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-300;
-  }
-  
-  .btn-primary:hover::before {
-    @apply opacity-100;
-  }
-  
-  .floating-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .pulse-glow {
-    animation: glow 2s ease-in-out infinite alternate;
   }
 }
