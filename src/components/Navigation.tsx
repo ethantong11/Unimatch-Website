@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router-dom'
+import PrimaryButton from './PrimaryButton'
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -59,14 +60,14 @@ function Navigation() {
             )}
           </NavLink>
         ))}
-        <a
+        <PrimaryButton
           href={joinUrl}
           target="_blank"
           rel="noreferrer"
-          className="join-now ml-2 inline-flex items-center rounded-full bg-[#0c0c0c] px-5 py-2.5 text-bodysmall text-white hover:scale-110 hover:bg-[#0c0c0c]/85 dark:bg-white dark:text-[#0c0c0c] dark:hover:bg-white/85"
+          size="sm"
         >
           Join Now
-        </a>
+        </PrimaryButton>
       </div>
       {typeof document !== 'undefined' &&
         createPortal(
@@ -76,7 +77,7 @@ function Navigation() {
             className={`menu-overlay sm:hidden z-menu ${isOpen ? 'active' : ''}`}
           >
             <div className="flex h-full flex-col justify-center px-8">
-              <div className="flex flex-col space-y-7 text-3xl text-white">
+              <div className="flex flex-col space-y-4 text-3xl text-white">
                 {navItems.map(({ to, label }) => (
                   <NavLink
                     key={to}
@@ -92,7 +93,7 @@ function Navigation() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-2.5 text-base font-medium text-white"
+                  className="text-white/80 transition-colors duration-150 hover:text-white"
                 >
                   Join Now
                 </a>

@@ -8,6 +8,7 @@ import Hero from './pages/Hero'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import Support from './pages/Support'
+import NotFound from './pages/NotFound'
 import Cursor from './components/Cursor'
 
 function App() {
@@ -131,6 +132,7 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/support" element={<Support />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

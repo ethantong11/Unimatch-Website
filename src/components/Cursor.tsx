@@ -10,8 +10,6 @@ const Cursor = () => {
     let lastClientY = 0
     let rafId: number | null = null
 
-    document.documentElement.classList.remove('no-js')
-
     const updateCursor = () => {
       cursor.style.top = `${lastClientY}px`
       cursor.style.left = `${lastClientX}px`
@@ -35,7 +33,7 @@ const Cursor = () => {
 
     document.addEventListener('mousemove', handleMouseMove)
 
-    const targets = Array.from(document.querySelectorAll('button, .button, a'))
+    const targets = Array.from(document.querySelectorAll('button, a'))
     targets.forEach((el) => {
       el.addEventListener('mouseenter', handleEnter)
       el.addEventListener('mouseleave', handleLeave)
