@@ -33,7 +33,9 @@ const Cursor = () => {
 
     document.addEventListener('mousemove', handleMouseMove)
 
-    const targets = Array.from(document.querySelectorAll('button, a'))
+    const targets = Array.from(
+      document.querySelectorAll('button, a, [data-cursor="hover"]')
+    )
     targets.forEach((el) => {
       el.addEventListener('mouseenter', handleEnter)
       el.addEventListener('mouseleave', handleLeave)
