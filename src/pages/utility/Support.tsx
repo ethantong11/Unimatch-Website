@@ -101,7 +101,10 @@ function Support() {
           <label className="sr-only" htmlFor="support-search">
             Search support topics
           </label>
-          <div className="flex items-center gap-sm rounded-full border border-glass-border bg-glass px-lg py-md sm:backdrop-blur">
+          <div
+            className="flex items-center gap-sm rounded-full border border-glass-border bg-glass px-lg py-md sm:backdrop-blur"
+            data-cursor="hover"
+          >
             <svg
               aria-hidden="true"
               className="h-6 w-6 text-secondary"
