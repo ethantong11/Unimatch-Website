@@ -198,6 +198,9 @@ function Terms() {
             <p className="text-body">
               The Service is provided on an "as is" and "as available" basis without warranties. We do not guarantee matches, outcomes, or uninterrupted availability. Interactions with other users are your responsibility—please act with caution.
             </p>
+            <p className="text-body mt-3">
+              For in-person activities, please review the Safety &amp; Liability Disclaimer for Events in the Legal section.
+            </p>
           </section>
 
           <section className="mb-8">

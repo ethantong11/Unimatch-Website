@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import legalContent from '../content/legal.json'
+import Tag from '../components/Tag'
 
 type Block =
   | { type: 'paragraph'; text: string }
@@ -70,21 +71,20 @@ function Legal() {
 
         <main className="flex-1">
           <div className="max-w-3xl p-8 md:p-12">
-            <h1 className="text-h1 md:text-h1-md mb-6">
+            <h2 className="text-h2 md:text-h2-md mb-6">
               {activePolicy.title}
-            </h1>
+            </h2>
             <section className="mb-8">
-              <p className="text-body mb-2">
-                <strong>Effective date:</strong> {activePolicy.effectiveDate}
-              </p>
-              <p className="text-body mb-2">
-                <strong>Contact:</strong> {activePolicy.contact}
-              </p>
+              <div className="mb-4">
+                <Tag className="border-black/15 text-[#0c0c0c]/70 dark:border-white/25 dark:text-white/80">
+                  Effective date: {activePolicy.effectiveDate}
+                </Tag>
+              </div>
             </section>
 
             {activePolicy.sections.map((section) => (
               <section key={section.heading} className="mb-8">
-                <h2 className="text-h2 mb-3">{section.heading}</h2>
+                <h2 className="text-h3 mb-3">{section.heading}</h2>
                 <div className="space-y-4">
                   {section.blocks.map((block, index) => {
                     if (block.type === 'paragraph') {

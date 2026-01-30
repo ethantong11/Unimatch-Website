@@ -486,6 +486,171 @@
           ]
         }
       ]
+    },
+    {
+      "id": "events-disclaimer",
+      "title": "Safety & Liability Disclaimer for Events",
+      "effectiveDate": "Jan 30, 2026",
+      "contact": "base.unimatch@gmail.com",
+      "sections": [
+        {
+          "heading": "1) Nature of Events",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch may display, promote, or facilitate discovery of in-person social events, meetups, gatherings, or activities (\"Events\"). Users are not permitted to create or host Events. Events may be hosted by Unimatch or by third-party venues or organizers. Unimatch does not own, operate, manage, supervise, or control Events unless explicitly stated otherwise."
+            }
+          ]
+        },
+        {
+          "heading": "2) Assumption of Risk",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "By attending or participating in any Event, you acknowledge and agree that in-person social activities inherently involve risks, including but not limited to personal injury, illness, harassment, theft, property damage, intoxication, or other unforeseen harm. You voluntarily assume all risks, whether known or unknown, arising from your participation in Events."
+            }
+          ]
+        },
+        {
+          "heading": "3) No Guarantee of Safety or Conduct",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not guarantee:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The safety, legality, or appropriateness of any Event",
+                "The behavior, actions, or intentions of any attendee, host, or third party",
+                "That Events will be supervised, monitored, or moderated in real time"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "All interactions at Events occur solely between users and/or third parties, and participation is entirely at your own discretion and risk."
+            }
+          ]
+        },
+        {
+          "heading": "4) Third-Party Venues & Hosts",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Events may take place at venues or locations owned or operated by third parties. Unimatch is not responsible for:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Venue conditions",
+                "Security arrangements",
+                "Compliance with local laws or regulations by hosts or venues",
+                "Actions or omissions of venue staff, event organizers, or attendees"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Any disputes, injuries, or incidents arising at such locations are solely between you and the relevant third party."
+            }
+          ]
+        },
+        {
+          "heading": "5) Alcohol, Substances, and Legal Compliance",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some Events may involve alcohol or be held in nightlife settings. You agree that:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "You are solely responsible for ensuring you meet all legal age requirements",
+                "You will comply with all applicable laws and venue rules",
+                "Unimatch is not responsible for intoxication, overconsumption, or substance-related harm"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not encourage illegal behavior and assumes no responsibility for users' choices at Events."
+            }
+          ]
+        },
+        {
+          "heading": "6) Personal Responsibility",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You agree to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Exercise reasonable judgment and personal safety precautions",
+                "Leave any Event if you feel unsafe or uncomfortable",
+                "Arrange your own transportation to and from Events",
+                "Seek appropriate assistance if an emergency arises"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not provide emergency services or on-site security unless explicitly stated."
+            }
+          ]
+        },
+        {
+          "heading": "7) Limitation of Liability",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "To the maximum extent permitted by law, Unimatch shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising out of or related to your participation in Events, including but not limited to personal injury, emotional distress, loss of property, or loss of opportunity."
+            }
+          ]
+        },
+        {
+          "heading": "8) Indemnification",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You agree to indemnify, defend, and hold harmless Unimatch, its founders, officers, employees, and affiliates from any claims, damages, losses, liabilities, or expenses arising from:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Your participation in Events",
+                "Your conduct at Events",
+                "Any violation of these Terms or applicable law"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "9) Reporting & Cooperation",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch may provide tools to report safety concerns or misconduct. Reporting does not create a duty for Unimatch to intervene or investigate, but we may cooperate with law enforcement or take action at our discretion."
+            }
+          ]
+        },
+        {
+          "heading": "10) Acknowledgment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "By using the Service and participating in Events, you acknowledge that you have read, understood, and agreed to this Safety & Liability Disclaimer and that attendance at Events is entirely voluntary and at your own risk."
+            }
+          ]
+        },
+        {
+          "heading": "11) Contact",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions? Email base.unimatch@gmail.com"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
