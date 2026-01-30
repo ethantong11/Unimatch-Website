@@ -32,6 +32,15 @@
 
 .menu-open .app-header .menu-toggle-line {
   background-color: #ffffff;
+  transform-origin: center;
+}
+
+.menu-open .app-header .menu-toggle-line:first-child {
+  transform: translateY(0.22rem) rotate(45deg);
+}
+
+.menu-open .app-header .menu-toggle-line:last-child {
+  transform: translateY(-0.22rem) rotate(-45deg);
 }
 
 .menu-open .app-header .logo-link img {
