@@ -144,7 +144,12 @@ body {
 @media (max-width: 640px) {
   html,
   body {
-    background-color: #f7b2dd;
+    background-color: #ffffff;
+  }
+
+  .dark html,
+  .dark body {
+    background-color: #0c0c0c;
   }
 }
 
@@ -160,8 +165,25 @@ body,
   transition: background-color 0.45s ease, color 0.45s ease;
 }
 
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
 .App * {
   transition: color 0.45s ease, border-color 0.45s ease, background-color 0.45s ease;
+}
+
+@media (max-width: 640px) {
+  .App {
+    transition: none;
+  }
+
+  .App * {
+    transition: none;
+  }
 }
 
 .App .button {

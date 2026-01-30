@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Mission() {
+  useEffect(() => {
+    document.documentElement.classList.add('no-scroll')
+    document.body.classList.add('no-scroll')
+
+    return () => {
+      document.documentElement.classList.remove('no-scroll')
+      document.body.classList.remove('no-scroll')
+    }
+  }, [])
+
   return (
     <div className="relative z-content flex min-h-screen items-center justify-center px-6">
       <div className="w-full max-w-7xl text-left">

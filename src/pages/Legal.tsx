@@ -37,13 +37,13 @@ function Legal() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen">
       <div className="relative z-content mx-auto flex w-full max-w-[1400px] flex-col gap-8 px-3 py-24 sm:px-4 lg:px-6 lg:pl-[calc(16rem+2rem)]">
         <aside
-          className="lg:fixed lg:top-28 lg:w-64"
+          className="fixed left-4 right-4 z-10 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] lg:fixed lg:left-auto lg:right-auto lg:top-44 lg:bottom-auto lg:w-64"
           style={{ left: 'max(1.5rem, calc(50% - 700px))' }}
         >
-          <div className="rounded-3xl border border-black/5 bg-white/30 p-4 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
+          <div className="rounded-[2rem] border border-black/5 bg-white/30 p-1.5 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10 lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0 lg:rounded-none lg:p-0">
             <div className="flex flex-row flex-wrap gap-2 lg:flex-col">
               {policies.map((policy) => {
                 const isActive = policy.id === activePolicy.id
@@ -52,17 +52,14 @@ function Legal() {
                     key={policy.id}
                     type="button"
                     onClick={() => handlePolicyChange(policy.id)}
-                    className={`flex-1 rounded-2xl px-4 py-3 text-left text-sm transition-colors lg:flex-none ${
+                    className={`flex-1 rounded-[1.25rem] px-2.5 py-2 text-center text-sm transition-colors lg:flex-none lg:text-left ${
                       isActive
                         ? 'bg-[#0c0c0c] text-white dark:bg-white dark:text-[#0c0c0c]'
                         : 'text-[#0c0c0c]/60 hover:text-[#0c0c0c] dark:text-white/60 dark:hover:text-white'
                     }`}
                   >
-                    <span className="block text-sm font-semibold">
+                    <span className="block text-bodysmall">
                       {policy.title}
-                    </span>
-                    <span className="mt-1 hidden text-xs text-current/70 sm:block">
-                      Effective {policy.effectiveDate}
                     </span>
                   </button>
                 )

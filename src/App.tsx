@@ -125,7 +125,7 @@ function App() {
       </div>
       <div
         ref={gradientRef}
-        className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[85vh] z-background bg-top-splotches transition-transform duration-300 ease-out will-change-transform"
+        className="pointer-events-none fixed -left-32 -right-32 -top-24 h-[110vh] z-background bg-top-splotches transition-transform duration-300 ease-out will-change-transform"
         style={{
           transform:
             'translate3d(var(--splotch-x, 0px), var(--splotch-y, 0px), 0)',
