@@ -43,7 +43,7 @@ function Legal() {
           className="fixed left-4 right-4 z-10 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] lg:fixed lg:left-auto lg:right-auto lg:top-44 lg:bottom-auto lg:w-64"
           style={{ left: 'max(1.5rem, calc(50% - 700px))' }}
         >
-          <div className="rounded-[2rem] border border-black/5 bg-white/30 p-1.5 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10 lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0 lg:rounded-none lg:p-0">
+          <div className="rounded-[2rem] border border-black/5 bg-white/30 p-1.5 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10 lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0 lg:rounded-none lg:p-0 lg:dark:border-transparent lg:dark:bg-transparent">
             <div className="flex flex-row flex-wrap gap-2 lg:flex-col">
               {policies.map((policy) => {
                 const isActive = policy.id === activePolicy.id
