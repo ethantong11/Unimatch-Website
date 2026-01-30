@@ -9,7 +9,7 @@ function Tag({ children, className }: TagProps) {
   return (
     <span
       className={[
-        'inline-flex items-center justify-center rounded-full border border-primary px-4 py-1.5 text-bodysmall text-primary',
+        'inline-flex items-center justify-center rounded-full border border-primary px-3 py-1.5 text-bodysmall text-primary',
         className,
       ]
         .filter(Boolean)
