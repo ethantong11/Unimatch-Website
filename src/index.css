@@ -3,95 +3,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Menu overlay */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 105vw;
-  height: 100svh;
-  min-height: 100vh;
-  background-color: #0b0b0b;
-  transform-origin: top;
-  transform: translateX(-2.5vw) scaleY(0);
-  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1),
-    visibility 0s linear 0.7s;
-  visibility: hidden;
-}
-
-.menu-overlay.active {
-  transform: translateX(-2.5vw) scaleY(1);
-  visibility: visible;
-  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1);
-}
-
-/* Force header to white mode when menu is open. */
-.menu-open .app-header {
-  color: #ffffff;
-}
-
-.menu-open .app-header .menu-toggle-line {
-  background-color: #ffffff;
-  transform-origin: center;
-}
-
-.menu-open .app-header .menu-toggle-line:first-child {
-  transform: translateY(0.22rem) rotate(45deg);
-}
-
-.menu-open .app-header .menu-toggle-line:last-child {
-  transform: translateY(-0.22rem) rotate(-45deg);
-}
-
-.menu-open .app-header .logo-link img {
-  filter: invert(1);
-}
-
-.menu-open .app-header .mode-circle.white,
-.menu-open .app-header .mode-circle.black {
-  filter: invert(1);
-}
-
-.transition-logo-bg {
-  fill: #0c0c0c;
-}
-
-.transition-logo-mark {
-  fill: #ffffff;
-}
-
-.dark .transition-logo-bg {
-  fill: #ffffff;
-}
-
-.dark .transition-logo-mark {
-  fill: #0c0c0c;
-}
-
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
 @layer base {
   :root {
-    --primary: 280 70% 60%;
-    --primary-foreground: 0 0% 100%;
-    --background: 222 47% 11%;
-    --foreground: 0 0% 100%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 280 70% 60%;
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 17%;
-    --accent-foreground: 0 0% 100%;
-    --popover: 222 47% 11%;
-    --popover-foreground: 0 0% 100%;
-    --card: 222 47% 11%;
-    --card-foreground: 0 0% 100%;
-    --radius: 0.5rem;
+    --background: #ffffff;
+    --border: #e6e6e6;
+
+    --primary: #121212;
+    --secondary: #737373;
+
+    --surface: #ffffff;
+    --surface-strong: #121212;
+    --surface-strong-foreground: #ffffff;
+
+    --glass-surface: #ffffff80;
+    --glass-surface-subtle: #ffffff4d;
+    --glass-surface-hover: #ffffffb3;
+    --glass-border: #ffffff99;
+    --glass-border-strong: #ffffffb3;
+    --outline-subtle: #0000000d;
+
+    --support-bg: #f6f2ee;
+    --support-splotch-1: #caa8ff80;
+    --support-splotch-2: #c599ffb3;
+    --support-splotch-3: #caa8ff80;
+
+    --menu-overlay-bg: #0a0a0a;
+    --menu-header-foreground: #ffffff;
+    --menu-foreground: #ffffff;
+
+    --selection-bg: #000000;
+    --selection-text: #ffffff;
+
+    --cursor-color: #ffffff;
+
+
+    --primary-button-bg: #121212;
+    --primary-button-text: #ffffff;
+    --primary-button-bg-hover: #121212d9;
+
+    --bg-splotch-1: #de0bc5bf;
+    --bg-splotch-2: #de0bc599;
+    --bg-splotch-3: #ff6a00bf;
   }
 
+  .dark {
+    --background: #121212;
+    --border: #1d283a;
+
+    --primary: #ffffff;
+    --secondary: #a4a4a4;
+    
+    --surface: #ffffff;
+    --surface-strong: #ffffff;
+    --surface-strong-foreground: #121212;
+
+    --glass-surface: #ffffff0d;
+    --glass-surface-subtle: #ffffff1a;
+    --glass-surface-hover: #ffffff1a;
+    --glass-border: #ffffff1a;
+    --glass-border-strong: #ffffff1a;
+    --outline-subtle: #ffffff1a;
+
+    --support-bg: #0d0d0d;
+    --support-splotch-1: #4b2a7a80;
+    --support-splotch-2: #4b2a7acc;
+    --support-splotch-3: #4b2a7a80;
+
+    --menu-overlay-bg: #0a0a0a;
+    --menu-header-foreground: #ffffff;
+    --menu-foreground: #ffffff;
+
+    --selection-bg: #ffffff;
+    --selection-text: #000000;
+    
+    --cursor-color: #ffffff;
+    
+    --primary-button-bg: #ffffff;
+    --primary-button-text: #121212;
+    --primary-button-bg-hover: #ffffffd9;
+
+    --bg-splotch-1: #de0bc5bf;
+    --bg-splotch-2: #de0bc599;
+    --bg-splotch-3: #ff6a00bf;
+  }
+
+  /* ============================================================
+     FONTS
+     ============================================================ */
   @font-face {
     font-family: 'Poppins';
     src: url('/Poppins/Poppins-Light.ttf') format('truetype');
@@ -132,48 +133,99 @@
     font-display: swap;
   }
 
+  /* ============================================================
+     SELECTION
+     ============================================================ */
   ::selection {
-    background: #000000;
-    color: #ffffff;
+    background: var(--selection-bg);
+    color: var(--selection-text);
   }
 }
 
-html {
-  overflow-y: scroll;
-  overscroll-behavior: none;
+/* ============================================================
+   MENU + OVERLAY
+   ============================================================ */
+/* Menu overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 105vw;
+  height: 100svh;
+  min-height: 100vh;
+  background-color: var(--menu-overlay-bg);
+  transform-origin: top;
+  transform: translateX(-2.5vw) scaleY(0);
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1),
+    visibility 0s linear 0.7s;
+  visibility: hidden;
 }
 
+.menu-overlay.active {
+  transform: translateX(-2.5vw) scaleY(1);
+  visibility: visible;
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+/* Force header to white mode when menu is open. */
+.menu-open .app-header {
+  color: var(--menu-header-foreground);
+}
+
+.menu-open .app-header .menu-toggle-line {
+  background-color: var(--menu-header-foreground);
+  transform-origin: center;
+}
+
+.menu-open .app-header .menu-toggle-line:first-child {
+  transform: translateY(0.22rem) rotate(45deg);
+}
+
+.menu-open .app-header .menu-toggle-line:last-child {
+  transform: translateY(-0.22rem) rotate(-45deg);
+}
+
+.menu-open .app-header .logo-link img {
+  filter: invert(1);
+}
+
+.menu-open .app-header .mode-circle.white,
+.menu-open .app-header .mode-circle.black {
+  filter: invert(1);
+}
+
+.transition-logo-bg {
+  fill: var(--primary);
+}
+
+.transition-logo-mark {
+  fill: var(--background);
+}
+
+/* ============================================================
+   BACKGROUND SPLOTCHES
+   ============================================================ */
+.bg-top-splotches {
+  background-image:
+    radial-gradient(95% 105% at 12% 0%, var(--bg-splotch-1) 0%, transparent 75%),
+    radial-gradient(100% 110% at 50% -2%, var(--bg-splotch-2) 0%, transparent 76%),
+    radial-gradient(105% 115% at 88% 0%, var(--bg-splotch-3) 0%, transparent 75%);
+  transform: translateZ(0);
+}
+
+/* ============================================================
+   GLOBAL SCROLL + TRANSITIONS
+   ============================================================ */
 html,
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior: none;
-}
-
-@media (max-width: 640px) {
-  html,
-  body {
-    background-color: #ffffff;
-  }
-
-  .dark html,
-  .dark body {
-    background-color: #0c0c0c;
-  }
+  background-color: var(--background);
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
@@ -205,6 +257,9 @@ body.no-scroll {
   }
 }
 
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .App .button {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
   will-change: transform;
@@ -216,25 +271,15 @@ body.no-scroll {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background-color: #0c0c0c;
-  color: #ffffff;
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-text);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
   will-change: transform;
   transform: translateZ(0);
 }
 
 .primary-button:hover {
-  background-color: rgba(12, 12, 12, 0.85);
-  transform: translateZ(0) scale(1.08);
-}
-
-.dark .primary-button {
-  background-color: #ffffff;
-  color: #0c0c0c;
-}
-
-.dark .primary-button:hover {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--primary-button-bg-hover);
   transform: translateZ(0) scale(1.08);
 }
 
@@ -244,7 +289,6 @@ body.no-scroll {
   line-height: 1.3;
   letter-spacing: 0.02em;
   font-weight: 350;
-  text-transform: uppercase;
 }
 
 .primary-button--md {
@@ -253,9 +297,11 @@ body.no-scroll {
   line-height: 1.3;
   letter-spacing: 0.02em;
   font-weight: 350;
-  text-transform: uppercase;
 }
 
+/* ============================================================
+   LOGO + HEADER
+   ============================================================ */
 .App .logo-link {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -281,15 +327,17 @@ body.no-scroll {
   transition: filter 0.35s ease, background-color 0.35s ease, transform 0.3s ease;
 }
 
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
 #cursor {
-  background-color: black;
+  background-color: var(--cursor-color);
   border-radius: 25px;
   height: 0.9vw;
   width: 0.9vw;
   position: fixed;
   z-index: 10000;
   opacity: 0;
-  filter: invert(1);
   mix-blend-mode: difference;
   transition: opacity 0.5s ease, transform 0.2s ease-out;
   transform: scale(0.5);
@@ -319,6 +367,9 @@ body.no-scroll {
   transform: scale(2.2);
 }
 
+/* ============================================================
+   CURSOR OVERRIDES
+   ============================================================ */
 button:hover,
 a:hover {
   cursor: none;
@@ -362,39 +413,4 @@ a:hover {
 .dark .mode-circle.white,
 .dark .mode-circle.black {
   filter: invert(1);
-}
-
-@keyframes textAppear {
-  from {
-    transform: translateY(3vh);
-    clip-path: inset(100% 0 0 0);
-  }
-  to {
-    transform: translateY(0);
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(-3px) translateY(0);
-  }
-  50% {
-    transform: translateX(3px) translateY(0);
-  }
-  75% {
-    transform: translateX(-3px) translateY(0);
-  }
-}
-
-.logo-shake {
-  animation: shake 0.45s ease;
-}
-
-.text-appear {
-  animation: textAppear 0.6s ease 0.2s both;
-  will-change: transform, filter, clip-path;
 }

@@ -44,7 +44,7 @@ function Legal() {
           className="fixed left-4 right-4 z-10 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] lg:fixed lg:left-auto lg:right-auto lg:top-44 lg:bottom-auto lg:w-64"
           style={{ left: 'max(1.5rem, calc(50% - 700px))' }}
         >
-          <div className="rounded-[2rem] border border-black/5 bg-white/30 p-1.5 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10 lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0 lg:rounded-none lg:p-0 lg:dark:border-transparent lg:dark:bg-transparent">
+          <div className="rounded-[2rem] border border-outline-subtle bg-glass-subtle p-1.5 backdrop-blur-md lg:border-transparent lg:bg-transparent lg:backdrop-blur-0 lg:rounded-none lg:p-0">
             <div className="flex flex-row flex-wrap gap-2 lg:flex-col">
               {policies.map((policy) => {
                 const isActive = policy.id === activePolicy.id
@@ -55,8 +55,8 @@ function Legal() {
                     onClick={() => handlePolicyChange(policy.id)}
                     className={`flex-1 rounded-[1.25rem] px-2.5 py-2 text-center text-sm transition-colors lg:flex-none lg:text-left ${
                       isActive
-                        ? 'bg-[#0c0c0c] text-white dark:bg-white dark:text-[#0c0c0c]'
-                        : 'text-[#0c0c0c]/60 hover:text-[#0c0c0c] dark:text-white/60 dark:hover:text-white'
+                        ? 'bg-primary text-background'
+                        : 'text-primary/60 hover:text-primary'
                     }`}
                   >
                     <span className="block text-bodysmall">
@@ -76,7 +76,7 @@ function Legal() {
             </h2>
             <section className="mb-8">
               <div className="mb-4">
-                <Tag className="border-black/15 text-[#0c0c0c]/70 dark:border-white/25 dark:text-white/80">
+                <Tag>
                   Effective date: {activePolicy.effectiveDate}
                 </Tag>
               </div>

@@ -13,7 +13,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-transparent text-[#0c0c0c] dark:text-[#f5f5f5]">
+    <div className="relative min-h-screen overflow-hidden bg-transparent text-primary">
       <div className="relative z-content flex h-screen flex-col">
         <motion.div
           className="flex flex-1 items-end justify-center px-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:pb-0"

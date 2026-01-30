@@ -103,7 +103,7 @@ function App() {
   }
 
   return (
-    <div className="App relative min-h-screen bg-white text-[#0c0c0c] font-sans font-medium overflow-x-hidden cursor-none dark:bg-[#0c0c0c] dark:text-[#f5f5f5]">
+    <div className="App relative min-h-screen bg-background text-primary font-sans font-medium overflow-x-hidden cursor-none">
       <Cursor />
       <RouteTransition
         active={isTransitioning}
@@ -116,7 +116,7 @@ function App() {
             <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
               <HeaderLogo />
               {displayLocation.pathname === '/support' ? (
-                <span className="mt-1 text-[10px] leading-none uppercase tracking-[0.2em] text-[#0c0c0c]/80 dark:text-white/80 sm:mt-0 sm:text-xs">
+                <span className="mt-1 text-[10px] leading-none uppercase tracking-[0.2em] text-primary/80 sm:mt-0 sm:text-xs">
                   Support Center
                 </span>
               ) : null}
