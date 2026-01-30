@@ -28,25 +28,33 @@ const Cursor = () => {
       }
     }
 
-    const handleEnter = () => cursor.classList.add('hover')
-    const handleLeave = () => cursor.classList.remove('hover')
+    const hoverSelector = 'button, a, [data-cursor="hover"]'
+    const getHoverTarget = (target: EventTarget | null) =>
+      target instanceof Element ? target.closest(hoverSelector) : null
+
+    const handlePointerOver = (event: PointerEvent) => {
+      if (getHoverTarget(event.target)) {
+        cursor.classList.add('hover')
+      }
+    }
+
+    const handlePointerOut = (event: PointerEvent) => {
+      if (!getHoverTarget(event.target)) {
+        return
+      }
+      if (!getHoverTarget(event.relatedTarget)) {
+        cursor.classList.remove('hover')
+      }
+    }
 
     document.addEventListener('mousemove', handleMouseMove)
-
-    const targets = Array.from(
-      document.querySelectorAll('button, a, [data-cursor="hover"]')
-    )
-    targets.forEach((el) => {
-      el.addEventListener('mouseenter', handleEnter)
-      el.addEventListener('mouseleave', handleLeave)
-    })
+    document.addEventListener('pointerover', handlePointerOver)
+    document.addEventListener('pointerout', handlePointerOut)
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
-      targets.forEach((el) => {
-        el.removeEventListener('mouseenter', handleEnter)
-        el.removeEventListener('mouseleave', handleLeave)
-      })
+      document.removeEventListener('pointerover', handlePointerOver)
+      document.removeEventListener('pointerout', handlePointerOut)
       if (rafId !== null) {
         cancelAnimationFrame(rafId)
       }

@@ -82,54 +82,62 @@ function Legal() {
               </div>
             </section>
 
-            {activePolicy.sections.map((section) => (
-              <section key={section.heading} className="mb-8">
-                <h2 className="text-h3 mb-3">{section.heading}</h2>
-                <div className="space-y-4">
-                  {section.blocks.map((block, index) => {
-                    if (block.type === 'paragraph') {
-                      return (
-                        <p key={`${section.heading}-p-${index}`} className="text-body">
-                          {block.text}
-                        </p>
-                      )
-                    }
+            <div className="max-w-3xl">
+              {activePolicy.sections.map((section) => (
+                <section key={section.heading} className="mb-8">
+                  <h2 className="text-h3 mb-3">{section.heading}</h2>
+                  <div className="space-y-4">
+                    {section.blocks.map((block, index) => {
+                      if (block.type === 'paragraph') {
+                        return (
+                          <p
+                            key={`${section.heading}-p-${index}`}
+                            className="text-body"
+                          >
+                            {block.text}
+                          </p>
+                        )
+                      }
 
-                    if (block.type === 'subheading') {
-                      return (
-                        <h3 key={`${section.heading}-h-${index}`} className="text-h3">
-                          {block.text}
-                        </h3>
-                      )
-                    }
+                      if (block.type === 'subheading') {
+                        return (
+                          <h3
+                            key={`${section.heading}-h-${index}`}
+                            className="text-h3"
+                          >
+                            {block.text}
+                          </h3>
+                        )
+                      }
 
-                    if (block.type === 'orderedList') {
+                      if (block.type === 'orderedList') {
+                        return (
+                          <ol
+                            key={`${section.heading}-ol-${index}`}
+                            className="list-decimal list-inside text-body space-y-1 ml-4"
+                          >
+                            {block.items.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ol>
+                        )
+                      }
+
                       return (
-                        <ol
-                          key={`${section.heading}-ol-${index}`}
-                          className="list-decimal list-inside text-body space-y-1 ml-4"
+                        <ul
+                          key={`${section.heading}-ul-${index}`}
+                          className="list-disc list-inside text-body space-y-1 ml-4"
                         >
                           {block.items.map((item) => (
                             <li key={item}>{item}</li>
                           ))}
-                        </ol>
+                        </ul>
                       )
-                    }
-
-                    return (
-                      <ul
-                        key={`${section.heading}-ul-${index}`}
-                        className="list-disc list-inside text-body space-y-1 ml-4"
-                      >
-                        {block.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    )
-                  })}
-                </div>
-              </section>
-            ))}
+                    })}
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
         </main>
       </div>
