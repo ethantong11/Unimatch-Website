@@ -113,10 +113,10 @@ function App() {
       <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full">
         <div className="flex h-full items-center justify-between px-2 sm:px-3">
           <div className="order-2 sm:order-1">
-            <div className="relative flex items-center">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
               <HeaderLogo />
               {displayLocation.pathname === '/support' ? (
-                <span className="pointer-events-none absolute left-full ml-2 top-1/2 -translate-y-1/2 text-[10px] leading-none uppercase tracking-[0.2em] text-[#0c0c0c]/80 dark:text-white/80 sm:text-xs">
+                <span className="mt-1 text-[10px] leading-none uppercase tracking-[0.2em] text-[#0c0c0c]/80 dark:text-white/80 sm:mt-0 sm:text-xs">
                   Support Center
                 </span>
               ) : null}

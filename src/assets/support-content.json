@@ -53,6 +53,54 @@
       ]
     },
     {
+      "title": "Shots (Proactive Messages)",
+      "description": "Search and send a message proactively.",
+      "topics": [
+        {
+          "title": "Shots: Search & Send",
+          "slug": "shots-search-send",
+          "summary": "How to find people and send a Shot.",
+          "body": "Shots let you proactively message someone who matches your preferences. Use filters to search, choose a profile, and send your Shot with a message. If accepted, a chat opens automatically.",
+          "faqs": [
+            {
+              "q": "Do Shots guarantee a response?",
+              "a": "No. The recipient can choose whether to accept or ignore the Shot."
+            }
+          ]
+        },
+        {
+          "title": "Shot Limits & Failed Sends",
+          "slug": "shot-limits",
+          "summary": "Why a Shot didn’t send and how limits work.",
+          "body": "Shots have daily/weekly limits. If a Shot fails, it may be due to reaching your limit, network issues, or the target profile no longer being available. In many cases the Shot will return to your balance.",
+          "faqs": [
+            {
+              "q": "Why did my Shot disappear?",
+              "a": "If a Shot fails to deliver, it may be restored within a short period. Contact support if it isn’t restored."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Events & Special Features",
+      "description": "Limited‑time events and features.",
+      "topics": [
+        {
+          "title": "Events & Limited‑Time Features",
+          "slug": "events-limited-time",
+          "summary": "How events work and who can join.",
+          "body": "Events are optional, time‑limited experiences. When enabled, you’ll see them in the app with details and eligibility. Participation may vary by campus or availability.",
+          "faqs": [
+            {
+              "q": "Why don’t I see events?",
+              "a": "Events may be disabled or not available for your campus at this time."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Profile & Visibility",
       "description": "Manage your profile, photos, and discovery settings.",
       "topics": [
@@ -131,36 +179,6 @@
             {
               "q": "Do you show my exact location?",
               "a": "No. We use an approximate location to help with matching."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Shots (Proactive Messages)",
-      "description": "Search and send a message proactively.",
-      "topics": [
-        {
-          "title": "Shots: Search & Send",
-          "slug": "shots-search-send",
-          "summary": "How to find people and send a Shot.",
-          "body": "Shots let you proactively message someone who matches your preferences. Use filters to search, choose a profile, and send your Shot with a message. If accepted, a chat opens automatically.",
-          "faqs": [
-            {
-              "q": "Do Shots guarantee a response?",
-              "a": "No. The recipient can choose whether to accept or ignore the Shot."
-            }
-          ]
-        },
-        {
-          "title": "Shot Limits & Failed Sends",
-          "slug": "shot-limits",
-          "summary": "Why a Shot didn’t send and how limits work.",
-          "body": "Shots have daily/weekly limits. If a Shot fails, it may be due to reaching your limit, network issues, or the target profile no longer being available. In many cases the Shot will return to your balance.",
-          "faqs": [
-            {
-              "q": "Why did my Shot disappear?",
-              "a": "If a Shot fails to deliver, it may be restored within a short period. Contact support if it isn’t restored."
             }
           ]
         }
@@ -275,24 +293,6 @@
             {
               "q": "Can you refund my subscription?",
               "a": "Refunds are processed by the App Store or Google Play per their policies."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Events & Special Features",
-      "description": "Limited‑time events and features.",
-      "topics": [
-        {
-          "title": "Events & Limited‑Time Features",
-          "slug": "events-limited-time",
-          "summary": "How events work and who can join.",
-          "body": "Events are optional, time‑limited experiences. When enabled, you’ll see them in the app with details and eligibility. Participation may vary by campus or availability.",
-          "faqs": [
-            {
-              "q": "Why don’t I see events?",
-              "a": "Events may be disabled or not available for your campus at this time."
             }
           ]
         }
