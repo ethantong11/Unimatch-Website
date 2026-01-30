@@ -1,0 +1,392 @@
+{
+  "meta": {
+    "product": "Unimatch",
+    "audience": "customers",
+    "tone": "friendly, clear",
+    "last_updated": "2026-01-30"
+  },
+  "sections": [
+    {
+      "title": "Getting Started",
+      "description": "Basics to get your account verified and ready.",
+      "topics": [
+        {
+          "title": "Eligibility & University Verification",
+          "slug": "eligibility-verification",
+          "summary": "Who can join and how to verify your university email.",
+          "body": "Unimatch is built for Hong Kong university students. To keep the community safe and authentic, you’ll need to verify a valid university email address. During sign‑up, enter your university email and we’ll send a verification code. Enter the code in the app to activate your account. If your school uses multiple domains, try your primary student email first. For verification issues, see Login & Access Issues.",
+          "faqs": [
+            {
+              "q": "Can I join if I’m not currently a university student?",
+              "a": "At this time, Unimatch is limited to verified university students."
+            },
+            {
+              "q": "I didn’t receive a verification email—what should I do?",
+              "a": "Check spam/junk folders, confirm the email is correct, and request a new code. If it still doesn’t arrive, contact support."
+            }
+          ]
+        },
+        {
+          "title": "Account Setup",
+          "slug": "account-setup",
+          "summary": "Create your account, confirm your email, and finish setup.",
+          "body": "Create your account with your university email, confirm your code, and set your basic profile details. Once verified, you’ll be guided through onboarding to help improve match quality. You can update most fields later in Profile Settings.",
+          "faqs": [
+            {
+              "q": "Can I change my email later?",
+              "a": "If you need to change your email, contact support so we can help you verify the new address."
+            }
+          ]
+        },
+        {
+          "title": "Onboarding",
+          "slug": "onboarding",
+          "summary": "Step‑by‑step profile setup to help you get matched faster.",
+          "body": "Onboarding collects the essentials—photos, interests, and preferences—so your matches are more relevant. Some fields are optional and can be skipped, but completing more details generally improves compatibility. You can edit your answers anytime in your profile.",
+          "faqs": [
+            {
+              "q": "Do I have to complete every step?",
+              "a": "Some steps are optional. We recommend completing as much as possible for better matches."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Shots (Proactive Messages)",
+      "description": "Search and send a message proactively.",
+      "topics": [
+        {
+          "title": "Shots: Search & Send",
+          "slug": "shots-search-send",
+          "summary": "How to find people and send a Shot.",
+          "body": "Shots let you proactively message someone who matches your preferences. Use filters to search, choose a profile, and send your Shot with a message. If accepted, a chat opens automatically.",
+          "faqs": [
+            {
+              "q": "Do Shots guarantee a response?",
+              "a": "No. The recipient can choose whether to accept or ignore the Shot."
+            }
+          ]
+        },
+        {
+          "title": "Shot Limits & Failed Sends",
+          "slug": "shot-limits",
+          "summary": "Why a Shot didn’t send and how limits work.",
+          "body": "Shots have daily/weekly limits. If a Shot fails, it may be due to reaching your limit, network issues, or the target profile no longer being available. In many cases the Shot will return to your balance.",
+          "faqs": [
+            {
+              "q": "Why did my Shot disappear?",
+              "a": "If a Shot fails to deliver, it may be restored within a short period. Contact support if it isn’t restored."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Events & Special Features",
+      "description": "Limited‑time events and features.",
+      "topics": [
+        {
+          "title": "Events & Limited‑Time Features",
+          "slug": "events-limited-time",
+          "summary": "How events work and who can join.",
+          "body": "Events are optional, time‑limited experiences. When enabled, you’ll see them in the app with details and eligibility. Participation may vary by campus or availability.",
+          "faqs": [
+            {
+              "q": "Why don’t I see events?",
+              "a": "Events may be disabled or not available for your campus at this time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Profile & Visibility",
+      "description": "Manage your profile, photos, and discovery settings.",
+      "topics": [
+        {
+          "title": "Profile Creation & Editing",
+          "slug": "profile-editing",
+          "summary": "Update photos, prompts, and preferences anytime.",
+          "body": "You can edit your profile from the Settings or Profile screen. Changes usually appear immediately. Keep your profile accurate and respectful—misleading info can lead to restrictions.",
+          "faqs": [
+            {
+              "q": "Why can’t I edit certain fields?",
+              "a": "Some fields may be locked to protect integrity. If you need a correction, contact support."
+            }
+          ]
+        },
+        {
+          "title": "Photo Uploads & Guidelines",
+          "slug": "photo-guidelines",
+          "summary": "What’s allowed, how to fix upload issues.",
+          "body": "Photos should clearly show you and follow community guidelines. Avoid nudity, hateful content, or images of minors. If uploads fail, try a smaller file, switch networks, or update the app.",
+          "faqs": [
+            {
+              "q": "Why was my photo removed?",
+              "a": "Photos that violate guidelines may be removed. If you believe this is a mistake, contact support."
+            }
+          ]
+        },
+        {
+          "title": "Profile Visibility",
+          "slug": "profile-visibility",
+          "summary": "Who can see you and how discovery works.",
+          "body": "Your profile is visible to other verified students who match your preferences. Discovery may consider compatibility, location, and activity. You can adjust filters in settings to refine who you see.",
+          "faqs": [
+            {
+              "q": "Can I hide my profile temporarily?",
+              "a": "If available in your plan, use the visibility or pause feature in settings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Matching & Discovery",
+      "description": "Understand the queue, limits, and discovery settings.",
+      "topics": [
+        {
+          "title": "Matching Queue: How It Works",
+          "slug": "matching-queue",
+          "summary": "How the queue matches you based on compatibility.",
+          "body": "Unimatch uses a queue‑based system that surfaces compatible profiles over time. Compatibility uses your preferences, interests, and activity to help you find better matches. The queue refreshes as you interact and as new users join.",
+          "faqs": [
+            {
+              "q": "Why am I seeing fewer profiles?",
+              "a": "This can happen if you’ve reached your limit or if there are fewer compatible profiles nearby."
+            }
+          ]
+        },
+        {
+          "title": "Match Limits & Resets",
+          "slug": "match-limits",
+          "summary": "Daily/weekly limits and when they refresh.",
+          "body": "Match limits help keep the community healthy and prevent spam. Limits reset on a rolling schedule shown in‑app. Premium tiers may offer higher limits or faster resets.",
+          "faqs": [
+            {
+              "q": "When do my limits reset?",
+              "a": "Open the Matches screen to see your current limit and reset time."
+            }
+          ]
+        },
+        {
+          "title": "Location & Discovery Settings",
+          "slug": "location-discovery",
+          "summary": "Manage distance, filters, and who you appear to.",
+          "body": "Set your preferred distance, age range, and other filters in settings. Tighter filters can reduce available matches. Location is used for discovery only and isn’t shown as an exact address.",
+          "faqs": [
+            {
+              "q": "Do you show my exact location?",
+              "a": "No. We use an approximate location to help with matching."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Messaging & Notifications",
+      "description": "Chat, delivery status, and alerts.",
+      "topics": [
+        {
+          "title": "Messaging & Chat",
+          "slug": "messaging-chat",
+          "summary": "Sending, receiving, and message status.",
+          "body": "Once matched, you can chat in real time. Messages show delivery and read status when available. Be respectful—abusive messages may lead to account action.",
+          "faqs": [
+            {
+              "q": "Why aren’t my messages sending?",
+              "a": "Check your internet connection, update the app, and try again."
+            }
+          ]
+        },
+        {
+          "title": "Notifications",
+          "slug": "notifications",
+          "summary": "Turn alerts on/off and fix missing notifications.",
+          "body": "Manage notification settings in the app and your device. If notifications stop, ensure they’re enabled in system settings and that battery saver isn’t restricting the app.",
+          "faqs": [
+            {
+              "q": "I’m not getting push notifications—what now?",
+              "a": "Enable notifications in device settings, then reopen the app to refresh."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Safety & Trust",
+      "description": "Guidelines, reporting, and keeping the community safe.",
+      "topics": [
+        {
+          "title": "Safety Guidelines",
+          "slug": "safety-guidelines",
+          "summary": "Tips for safe, respectful dating.",
+          "body": "Meet in public places, tell a friend, and trust your instincts. Respect boundaries and report any concerning behavior. Safety is a shared responsibility.",
+          "faqs": [
+            {
+              "q": "What should I do if I feel unsafe?",
+              "a": "End the conversation, block the user, and report the issue in the app."
+            }
+          ]
+        },
+        {
+          "title": "Reporting & Blocking",
+          "slug": "reporting-blocking",
+          "summary": "How to report or block someone.",
+          "body": "You can block or report a user from their profile or chat. Reports are reviewed and may result in warnings or account removal. Blocking prevents future contact.",
+          "faqs": [
+            {
+              "q": "Will the other person know I reported them?",
+              "a": "No. Reports are confidential."
+            }
+          ]
+        },
+        {
+          "title": "Account Integrity",
+          "slug": "account-integrity",
+          "summary": "What happens when reports are reviewed.",
+          "body": "We review reports to protect the community. Outcomes can include warnings, temporary restrictions, or permanent bans depending on severity.",
+          "faqs": [
+            {
+              "q": "Can I appeal a restriction?",
+              "a": "Yes. Contact support with details and we will review your case."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Subscriptions & Billing",
+      "description": "Plans, payments, cancellations, and refunds.",
+      "topics": [
+        {
+          "title": "Plans & Benefits",
+          "slug": "plans-benefits",
+          "summary": "What’s included in each tier.",
+          "body": "Unimatch offers tiered subscriptions with additional benefits like increased limits or enhanced visibility. Current pricing and benefits are shown in‑app and may vary by region.",
+          "faqs": [
+            {
+              "q": "Where can I see current pricing?",
+              "a": "Open the Premium screen in the app to view pricing and benefits."
+            }
+          ]
+        },
+        {
+          "title": "Billing & Payments",
+          "slug": "billing-payments",
+          "summary": "How charges work across App Store/Google Play.",
+          "body": "Subscriptions are billed through the App Store or Google Play. Manage payment methods and renewal settings directly in your store account.",
+          "faqs": [
+            {
+              "q": "I was charged but didn’t get benefits—what should I do?",
+              "a": "Restart the app to refresh your subscription. If it doesn’t update, contact support with your receipt."
+            }
+          ]
+        },
+        {
+          "title": "Refunds & Cancellations",
+          "slug": "refunds-cancellations",
+          "summary": "Where to cancel and how refunds work.",
+          "body": "Cancellations are handled through the App Store or Google Play. Refunds follow the store’s policies and timelines. We can help guide you, but only the store can issue refunds.",
+          "faqs": [
+            {
+              "q": "Can you refund my subscription?",
+              "a": "Refunds are processed by the App Store or Google Play per their policies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "description": "Fix common problems quickly.",
+      "topics": [
+        {
+          "title": "App Performance",
+          "slug": "app-performance",
+          "summary": "Fix crashes, loading issues, and lag.",
+          "body": "Make sure you’re on the latest app version. If the app is slow or crashes, restart your device, clear background apps, and try a different network. Reinstalling can help in persistent cases.",
+          "faqs": [
+            {
+              "q": "Will reinstalling delete my account?",
+              "a": "No. Your account is stored securely online."
+            }
+          ]
+        },
+        {
+          "title": "Login & Access Issues",
+          "slug": "login-access-issues",
+          "summary": "Can’t log in, lost access, or verification problems.",
+          "body": "If you can’t log in, make sure you’re using the verified email address. Request a new code and check spam folders. If you no longer have access to your university email, contact support for options.",
+          "faqs": [
+            {
+              "q": "My code keeps expiring—why?",
+              "a": "Codes expire for security. Request a new code and enter it promptly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Privacy & Legal",
+      "description": "Data use, requests, and policies.",
+      "topics": [
+        {
+          "title": "Privacy & Data Use",
+          "slug": "privacy-data-use",
+          "summary": "How your data is used and protected.",
+          "body": "We use your data to provide matching, messaging, and safety features. Personal data is protected using industry‑standard security practices. For full details, see our Privacy Policy.",
+          "faqs": [
+            {
+              "q": "Do you sell my data?",
+              "a": "We do not sell your personal data."
+            }
+          ]
+        },
+        {
+          "title": "Data Requests & Deletion",
+          "slug": "data-requests-deletion",
+          "summary": "Request your data or delete your account.",
+          "body": "You can request a copy of your data or delete your account from settings. Deletion is permanent and cannot be undone. Some records may be retained as required by law.",
+          "faqs": [
+            {
+              "q": "How long does deletion take?",
+              "a": "Deletion usually completes within a few days."
+            }
+          ]
+        },
+        {
+          "title": "Terms & Policies",
+          "slug": "terms-policies",
+          "summary": "Terms of service, EULA, and age requirements.",
+          "body": "By using Unimatch, you agree to our Terms of Service and EULA. You must meet the age requirement shown in the app. Policy updates are posted with effective dates.",
+          "faqs": [
+            {
+              "q": "Where can I read the full terms?",
+              "a": "You can access them from the app settings or our website."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contact Support",
+      "description": "How to reach us.",
+      "topics": [
+        {
+          "title": "Contact Us",
+          "slug": "contact-support",
+          "summary": "How to reach support and expected response times.",
+          "body": "Use the in‑app support form to contact us. Include screenshots and device details when possible. Response times vary by volume, but we aim to reply within 1–3 business days.",
+          "faqs": [
+            {
+              "q": "What should I include in a support request?",
+              "a": "Describe the issue, steps to reproduce, and attach screenshots if you can."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

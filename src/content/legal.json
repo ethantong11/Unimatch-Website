@@ -1,0 +1,656 @@
+{
+  "policies": [
+    {
+      "id": "terms",
+      "title": "Terms of Service",
+      "effectiveDate": "Jan 1, 2026",
+      "contact": "base.unimatch@gmail.com",
+      "sections": [
+        {
+          "heading": "1) Introduction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Welcome to Unimatch (\"Unimatch,\" \"we,\" \"us,\" \"our\"). By creating an account or using the Unimatch app or site (the \"Service\"), you agree to these Terms of Service (\"Terms\"). If you do not agree, do not use the Service."
+            }
+          ]
+        },
+        {
+          "heading": "2) Eligibility",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "You must be at least 18 years old and legally able to enter a binding contract.",
+                "You must be enrolled in an eligible Hong Kong University and have a valid Hong Kong University Email.",
+                "You must be permitted to use the Service under the laws of Hong Kong SAR and any laws that apply to you."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "3) Your Account",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Provide accurate information and keep your login secure. You are responsible for all activity on your account.",
+                "You may delete your account in-app at any time.",
+                "We may suspend or terminate accounts that violate these Terms or our guidelines, or for safety/operational reasons at any time."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "4) Acceptable Use & Zero Tolerance Policy",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Zero Tolerance Policy"
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch maintains a strict ZERO TOLERANCE policy for objectionable content and abusive behavior. We will immediately remove content and permanently ban users who violate these standards."
+            },
+            {
+              "type": "paragraph",
+              "text": "You agree not to upload, post, or share:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Explicit, pornographic, or sexually suggestive content",
+                "Nude or partially clothed images",
+                "Violent, graphic, or disturbing content",
+                "Hate speech, discriminatory, or harassing content",
+                "Illegal content or content promoting illegal activities",
+                "Misleading, fraudulent, or impersonating content",
+                "Spam, commercial solicitation, or advertising"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "You agree not to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Harass, threaten, bully, or intimidate other users",
+                "Send unsolicited explicit messages or images",
+                "Impersonate others or create fake profiles",
+                "Dox or share private information without consent",
+                "Use automated tools, bots, or scrapers",
+                "Attempt to bypass security measures or upload malware",
+                "Use the Service for commercial purposes without our consent"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Enforcement Actions"
+            },
+            {
+              "type": "paragraph",
+              "text": "Immediate Permanent Ban (No Warning):"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Posting explicit sexual content or nudity",
+                "Severe harassment or threats of violence",
+                "Hate speech or discriminatory attacks",
+                "Sharing illegal content",
+                "Impersonation or catfishing with malicious intent"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "We reserve the right to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Remove any content that violates these Terms or our community standards",
+                "Restrict or disable access to any User Content",
+                "Suspend or terminate accounts without prior notice",
+                "Report illegal content to law enforcement authorities",
+                "Refuse to reinstate banned accounts"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This is a zero tolerance policy. Violations result in immediate and permanent consequences."
+            }
+          ]
+        },
+        {
+          "heading": "5) Content & Licence",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You own the photos, bios, messages, and other materials you post (\"User Content\")."
+            },
+            {
+              "type": "paragraph",
+              "text": "You grant Unimatch a non-exclusive, worldwide, royalty-free, sublicensable and transferable license to host, store, display, reproduce, modify, adapt, publish, distribute, and otherwise use your User Content for the purposes of operating, improving, and promoting the Service."
+            },
+            {
+              "type": "paragraph",
+              "text": "This includes:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "displaying your profile and related content to other users; and",
+                "using non-private profile elements (such as your photos, first name, age, or general location) in marketing, advertising, or promotional materials relating to Unimatch, both online and offline."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch will never use private messages, contact details, or sensitive information in any promotional or advertising material."
+            },
+            {
+              "type": "paragraph",
+              "text": "You represent and warrant that you have all rights necessary to post and license your User Content and that it complies with these Terms and applicable law."
+            },
+            {
+              "type": "paragraph",
+              "text": "We may remove, restrict, or disable access to any User Content that violates these Terms, our community standards, or applicable law."
+            }
+          ]
+        },
+        {
+          "heading": "6) Community Safety & Reporting",
+          "blocks": [
+            {
+              "type": "subheading",
+              "text": "Creating a Safe Community"
+            },
+            {
+              "type": "paragraph",
+              "text": "Your safety and the safety of all users is our top priority. We actively monitor and moderate the platform to enforce our Zero Tolerance Policy."
+            },
+            {
+              "type": "subheading",
+              "text": "Your Responsibilities"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Respect consent and boundaries at all times",
+                "Treat all users with kindness and respect",
+                "Report any inappropriate content or behavior immediately",
+                "Block users who make you uncomfortable",
+                "Never share personal contact information prematurely"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "How to Report Violations"
+            },
+            {
+              "type": "paragraph",
+              "text": "In-App Reporting (Fastest):"
+            },
+            {
+              "type": "orderedList",
+              "items": [
+                "Tap the three dots (...) on any profile or message",
+                "Select \"Report User\"",
+                "Choose the violation category",
+                "Add optional details or context"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Email Reporting:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Email: base.unimatch@gmail.com",
+                "Subject: \"Safety Report - [Violation Type]\"",
+                "Include: Username, date/time, description, screenshots (optional)"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "Safety Features"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Block any user at any time",
+                "Report button on all profiles and messages",
+                "Real-time content moderation",
+                "Human review of all safety reports",
+                "Permanent ban database (banned users cannot return)"
+              ]
+            },
+            {
+              "type": "subheading",
+              "text": "What We Monitor"
+            },
+            {
+              "type": "paragraph",
+              "text": "We actively monitor for:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Explicit or inappropriate images",
+                "Harassing or threatening messages",
+                "Fake or suspicious profiles",
+                "Spam or commercial solicitation",
+                "Underage users or age misrepresentation"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "If you feel unsafe or encounter concerning behavior, please report it immediately. We will take swift action to protect our community."
+            }
+          ]
+        },
+        {
+          "heading": "7) Subscriptions & Payments",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "When subscriptions or in-app purchases are offered, prices will be shown before purchase, renewals will be clearly disclosed, and payments will be processed by Apple App Store / Google Play. Refunds follow the relevant store policies and any mandatory Hong Kong consumer protections."
+            }
+          ]
+        },
+        {
+          "heading": "8) Privacy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Your personal data is handled under our separate Privacy Policy, compliant with Hong Kong's Personal Data (Privacy) Ordinance (Cap. 486)."
+            }
+          ]
+        },
+        {
+          "heading": "9) Third-Party Services",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Service may link to or integrate third-party services (e.g., analytics, cloud hosting, app stores). We are not responsible for third-party terms or practices."
+            }
+          ]
+        },
+        {
+          "heading": "10) Disclaimers",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Service is provided on an \"as is\" and \"as available\" basis without warranties. We do not guarantee matches, outcomes, or uninterrupted availability. Interactions with other users are your responsibility-please act with caution."
+            }
+          ]
+        },
+        {
+          "heading": "11) Limitation of Liability",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "To the maximum extent permitted by Hong Kong law, Unimatch will not be liable for indirect, incidental, special, consequential, or exemplary damages. Our aggregate liability for all claims in any 12-month period will not exceed the greater of (i) amounts you paid to us in that period (if any) or (ii) HKD 1,000."
+            }
+          ]
+        },
+        {
+          "heading": "12) Indemnity",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You will indemnify and hold harmless Unimatch and our team from claims arising out of your misuse of the Service, your User Content, or your breach of these Terms."
+            }
+          ]
+        },
+        {
+          "heading": "13) Changes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We may update these Terms from time to time. We will post the updated Terms with a new effective date and, where required, notify you in-app. Continued use constitutes acceptance."
+            }
+          ]
+        },
+        {
+          "heading": "14) Governing Law & Jurisdiction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "These Terms are governed by the laws of the Hong Kong Special Administrative Region. The courts of Hong Kong have exclusive jurisdiction over disputes, subject to any mandatory rights you have under applicable law."
+            }
+          ]
+        },
+        {
+          "heading": "15) Contact",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions? Email base.unimatch@gmail.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy Policy",
+      "effectiveDate": "Jan 1, 2026",
+      "contact": "base.unimatch@gmail.com",
+      "sections": [
+        {
+          "heading": "1) Purpose",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hello! Welcome to Unimatch's privacy policy! Please take some time to read this before using our service. This Privacy Policy explains how Unimatch (\"we\", \"us\") collects, uses, discloses, and protects personal data in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) of Hong Kong and its Data Protection Principles."
+            }
+          ]
+        },
+        {
+          "heading": "2) Data We Collect",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Account & Profile: name or nickname, email, date of birth/age, gender, preferences, religion, photos, bio.",
+                "Usage & Interactions: matches, messages, reports, and in-app actions.",
+                "Device & Technical: IP address, device identifiers, OS and app version, diagnostics, crash logs.",
+                "Location: coarse or precise location for nearby matching if you grant permission.",
+                "Payments: if/when enabled, processed by Apple/Google; we receive tokens/receipts, not full card details."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "3) Purposes of Use",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Provide, operate, and personalize the Service (Auto matching, Shots).",
+                "Safety, security, moderation, and fraud prevention.",
+                "Service analytics and improvement.",
+                "Communications about updates, features, and support.",
+                "Compliance with legal obligations and lawful requests."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "4) Legal Basis / DPP Alignment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We collect and use data for purposes explained at or before collection (DPP1), limit use to those purposes or directly related purposes (DPP3), and take steps to ensure data is accurate (DPP2) and secure (DPP4)."
+            }
+          ]
+        },
+        {
+          "heading": "5) Sharing & Disclosure",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Service Providers: Supabase (bound by confidentiality and PDPO-aligned terms).",
+                "App Stores & Payments: Apple App Store / Google Play billing and receipts.",
+                "Legal: to comply with laws, enforce terms, or protect rights, safety, and security."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "We do not sell personal data to third parties."
+            }
+          ]
+        },
+        {
+          "heading": "6) Overseas Transfers",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Where data is transferred or accessed outside Hong Kong (e.g., regional cloud infrastructure), we take reasonable steps to ensure a level of protection that is broadly comparable to Hong Kong requirements."
+            }
+          ]
+        },
+        {
+          "heading": "7) Retention",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We retain personal data only for as long as necessary for the purposes stated or to meet legal requirements. When you delete your account, we delete or anonymize data within a reasonable period, except where retention is required by law or to resolve disputes, prevent abuse, or enforce our Terms."
+            }
+          ]
+        },
+        {
+          "heading": "8) Your Rights",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Request access to personal data we hold about you.",
+                "Request correction of inaccurate data.",
+                "Withdraw consent for optional processing (e.g., location).",
+                "Deletion of your account."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "To exercise rights, email base.unimatch@gmail.com. We may need to verify your identity."
+            }
+          ]
+        },
+        {
+          "heading": "9) Security",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We implement administrative, technical, and physical safeguards, including encryption in transit, access controls, and regular reviews. No method of transmission or storage is 100% secure."
+            }
+          ]
+        },
+        {
+          "heading": "10) Children",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Service is for users 18+. We do not knowingly collect data from minors. Accounts suspected to be underage may be suspended and deleted."
+            }
+          ]
+        },
+        {
+          "heading": "11) Cookies & Tracking",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We may use limited cookies or mobile SDKs for authentication, security, and analytics. You can control certain tracking via device settings; some features may not function without essential tracking."
+            }
+          ]
+        },
+        {
+          "heading": "12) Changes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We may update this Policy. We will post updates with a new effective date and, where required, notify you in-app."
+            }
+          ]
+        },
+        {
+          "heading": "13) Contact",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions about privacy? Contact base.unimatch@gmail.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "events-disclaimer",
+      "title": "Safety & Liability Disclaimer for Events",
+      "effectiveDate": "Jan 30, 2026",
+      "contact": "base.unimatch@gmail.com",
+      "sections": [
+        {
+          "heading": "1) Nature of Events",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch may display, promote, or facilitate discovery of in-person social events, meetups, gatherings, or activities (\"Events\"). Users are not permitted to create or host Events. Events may be hosted by Unimatch or by third-party venues or organizers. Unimatch does not own, operate, manage, supervise, or control Events unless explicitly stated otherwise."
+            }
+          ]
+        },
+        {
+          "heading": "2) Assumption of Risk",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "By attending or participating in any Event, you acknowledge and agree that in-person social activities inherently involve risks, including but not limited to personal injury, illness, harassment, theft, property damage, intoxication, or other unforeseen harm. You voluntarily assume all risks, whether known or unknown, arising from your participation in Events."
+            }
+          ]
+        },
+        {
+          "heading": "3) No Guarantee of Safety or Conduct",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not guarantee:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "The safety, legality, or appropriateness of any Event",
+                "The behavior, actions, or intentions of any attendee, host, or third party",
+                "That Events will be supervised, monitored, or moderated in real time"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "All interactions at Events occur solely between users and/or third parties, and participation is entirely at your own discretion and risk."
+            }
+          ]
+        },
+        {
+          "heading": "4) Third-Party Venues & Hosts",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Events may take place at venues or locations owned or operated by third parties. Unimatch is not responsible for:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Venue conditions",
+                "Security arrangements",
+                "Compliance with local laws or regulations by hosts or venues",
+                "Actions or omissions of venue staff, event organizers, or attendees"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Any disputes, injuries, or incidents arising at such locations are solely between you and the relevant third party."
+            }
+          ]
+        },
+        {
+          "heading": "5) Alcohol, Substances, and Legal Compliance",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Some Events may involve alcohol or be held in nightlife settings. You agree that:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "You are solely responsible for ensuring you meet all legal age requirements",
+                "You will comply with all applicable laws and venue rules",
+                "Unimatch is not responsible for intoxication, overconsumption, or substance-related harm"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not encourage illegal behavior and assumes no responsibility for users' choices at Events."
+            }
+          ]
+        },
+        {
+          "heading": "6) Personal Responsibility",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You agree to:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Exercise reasonable judgment and personal safety precautions",
+                "Leave any Event if you feel unsafe or uncomfortable",
+                "Arrange your own transportation to and from Events",
+                "Seek appropriate assistance if an emergency arises"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Unimatch does not provide emergency services or on-site security unless explicitly stated."
+            }
+          ]
+        },
+        {
+          "heading": "7) Limitation of Liability",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "To the maximum extent permitted by law, Unimatch shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising out of or related to your participation in Events, including but not limited to personal injury, emotional distress, loss of property, or loss of opportunity."
+            }
+          ]
+        },
+        {
+          "heading": "8) Indemnification",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "You agree to indemnify, defend, and hold harmless Unimatch, its founders, officers, employees, and affiliates from any claims, damages, losses, liabilities, or expenses arising from:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Your participation in Events",
+                "Your conduct at Events",
+                "Any violation of these Terms or applicable law"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "9) Reporting & Cooperation",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch may provide tools to report safety concerns or misconduct. Reporting does not create a duty for Unimatch to intervene or investigate, but we may cooperate with law enforcement or take action at our discretion."
+            }
+          ]
+        },
+        {
+          "heading": "10) Acknowledgment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "By using the Service and participating in Events, you acknowledge that you have read, understood, and agreed to this Safety & Liability Disclaimer and that attendance at Events is entirely voluntary and at your own risk."
+            }
+          ]
+        },
+        {
+          "heading": "11) Contact",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions? Email base.unimatch@gmail.com"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
