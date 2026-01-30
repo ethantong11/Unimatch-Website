@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PrimaryButton from '../components/PrimaryButton'
 
-function NotFound() {
+function NotFoundPage() {
   useEffect(() => {
     document.documentElement.classList.add('no-scroll')
     document.body.classList.add('no-scroll')
@@ -26,4 +26,4 @@ function NotFound() {
   )
 }
 
-export default NotFound
+export default NotFoundPage

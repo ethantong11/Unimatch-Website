@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import supportContent from '../assets/support-content.json'
+import supportContent from '../content/support.json'
 
 function Support() {
   const { meta, sections } = supportContent
