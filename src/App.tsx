@@ -111,8 +111,8 @@ function App() {
         onDone={() => setIsTransitioning(false)}
       />
       <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full">
-        <div className="flex h-full items-center justify-between px-2 sm:px-3">
-          <div className="order-2 sm:order-1">
+        <div className="flex h-full items-center justify-between px-2 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:px-3">
+          <div className="order-2 sm:order-none sm:justify-self-start">
             <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
               <HeaderLogo />
               {displayLocation.pathname === '/support' ? (
@@ -122,10 +122,10 @@ function App() {
               ) : null}
             </div>
           </div>
-          <div className="order-1 sm:order-2">
+          <div className="order-1 sm:order-none sm:justify-self-center">
             <Navigation />
           </div>
-          <div className="order-3">
+          <div className="order-3 sm:order-none sm:justify-self-end">
             <HeaderThemeToggle onToggleTheme={handleThemeToggle} />
           </div>
         </div>
