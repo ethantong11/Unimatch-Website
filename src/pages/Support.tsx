@@ -233,7 +233,7 @@ function Support() {
 
         <a
           href="mailto:base.unimatch@gmail.com"
-          className="mt-16 inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-6 py-3 text-sm tracking-[0.08em] transition hover:border-glass-border-strong hover:bg-glass-hover"
+          className="mt-16 inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-6 py-3 transition hover:border-glass-border-strong hover:bg-glass-hover"
         >
           Need more help? Email us at base.unimatch@gmail.com
         </a>
