@@ -21,7 +21,7 @@ const Hero = () => {
           animate={{ y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h1 className="text-h1plus leading-none -translate-x-3 select-none text-appear">
+          <h1 className="text-h1plus leading-none select-none text-appear">
             Unimatch
           </h1>
         </motion.div>
