@@ -12,8 +12,8 @@ function NotFound() {
         <h1 className="mt-xs whitespace-nowrap text-h1 md:text-h1-md">
           Page not found.
         </h1>
-        <PrimaryButton to="/" size="md" className="mt-md">
-          Back home
+        <PrimaryButton to="/" size="md" className="mt-lg">
+          Back to Home
         </PrimaryButton>
       </section>
     </main>
