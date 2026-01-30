@@ -164,8 +164,8 @@ function Support() {
             </div>
           </div>
         ) : (
-          <div className="mt-6 w-full max-w-5xl sm:mt-12">
-            <div className="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+          <div className="mt-4 w-full max-w-5xl sm:mt-12">
+            <div className="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
               {filteredSections.map((section) => {
                 const isActive = section.title === activeSectionTitle
                 return (

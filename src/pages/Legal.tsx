@@ -70,8 +70,8 @@ function Legal() {
         </aside>
 
         <main className="flex-1">
-          <div className="max-w-3xl p-8 md:p-12">
-            <h2 className="text-h2 md:text-h2-md mb-6">
+          <div className="max-w-5xl px-4 py-8 sm:px-6 md:px-8 md:py-12 lg:px-10">
+            <h2 className="text-h2 md:text-h2-md mb-4">
               {activePolicy.title}
             </h2>
             <section className="mb-8">
