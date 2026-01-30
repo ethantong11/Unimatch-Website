@@ -1,32 +1,21 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
+import useNoScroll from '../hooks/useNoScroll'
 
 const Hero = () => {
-  useEffect(() => {
-    document.documentElement.classList.add('no-scroll')
-    document.body.classList.add('no-scroll')
-
-    return () => {
-      document.documentElement.classList.remove('no-scroll')
-      document.body.classList.remove('no-scroll')
-    }
-  }, [])
+  useNoScroll()
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-transparent text-primary">
-      <div className="relative z-content flex h-screen flex-col">
-        <motion.div
-          className="flex flex-1 items-end justify-center px-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:pb-0"
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
+    <main className="relative min-h-screen overflow-hidden bg-transparent text-primary">
+      {/* Hero layout */}
+      <section className="relative z-content flex h-screen flex-col">
+        <div className="flex flex-1 items-end justify-center pb-[max(2rem,env(safe-area-inset-bottom))] sm:pb-0">
           <h1 className="text-h1plus leading-none select-none text-appear">
             Unimatch
           </h1>
-        </motion.div>
-      </div>
-    </div>
+        </div>
+      </section>
+    </main>
   )
 }
 

@@ -5,10 +5,10 @@ import RouteTransition from './components/RouteTransition'
 import HeaderLogo from './components/HeaderLogo'
 import HeaderThemeToggle from './components/HeaderThemeToggle'
 import Hero from './pages/Hero'
-import Legal from './pages/Legal'
+import Legal from './pages/utility/Legal'
 import Mission from './pages/Mission'
-import Support from './pages/Support'
-import NotFoundPage from './pages/404'
+import Support from './pages/utility/Support'
+import NotFound from './pages/utility/NotFound'
 import Cursor from './components/Cursor'
 
 function App() {
@@ -146,7 +146,7 @@ function App() {
           <Route path="/terms" element={<Navigate to="/legal?policy=terms" replace />} />
           <Route path="/privacy" element={<Navigate to="/legal?policy=privacy" replace />} />
           <Route path="/support" element={<Support />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

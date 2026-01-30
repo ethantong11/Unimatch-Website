@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
-import supportContent from '../content/support.json'
+import { useMemo, useState } from 'react'
+import supportContent from '../../content/support.json'
+import FAQItem from '../../components/FAQItem'
 
 function Support() {
   const { meta, sections } = supportContent
-  const [activeSectionTitle, setActiveSectionTitle] = useState(
+  const [activeSectionId, setActiveSectionId] = useState(
     sections[0]?.title ?? ''
   )
   const [query, setQuery] = useState('')
@@ -72,32 +73,31 @@ function Support() {
       return undefined
     }
     return (
-      filteredSections.find(
-        (section) => section.title === activeSectionTitle
-      ) ?? filteredSections[0]
+      filteredSections.find((section) => section.title === activeSectionId) ??
+      filteredSections[0]
     )
-  }, [activeSectionTitle, filteredSections])
-
-  useEffect(() => {
-    if (!activeSectionTitle && filteredSections[0]) {
-      setActiveSectionTitle(filteredSections[0].title)
-    }
-  }, [activeSectionTitle, filteredSections])
+  }, [activeSectionId, filteredSections])
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-support">
+    <main className="relative min-h-screen overflow-hidden bg-support">
+      {/* Background gradients */}
       <div className="pointer-events-none absolute inset-0 sm:fixed">
         <div className="absolute -left-32 top-[-12rem] hidden h-96 w-96 rounded-full bg-support-splotch-1 blur-[120px] sm:block" />
         <div className="absolute right-[-10rem] bottom-[-14rem] hidden h-[30rem] w-[30rem] rounded-full bg-support-splotch-2 blur-[140px] sm:block" />
         <div className="absolute -left-10 top-6 h-44 w-44 rounded-full bg-support-splotch-3 blur-[70px] sm:hidden" />
       </div>
 
-      <div className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-6 pb-24 pt-20 text-center sm:px-10">
-        <h2 className="mt-16 sm:mt-36 text-h2 md:text-h2-md">
-          How can we help you today?
-        </h2>
+      {/* Support content */}
+      <section className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-6 pb-24 pt-20 text-center sm:px-10">
+        {/* Header */}
+        <header>
+          <h2 className="mt-16 sm:mt-36 text-h2">
+            How can we help you today?
+          </h2>
+        </header>
 
-        <div className="mt-10 w-full max-w-3xl">
+        {/* Search */}
+        <section className="mt-10 w-full max-w-3xl">
           <label className="sr-only" htmlFor="support-search">
             Search support topics
           </label>
@@ -125,10 +125,11 @@ function Support() {
               className="w-full bg-transparent text-primary outline-none placeholder:text-secondary/70 caret-primary"
             />
           </div>
-        </div>
+        </section>
 
+        {/* Search results or categories */}
         {normalizedQuery ? (
-          <div className="mt-12 w-full max-w-5xl text-left">
+          <section className="mt-12 w-full max-w-5xl text-left">
             <div className="rounded-3xl border border-glass-border-strong bg-glass p-4 sm:p-6 sm:backdrop-blur">
               <p className="text-bodysmall text-secondary">
                 Top matches
@@ -136,20 +137,7 @@ function Support() {
               <div className="mt-4 flex flex-col gap-4">
                 {matchedQuestions.length ? (
                   matchedQuestions.map((faq) => (
-                    <details
-                      key={`${faq.q}-${faq.a}`}
-                      className="group rounded-xl border border-primary/10 bg-glass p-3 sm:p-4"
-                    >
-                      <summary className="flex list-none items-center justify-between text-body font-medium">
-                        <span>{faq.q}</span>
-                        <span className="text-lg text-secondary transition-transform duration-300 ease-in-out group-open:rotate-45">
-                          +
-                        </span>
-                      </summary>
-                      <p className="mt-3 text-body text-secondary">
-                        {faq.a}
-                      </p>
-                    </details>
+                    <FAQItem key={`${faq.q}-${faq.a}`} question={faq.q} answer={faq.a} />
                   ))
                 ) : (
                   <p className="text-body text-secondary">
@@ -158,20 +146,20 @@ function Support() {
                 )}
               </div>
             </div>
-          </div>
+          </section>
         ) : (
-          <div className="mt-4 w-full max-w-5xl sm:mt-12">
-            <div className="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+          <section className="mt-4 w-full max-w-5xl sm:mt-12">
+            <nav aria-label="Support categories" className="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
               {filteredSections.map((section) => {
-                const isActive = section.title === activeSectionTitle
+                const isActive = section.title === activeSectionId
                 return (
                   <button
                     key={section.title}
                     type="button"
-                    onClick={() => setActiveSectionTitle(section.title)}
+                    onClick={() => setActiveSectionId(section.title)}
                     aria-pressed={isActive}
                     className={[
-                      'whitespace-nowrap rounded-full border px-3 py-2 text-[11px] font-semibold tracking-[0.08em] transition sm:px-6 sm:py-4 sm:text-sm sm:font-medium',
+                      'whitespace-nowrap rounded-full border px-3 py-2 transition sm:px-6 sm:py-4 sm:text-sm',
                       isActive
                         ? 'border-surface-strong bg-surface-strong text-surface-strong-foreground'
                         : 'border-glass-border-strong bg-glass text-primary hover:border-glass-border-strong hover:bg-glass-hover',
@@ -181,12 +169,13 @@ function Support() {
                   </button>
                 )
               })}
-            </div>
-          </div>
+            </nav>
+          </section>
         )}
 
+        {/* Active category content */}
         {!normalizedQuery && activeSection ? (
-          <div className="mt-8 w-full max-w-5xl text-left sm:mt-14">
+          <section className="mt-8 w-full max-w-5xl text-left sm:mt-14">
             <article className="rounded-3xl border border-glass-border-strong bg-glass p-5 sm:p-8 sm:backdrop-blur">
               <p className="text-bodysmall text-secondary">
                 {activeSection.description}
@@ -202,21 +191,13 @@ function Support() {
                     <div className="mt-4 space-y-4">
                       {[{ q: topic.summary, a: topic.body }, ...topic.faqs].map(
                         (faq) => (
-                          <details
+                          <FAQItem
                             key={faq.q}
-                            data-cursor="hover"
-                            className="group rounded-xl border border-glass-border-strong bg-glass p-3 sm:p-4"
-                          >
-                            <summary className="flex list-none items-center justify-between text-body">
-                              <span>{faq.q}</span>
-                              <span className="text-lg text-secondary transition-transform duration-300 ease-in-out group-open:rotate-45">
-                                +
-                              </span>
-                            </summary>
-                            <p className="mt-3 text-body text-secondary">
-                              {faq.a}
-                            </p>
-                          </details>
+                            question={faq.q}
+                            answer={faq.a}
+                            dataCursor
+                            summaryClassName="font-normal"
+                          />
                         )
                       )}
                     </div>
@@ -224,21 +205,24 @@ function Support() {
                 ))}
               </div>
             </article>
-          </div>
+          </section>
         ) : !normalizedQuery ? (
-          <div className="mt-8 w-full max-w-5xl rounded-3xl border border-glass-border-strong bg-glass p-5 sm:p-8 text-left text-body text-secondary sm:backdrop-blur sm:mt-14">
+          <section className="mt-8 w-full max-w-5xl rounded-3xl border border-glass-border-strong bg-glass p-5 sm:p-8 text-left text-body text-secondary sm:backdrop-blur sm:mt-14">
             No results. Try a different keyword.
-          </div>
+          </section>
         ) : null}
 
-        <a
-          href="mailto:base.unimatch@gmail.com"
-          className="mt-16 inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-6 py-3 transition hover:border-glass-border-strong hover:bg-glass-hover"
-        >
-          Need more help? Email us at base.unimatch@gmail.com
-        </a>
-      </div>
-    </div>
+        {/* Footer CTA */}
+        <footer>
+          <a
+            href="mailto:base.unimatch@gmail.com"
+            className="mt-16 inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-6 py-3 transition hover:border-glass-border-strong hover:bg-glass-hover"
+          >
+            Need more help? Email us at base.unimatch@gmail.com
+          </a>
+        </footer>
+      </section>
+    </main>
   )
 }
 
