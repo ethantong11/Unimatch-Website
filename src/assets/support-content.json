@@ -23,6 +23,10 @@
             {
               "q": "I didn’t receive a verification email—what should I do?",
               "a": "Check spam/junk folders, confirm the email is correct, and request a new code. If it still doesn’t arrive, contact support."
+            },
+            {
+              "q": "Which universities are supported?",
+              "a": "Supported universities and email domains:\nHKUST (@connect.ust.hk)\nHKU (@connect.hku.hk)\nCUHK (@link.cuhk.edu.hk)\nCityU (@my.cityu.edu.hk)\nPolyU (@connect.polyu.hk)\nHKBU (@life.hkbu.edu.hk)\nLU (@ln.hk)\nEdUHK (@s.eduhk.hk)\nHKSYU (@hksyu.edu.hk)\nHSUHK (@hsu.edu.hk)\nHKMU (@live.hkmu.edu.hk)\nSFU (@mail.sfu.edu.hk)"
             }
           ]
         },

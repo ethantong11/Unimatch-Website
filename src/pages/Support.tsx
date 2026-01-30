@@ -144,7 +144,7 @@ function Support() {
                       key={`${faq.q}-${faq.a}`}
                       className="group rounded-xl border border-foreground/10 bg-white/50 p-3 sm:p-4 dark:border-white/10 dark:bg-white/5"
                     >
-                      <summary className="flex cursor-pointer list-none items-center justify-between text-body font-medium">
+                      <summary className="flex list-none items-center justify-between text-body font-medium">
                         <span>{faq.q}</span>
                         <span className="text-lg text-muted-foreground transition-transform duration-200 group-open:rotate-45">
                           +
@@ -211,7 +211,7 @@ function Support() {
                             data-cursor="hover"
                             className="group rounded-xl border border-foreground/10 bg-white/50 p-3 sm:p-4 dark:border-white/10 dark:bg-white/5"
                           >
-                            <summary className="flex cursor-pointer list-none items-center justify-between text-body font-medium">
+                            <summary className="flex list-none items-center justify-between text-body font-medium">
                               <span>{faq.q}</span>
                               <span className="text-lg text-muted-foreground transition-transform duration-200 group-open:rotate-45">
                                 +

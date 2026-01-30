@@ -17,7 +17,7 @@ function Mission() {
       <div className="w-full max-w-7xl text-left">
         <Tag>OUR MISSION</Tag>
         <h1 className="mt-6 text-h1 md:text-h1-md">
-          Our mission to create a one-for-all platform that encapsulates all university social life needs.
+          Our mission is to create a one-for-all platform that encapsulates all university social life needs.
         </h1>
       </div>
     </div>
