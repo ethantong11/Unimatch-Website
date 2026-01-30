@@ -196,7 +196,7 @@ function Support() {
                 {activeSection.topics.map((topic) => (
                   <article
                     key={topic.slug}
-                    className="rounded-2xl border border-primary/10 bg-glass p-4 sm:p-5"
+                    className="rounded-2xl border border-glass-border-strong bg-glass p-4 sm:p-5"
                   >
                     <h3 className="text-h3">{topic.title}</h3>
                     <div className="mt-4 space-y-4">
@@ -205,9 +205,9 @@ function Support() {
                           <details
                             key={faq.q}
                             data-cursor="hover"
-                            className="group rounded-xl border border-primary/10 bg-glass p-3 sm:p-4"
+                            className="group rounded-xl border border-glass-border-strong bg-glass p-3 sm:p-4"
                           >
-                            <summary className="flex list-none items-center justify-between text-body font-medium">
+                            <summary className="flex list-none items-center justify-between text-body">
                               <span>{faq.q}</span>
                               <span className="text-lg text-secondary transition-transform duration-300 ease-in-out group-open:rotate-45">
                                 +
