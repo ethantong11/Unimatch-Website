@@ -18,7 +18,7 @@ function FAQItem({
   return (
     <details
       data-cursor={dataCursor ? 'hover' : undefined}
-      className={['group rounded-xl border border-glass-border-strong bg-glass p-3 sm:p-4', className]
+      className={['group rounded-xl border border-glass-border-strong bg-glass p-sm sm:p-md', className]
         .filter(Boolean)
         .join(' ')}
     >
@@ -35,7 +35,7 @@ function FAQItem({
           +
         </span>
       </summary>
-      <p className="mt-3 text-body text-secondary">{answer}</p>
+      <p className="mt-sm text-body text-secondary">{answer}</p>
     </details>
   )
 }

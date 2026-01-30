@@ -88,20 +88,20 @@ function Support() {
       </div>
 
       {/* Support content */}
-      <section className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-6 pb-24 pt-20 text-center sm:px-10">
+      <section className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-lg pb-5xl pt-4xl text-center sm:px-2xl">
         {/* Header */}
         <header>
-          <h2 className="mt-16 sm:mt-36 text-h2">
+          <h2 className="mt-3xl sm:mt-6xl text-h2">
             How can we help you today?
           </h2>
         </header>
 
         {/* Search */}
-        <section className="mt-10 w-full max-w-3xl">
+        <section className="mt-2xl w-full max-w-3xl">
           <label className="sr-only" htmlFor="support-search">
             Search support topics
           </label>
-          <div className="flex items-center gap-3 rounded-full border border-glass-border bg-glass px-6 py-4 sm:backdrop-blur">
+          <div className="flex items-center gap-sm rounded-full border border-glass-border bg-glass px-lg py-md sm:backdrop-blur">
             <svg
               aria-hidden="true"
               className="h-6 w-6 text-secondary"
@@ -129,12 +129,12 @@ function Support() {
 
         {/* Search results or categories */}
         {normalizedQuery ? (
-          <section className="mt-12 w-full max-w-5xl text-left">
-            <div className="rounded-3xl border border-glass-border-strong bg-glass p-4 sm:p-6 sm:backdrop-blur">
+          <section className="mt-2xl w-full max-w-5xl text-left">
+            <div className="rounded-3xl border border-glass-border-strong bg-glass p-md sm:p-lg sm:backdrop-blur">
               <p className="text-bodysmall text-secondary">
                 Top matches
               </p>
-              <div className="mt-4 flex flex-col gap-4">
+              <div className="mt-md flex flex-col gap-md">
                 {matchedQuestions.length ? (
                   matchedQuestions.map((faq) => (
                     <FAQItem key={`${faq.q}-${faq.a}`} question={faq.q} answer={faq.a} />
@@ -148,8 +148,8 @@ function Support() {
             </div>
           </section>
         ) : (
-          <section className="mt-4 w-full max-w-5xl sm:mt-12">
-            <nav aria-label="Support categories" className="no-scrollbar flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+          <section className="mt-md w-full max-w-5xl sm:mt-2xl">
+            <nav aria-label="Support categories" className="no-scrollbar flex gap-sm overflow-x-auto pb-xs sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
               {filteredSections.map((section) => {
                 const isActive = section.title === activeSectionId
                 return (
@@ -159,7 +159,7 @@ function Support() {
                     onClick={() => setActiveSectionId(section.title)}
                     aria-pressed={isActive}
                     className={[
-                      'whitespace-nowrap rounded-full border px-3 py-2 transition sm:px-6 sm:py-4 sm:text-sm',
+                      'whitespace-nowrap rounded-full border px-sm py-xs transition sm:px-lg sm:py-md sm:text-sm',
                       isActive
                         ? 'border-surface-strong bg-surface-strong text-surface-strong-foreground'
                         : 'border-glass-border-strong bg-glass text-primary hover:border-glass-border-strong hover:bg-glass-hover',
@@ -175,20 +175,20 @@ function Support() {
 
         {/* Active category content */}
         {!normalizedQuery && activeSection ? (
-          <section className="mt-8 w-full max-w-5xl text-left sm:mt-14">
-            <article className="rounded-3xl border border-glass-border-strong bg-glass p-5 sm:p-8 sm:backdrop-blur">
+          <section className="mt-2xl w-full max-w-5xl text-left sm:mt-3xl">
+            <article className="rounded-3xl border border-glass-border-strong bg-glass p-lg sm:p-xl sm:backdrop-blur">
               <p className="text-bodysmall text-secondary">
                 {activeSection.description}
               </p>
-              <h2 className="mt-3 text-h2">{activeSection.title}</h2>
-              <div className="mt-6 flex flex-col gap-4">
+              <h2 className="mt-sm text-h2">{activeSection.title}</h2>
+              <div className="mt-lg flex flex-col gap-md">
                 {activeSection.topics.map((topic) => (
                   <article
                     key={topic.slug}
-                    className="rounded-2xl border border-glass-border-strong bg-glass p-4 sm:p-5"
+                    className="rounded-2xl border border-glass-border-strong bg-glass p-md sm:p-lg"
                   >
                     <h3 className="text-h3">{topic.title}</h3>
-                    <div className="mt-4 space-y-4">
+                    <div className="mt-md space-y-md">
                       {[{ q: topic.summary, a: topic.body }, ...topic.faqs].map(
                         (faq) => (
                           <FAQItem
@@ -207,7 +207,7 @@ function Support() {
             </article>
           </section>
         ) : !normalizedQuery ? (
-          <section className="mt-8 w-full max-w-5xl rounded-3xl border border-glass-border-strong bg-glass p-5 sm:p-8 text-left text-body text-secondary sm:backdrop-blur sm:mt-14">
+          <section className="mt-2xl w-full max-w-5xl rounded-3xl border border-glass-border-strong bg-glass p-lg sm:p-xl text-left text-body text-secondary sm:backdrop-blur sm:mt-3xl">
             No results. Try a different keyword.
           </section>
         ) : null}
@@ -216,7 +216,7 @@ function Support() {
         <footer>
           <a
             href="mailto:base.unimatch@gmail.com"
-            className="mt-16 inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-6 py-3 transition hover:border-glass-border-strong hover:bg-glass-hover"
+            className="mt-3xl inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-lg py-sm transition hover:border-glass-border-strong hover:bg-glass-hover"
           >
             Need more help? Email us at base.unimatch@gmail.com
           </a>

@@ -110,13 +110,13 @@ function App() {
         onCover={() => setDisplayLocation(pendingLocation)}
         onDone={() => setIsTransitioning(false)}
       />
-      <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full">
-        <div className="flex h-full items-center justify-between px-2 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:px-3">
+      <div className="app-header fixed top-md left-xs right-xs z-header rounded-full">
+        <div className="flex h-full items-center justify-between px-xs sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:px-sm">
           <div className="order-2 sm:order-none sm:justify-self-start">
-            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-xs">
               <HeaderLogo />
               {displayLocation.pathname === '/support' ? (
-                <span className="mt-1 text-[10px] leading-none uppercase tracking-[0.2em] text-primary/80 sm:mt-0 sm:text-xs">
+                <span className="mt-xs text-[10px] leading-none uppercase tracking-[0.2em] text-primary/80 sm:mt-0 sm:text-xs">
                   Support Center
                 </span>
               ) : null}

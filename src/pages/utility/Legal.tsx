@@ -38,13 +38,13 @@ function Legal() {
   }
 
   return (
-    <div className="relative min-h-screen mx-auto flex-col gap-8 py-24 sm:px-4 lg:px-6 lg:pl-[calc(16rem+2rem)]">
+    <div className="relative min-h-screen mx-auto flex-col gap-2xl py-5xl sm:px-md lg:px-lg lg:pl-[calc(16rem+2rem)]">
         <aside
           className="fixed left-4 right-4 z-10 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] lg:fixed lg:left-auto lg:right-auto lg:top-44 lg:bottom-auto lg:w-64"
           style={{ left: 'max(1.5rem, calc(50% - 700px))' }}
         >
-          <div className="rounded-[2rem] border border-outline-subtle bg-glass-subtle p-1.5 backdrop-blur-md lg:border-transparent lg:bg-transparent lg:backdrop-blur-0 lg:rounded-none lg:p-0">
-            <div className="flex flex-row flex-wrap gap-2 lg:flex-col">
+          <div className="rounded-[2rem] border border-outline-subtle bg-glass-subtle p-xs backdrop-blur-md lg:border-transparent lg:bg-transparent lg:backdrop-blur-0 lg:rounded-none lg:p-0">
+            <div className="flex flex-row flex-wrap gap-xs lg:flex-col">
               {policies.map((policy) => {
                 const isActive = policy.id === activePolicy.id
                 return (
@@ -52,7 +52,7 @@ function Legal() {
                     key={policy.id}
                     type="button"
                     onClick={() => handlePolicyChange(policy.id)}
-                    className={`flex-1 rounded-[1.25rem] px-2.5 py-2 text-center text-sm transition-colors lg:flex-none lg:text-left ${
+                    className={`flex-1 rounded-[1.25rem] px-sm py-xs text-center text-sm transition-colors lg:flex-none lg:text-left ${
                       isActive
                         ? 'bg-primary text-background'
                         : 'text-primary/60 hover:text-primary'
@@ -68,10 +68,10 @@ function Legal() {
           </div>
         </aside>
 
-        <main className="max-w-5xl px-4 sm:px-6 md:px-8 md:py-12 lg:px-10">
+        <main className="max-w-5xl px-md sm:px-lg md:px-xl md:py-2xl lg:px-2xl">
           {/* Header Section */}
-          <section className="mb-10">
-            <h2 className="text-h2 mb-2">
+          <section className="mb-2xl">
+            <h2 className="text-h2 mb-xs">
               {activePolicy.title}
             </h2>
             <Tag>
@@ -82,9 +82,9 @@ function Legal() {
           {/* Policy Content */}
           <section className="max-w-3xl">
             {activePolicy.sections.map((section) => (
-              <section key={section.heading} className="mb-8">
-                <h2 className="text-h3 mb-3">{section.heading}</h2>
-                <div className="space-y-4">
+              <section key={section.heading} className="mb-2xl">
+                <h2 className="text-h3 mb-sm">{section.heading}</h2>
+                <div className="space-y-md">
                   {section.blocks.map((block, index) => {
                     if (block.type === 'paragraph') {
                       return (
@@ -112,7 +112,7 @@ function Legal() {
                       return (
                         <ol
                           key={`${section.heading}-ol-${index}`}
-                          className="list-decimal list-inside text-body space-y-1 ml-4"
+                          className="list-decimal list-inside text-body space-y-xs ml-md"
                         >
                           {block.items.map((item) => (
                             <li key={item}>{item}</li>
@@ -124,7 +124,7 @@ function Legal() {
                     return (
                       <ul
                         key={`${section.heading}-ul-${index}`}
-                        className="list-disc list-inside text-body space-y-1 ml-4"
+                        className="list-disc list-inside text-body space-y-xs ml-md"
                       >
                         {block.items.map((item) => (
                           <li key={item}>{item}</li>

@@ -28,7 +28,7 @@ function Navigation() {
   }, [])
 
   return (
-    <nav className="relative px-0 sm:px-4">
+    <nav className="relative px-0 sm:px-md">
       <button
         type="button"
         aria-label="Open menu"
@@ -37,12 +37,12 @@ function Navigation() {
         onClick={() => setIsOpen((prev) => !prev)}
         className="sm:hidden inline-flex h-10 w-10 items-center justify-center"
       >
-        <span className="flex flex-col gap-1">
+        <span className="flex flex-col gap-xs">
           <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-primary" />
           <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-primary" />
         </span>
       </button>
-      <div className="hidden sm:flex h-11 items-center space-x-6 text-bodysmall bg-glass-subtle backdrop-blur-md border border-outline-subtle rounded-full p-1 pl-4">
+      <div className="hidden sm:flex items-center space-x-lg text-bodysmall bg-glass-subtle backdrop-blur-md border border-outline-subtle rounded-full p-xs pl-md">
         {navItems.map(({ to, label }) => (
           <NavLink
             key={to}
@@ -76,8 +76,8 @@ function Navigation() {
             aria-hidden={!isOpen}
             className={`menu-overlay sm:hidden z-menu ${isOpen ? 'active' : ''}`}
           >
-            <div className="flex h-full flex-col justify-center px-8">
-              <div className="flex flex-col space-y-4 text-3xl text-menu-foreground">
+            <div className="flex h-full flex-col justify-center px-xl">
+              <div className="flex flex-col space-y-md text-3xl text-menu-foreground">
                 {navItems.map(({ to, label }) => (
                   <NavLink
                     key={to}
