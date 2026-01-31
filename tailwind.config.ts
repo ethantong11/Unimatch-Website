@@ -15,7 +15,7 @@ export default {
     },
     extend: {
       spacing: {
-        xs: "0.5rem",
+        xs: "0.3rem",
         sm: "0.75rem",
         md: "1rem",
         lg: "1.5rem",
