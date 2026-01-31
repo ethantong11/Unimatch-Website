@@ -65,8 +65,8 @@ export default {
         h1plus: ["clamp(4rem, 23vw, 25rem)", { lineHeight: "0.7", fontWeight: "400", letterSpacing: "-0.08em" }],
         h1: ["clamp(2.25rem, 7vw, 15rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.03em"  }],
         h2: ["clamp(1.8rem, 3vw, 10rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.03em"  }],
-        h3: ["1.2rem", { lineHeight: "1.35", fontWeight: "400", letterSpacing: "0.02em"  }],
-        body: ["1rem", { lineHeight: "1.4", letterSpacing: "0.02em", fontWeight: "350" }],
+        h3: ["clamp(1.2rem, 2vw, 6rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "0.02em"  }],
+        body: ["clamp(1rem, 1vw, 3rem)", { lineHeight: "1.4", fontWeight: "350" }],
         bodysmall: ["0.775rem", { lineHeight: "1.3", letterSpacing: "0.02em", fontWeight: "350" }],
       },
       borderRadius: {

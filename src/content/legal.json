@@ -322,7 +322,16 @@
           ]
         },
         {
-          "heading": "15) Contact",
+          "heading": "15) Accessibility Statement",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Unimatch is committed to providing an accessible experience for all users. We are continually working to improve the usability and accessibility of our app and website. If you experience any accessibility issues or have suggestions, please contact us at base.unimatch@gmail.com."
+            }
+          ]
+        },
+        {
+          "heading": "16) Contact",
           "blocks": [
             {
               "type": "paragraph",
@@ -352,8 +361,8 @@
             {
               "type": "list",
               "items": [
-                "Account & Profile: name or nickname, email, date of birth/age, gender, preferences, religion, photos, bio.",
-                "Usage & Interactions: matches, messages, reports, and in-app actions.",
+                "Account & Profile: name or nickname, email, place of study, degree, date of birth/age, gender, sexual orientation, interests, religion, photos",
+                "Usage & Interactions: matches, chat messages, shot messages, reports, and in-app actions.",
                 "Device & Technical: IP address, device identifiers, OS and app version, diagnostics, crash logs.",
                 "Location: coarse or precise location for nearby matching if you grant permission.",
                 "Payments: if/when enabled, processed by Apple/Google; we receive tokens/receipts, not full card details."
@@ -367,7 +376,7 @@
             {
               "type": "list",
               "items": [
-                "Provide, operate, and personalize the Service (Auto matching, Shots).",
+                "Provide, operate, and personalize the Service (Auto matching, Shots, Events).",
                 "Safety, security, moderation, and fraud prevention.",
                 "Service analytics and improvement.",
                 "Communications about updates, features, and support.",
@@ -491,7 +500,16 @@
       "effectiveDate": "Jan 30, 2026",
       "sections": [
         {
-          "heading": "1) Nature of Events",
+          "heading": "1) Introduction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This Safety & Liability Disclaimer explains important information about Events associated with Unimatch. Please read it carefully before attending or participating in any Event."
+            }
+          ]
+        },
+        {
+          "heading": "2) Nature of Events",
           "blocks": [
             {
               "type": "paragraph",
@@ -500,7 +518,7 @@
           ]
         },
         {
-          "heading": "2) Assumption of Risk",
+          "heading": "3) Assumption of Risk",
           "blocks": [
             {
               "type": "paragraph",
@@ -509,28 +527,16 @@
           ]
         },
         {
-          "heading": "3) No Guarantee of Safety or Conduct",
+          "heading": "4) No Guarantee of Safety or Conduct",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Unimatch does not guarantee:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "The safety, legality, or appropriateness of any Event",
-                "The behavior, actions, or intentions of any attendee, host, or third party",
-                "That Events will be supervised, monitored, or moderated in real time"
-              ]
-            },
-            {
-              "type": "paragraph",
-              "text": "All interactions at Events occur solely between users and/or third parties, and participation is entirely at your own discretion and risk."
+              "text": "Unimatch does not guarantee the safety, legality, or suitability of attending any in-person event listed or promoted through the platform. While Unimatch may curate or organize certain events, Unimatch does not supervise, monitor, or control attendee behavior or real-time event conditions."
             }
           ]
         },
         {
-          "heading": "4) Third-Party Venues & Hosts",
+          "heading": "5) Third-Party Venues & Hosts",
           "blocks": [
             {
               "type": "paragraph",
@@ -552,7 +558,7 @@
           ]
         },
         {
-          "heading": "5) Alcohol, Substances, and Legal Compliance",
+          "heading": "6) Alcohol, Substances, and Legal Compliance",
           "blocks": [
             {
               "type": "paragraph",
@@ -573,7 +579,7 @@
           ]
         },
         {
-          "heading": "6) Personal Responsibility",
+          "heading": "7) Personal Responsibility",
           "blocks": [
             {
               "type": "paragraph",
@@ -595,7 +601,7 @@
           ]
         },
         {
-          "heading": "7) Limitation of Liability",
+          "heading": "8) Limitation of Liability",
           "blocks": [
             {
               "type": "paragraph",
@@ -604,7 +610,7 @@
           ]
         },
         {
-          "heading": "8) Indemnification",
+          "heading": "9) Indemnification",
           "blocks": [
             {
               "type": "paragraph",
@@ -621,7 +627,7 @@
           ]
         },
         {
-          "heading": "9) Reporting & Cooperation",
+          "heading": "10) Reporting & Cooperation",
           "blocks": [
             {
               "type": "paragraph",
@@ -630,7 +636,7 @@
           ]
         },
         {
-          "heading": "10) Acknowledgment",
+          "heading": "11) Acknowledgment",
           "blocks": [
             {
               "type": "paragraph",
@@ -639,7 +645,7 @@
           ]
         },
         {
-          "heading": "11) Contact",
+          "heading": "12) Contact",
           "blocks": [
             {
               "type": "paragraph",
