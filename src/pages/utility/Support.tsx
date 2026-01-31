@@ -1,6 +1,93 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import supportContent from '../../content/support.json'
 import FAQItem from '../../components/FAQItem'
+
+const TERMS_QUESTION = 'Where can I read the full terms of service?'
+const PRIVACY_QUESTION = 'Where can I read the Privacy Policy?'
+const EVENTS_QUESTION = 'Where can I read the Events disclaimer?'
+
+const normalize = (text: string) =>
+  text.toLowerCase().trim().replace(/\s+/g, ' ')
+
+const tokenize = (query: string) =>
+  normalize(query)
+    .split(' ')
+    .filter((term) => term.length > 1)
+
+const matchesAllTerms = (searchable: string, terms: string[]) =>
+  terms.every((term) => searchable.includes(term))
+
+const scoreMatch = (
+  parts: {
+    title: string
+    question: string
+    answer: string
+    sectionTitle: string
+    sectionDescription: string
+  },
+  terms: string[],
+  normalizedQuery: string
+) => {
+  const scoreFor = (text: string, weight: number) =>
+    terms.reduce(
+      (score, term) => (text.includes(term) ? score + weight : score),
+      0
+    )
+
+  const phraseBonus = Object.values(parts).some((text) =>
+    text.includes(normalizedQuery)
+  )
+
+  return (
+    scoreFor(parts.title, 5) +
+    scoreFor(parts.question, 3) +
+    scoreFor(parts.answer, 1) +
+    scoreFor(parts.sectionTitle, 4) +
+    scoreFor(parts.sectionDescription, 2) +
+    (phraseBonus ? 6 : 0)
+  )
+}
+
+const renderAnswer = (question: string, answer: string) => {
+  if (question === TERMS_QUESTION) {
+    return (
+      <>
+        You can access them from the app settings or our website{' '}
+        <Link className="underline" to="/legal?policy=terms">
+          here
+        </Link>
+        .
+      </>
+    )
+  }
+
+  if (question === PRIVACY_QUESTION) {
+    return (
+      <>
+        You can access it from the app settings or our website{' '}
+        <Link className="underline" to="/legal?policy=privacy">
+          here
+        </Link>
+        .
+      </>
+    )
+  }
+
+  if (question === EVENTS_QUESTION) {
+    return (
+      <>
+        You can access it from the app settings or our website{' '}
+        <Link className="underline" to="/legal?policy=events-disclaimer">
+          here
+        </Link>
+        .
+      </>
+    )
+  }
+
+  return answer
+}
 
 function Support() {
   const { meta, sections } = supportContent
@@ -9,30 +96,111 @@ function Support() {
   )
   const [query, setQuery] = useState('')
 
-  const normalizedQuery = query.trim().toLowerCase()
+  const normalizedQuery = normalize(query)
+
+  const cards = useMemo(() => {
+    return sections.flatMap((section) => {
+      return section.topics.flatMap((topic) => {
+        const topicFaqs = (topic.faqs ?? []).map((faq) => ({
+          q: faq.q,
+          a: faq.a,
+        }))
+
+        return topicFaqs.map((card) => {
+          const searchable = normalize(
+            [
+              card.q,
+              card.a,
+              topic.title,
+              section.title,
+              section.description,
+            ].join(' ')
+          )
+
+          return {
+            ...card,
+            sectionTitle: section.title,
+            sectionDescription: section.description,
+            topicTitle: topic.title,
+            slug: topic.slug,
+            searchable,
+          }
+        })
+      })
+    })
+  }, [sections])
+
+  const rankedCards = useMemo(() => {
+    if (!normalizedQuery) {
+      return []
+    }
+
+    const terms = tokenize(normalizedQuery)
+    const matches = cards
+      .filter((card) => matchesAllTerms(card.searchable, terms))
+      .map((card) => {
+        const score = scoreMatch(
+          {
+            title: normalize(card.topicTitle),
+            question: normalize(card.q),
+            answer: normalize(card.a),
+            sectionTitle: normalize(card.sectionTitle),
+            sectionDescription: normalize(card.sectionDescription),
+          },
+          terms,
+          normalizedQuery
+        )
+
+        const phraseMatch = card.searchable.includes(normalizedQuery)
+        return { ...card, score, phraseMatch }
+      })
+      .sort((a, b) => {
+        if (a.phraseMatch !== b.phraseMatch) {
+          return a.phraseMatch ? -1 : 1
+        }
+        if (b.score !== a.score) {
+          return b.score - a.score
+        }
+        return a.q.length - b.q.length
+      })
+
+    const seen = new Set<string>()
+    const deduped = []
+
+    for (const match of matches) {
+      const key = `${match.sectionTitle}|||${match.slug}|||${match.q}|||${match.a}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      deduped.push(match)
+      if (deduped.length >= 20) break
+    }
+
+    return deduped
+  }, [cards, normalizedQuery])
 
   const filteredSections = useMemo(() => {
     if (!normalizedQuery) {
       return sections
     }
 
+    const terms = tokenize(normalizedQuery)
+
     return sections
       .map((section) => {
-        const matchedTopics = section.topics.filter((topic) => {
-          const searchable = [
-            topic.title,
-            topic.summary,
-            topic.body,
-            ...(topic.faqs?.flatMap((faq) => [faq.q, faq.a]) ?? []),
-          ]
-            .join(' ')
-            .toLowerCase()
-          return searchable.includes(normalizedQuery)
-        })
+        const sectionSearchable = normalize(
+          [section.title, section.description].join(' ')
+        )
+        const sectionMatches = matchesAllTerms(sectionSearchable, terms)
 
-        const sectionMatches =
-          section.title.toLowerCase().includes(normalizedQuery) ||
-          section.description.toLowerCase().includes(normalizedQuery)
+        const matchedTopics = section.topics.filter((topic) => {
+          const topicSearchable = normalize(
+            [
+              topic.title,
+              ...(topic.faqs ?? []).flatMap((faq) => [faq.q, faq.a]),
+            ].join(' ')
+          )
+          return matchesAllTerms(topicSearchable, terms)
+        })
 
         if (sectionMatches || matchedTopics.length > 0) {
           return {
@@ -46,28 +214,6 @@ function Support() {
       .filter(Boolean) as typeof sections
   }, [normalizedQuery, sections])
 
-  const matchedQuestions = useMemo(() => {
-    if (!normalizedQuery) {
-      return []
-    }
-
-    const matches: Array<{ q: string; a: string }> = []
-
-    filteredSections.forEach((section) => {
-      section.topics.forEach((topic) => {
-        const topicFaqs = [{ q: topic.summary, a: topic.body }, ...topic.faqs]
-        topicFaqs.forEach((faq) => {
-          const searchable = `${faq.q} ${faq.a}`.toLowerCase()
-          if (searchable.includes(normalizedQuery)) {
-            matches.push({ q: faq.q, a: faq.a })
-          }
-        })
-      })
-    })
-
-    return matches
-  }, [filteredSections, normalizedQuery])
-
   const activeSection = useMemo(() => {
     if (!filteredSections.length) {
       return undefined
@@ -78,8 +224,16 @@ function Support() {
     )
   }, [activeSectionId, filteredSections])
 
+  useEffect(() => {
+    if (!normalizedQuery) {
+      if (!filteredSections.some((section) => section.title === activeSectionId)) {
+        setActiveSectionId(filteredSections[0]?.title ?? '')
+      }
+    }
+  }, [normalizedQuery, filteredSections, activeSectionId])
+
   return (
-    <main className="relative min-h-screen overflow-hidden bg-support">
+    <div className="relative min-h-screen overflow-hidden bg-support">
       {/* Background gradients */}
       <div className="pointer-events-none absolute inset-0 sm:fixed">
         <div className="absolute -left-32 top-[-12rem] hidden h-96 w-96 rounded-full bg-support-splotch-1 blur-[120px] sm:block" />
@@ -88,7 +242,7 @@ function Support() {
       </div>
 
       {/* Support content */}
-      <section className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-lg pb-5xl pt-4xl text-center sm:px-2xl">
+      <main className="relative z-content mx-auto flex min-h-screen max-w-6xl flex-col items-center px-md pt-4xl pb-4xl text-center">
         {/* Header */}
         <header>
           <h2 className="mt-3xl sm:mt-6xl text-h2">
@@ -138,9 +292,13 @@ function Support() {
                 Top matches
               </p>
               <div className="mt-md flex flex-col gap-md">
-                {matchedQuestions.length ? (
-                  matchedQuestions.map((faq) => (
-                    <FAQItem key={`${faq.q}-${faq.a}`} question={faq.q} answer={faq.a} />
+                {rankedCards.length ? (
+                  rankedCards.map((card) => (
+                    <FAQItem
+                      key={`${card.sectionTitle}-${card.slug}-${card.q}`}
+                      question={card.q}
+                      answer={renderAnswer(card.q, card.a)}
+                    />
                   ))
                 ) : (
                   <p className="text-body text-secondary">
@@ -162,7 +320,7 @@ function Support() {
                     onClick={() => setActiveSectionId(section.title)}
                     aria-pressed={isActive}
                     className={[
-                      'whitespace-nowrap rounded-full border px-sm py-xs transition sm:px-lg sm:py-md sm:text-sm',
+                      'whitespace-nowrap rounded-full border px-sm py-xs text-bodysmall transition sm:px-lg sm:py-md sm:text-body',
                       isActive
                         ? 'border-surface-strong bg-surface-strong text-surface-strong-foreground'
                         : 'border-glass-border-strong bg-glass text-primary hover:border-glass-border-strong hover:bg-glass-hover',
@@ -179,7 +337,7 @@ function Support() {
         {/* Active category content */}
         {!normalizedQuery && activeSection ? (
           <section className="mt-2xl w-full max-w-5xl text-left sm:mt-3xl">
-            <article className="rounded-3xl border border-glass-border-strong bg-glass p-lg sm:p-xl sm:backdrop-blur">
+            <article className="rounded-3xl border border-glass-border-strong bg-glass p-md sm:p-lg sm:backdrop-blur">
               <p className="text-bodysmall text-secondary">
                 {activeSection.description}
               </p>
@@ -192,17 +350,15 @@ function Support() {
                   >
                     <h3 className="text-h3">{topic.title}</h3>
                     <div className="mt-md space-y-md">
-                      {[{ q: topic.summary, a: topic.body }, ...topic.faqs].map(
-                        (faq) => (
-                          <FAQItem
-                            key={faq.q}
-                            question={faq.q}
-                            answer={faq.a}
-                            dataCursor
-                            summaryClassName="font-normal"
-                          />
-                        )
-                      )}
+                      {(topic.faqs ?? []).map((faq) => (
+                        <FAQItem
+                          key={faq.q}
+                          question={faq.q}
+                          answer={renderAnswer(faq.q, faq.a)}
+                          dataCursor
+                          summaryClassName="font-normal"
+                        />
+                      ))}
                     </div>
                   </article>
                 ))}
@@ -219,13 +375,13 @@ function Support() {
         <footer>
           <a
             href="mailto:base.unimatch@gmail.com"
-            className="mt-3xl inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-lg py-sm transition hover:border-glass-border-strong hover:bg-glass-hover"
+            className="mt-3xl inline-flex items-center justify-center rounded-full border border-glass-border-strong bg-glass px-lg py-sm text-body transition hover:border-glass-border-strong hover:bg-glass-hover"
           >
             Need more help? Email us at base.unimatch@gmail.com
           </a>
         </footer>
-      </section>
-    </main>
+      </main>
+    </div>
   )
 }
 

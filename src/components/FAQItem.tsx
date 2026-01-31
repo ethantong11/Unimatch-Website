@@ -2,7 +2,7 @@ import React from 'react'
 
 type FAQItemProps = {
   question: string
-  answer: string
+  answer: React.ReactNode
   className?: string
   dataCursor?: boolean
   summaryClassName?: string
