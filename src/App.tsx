@@ -5,10 +5,10 @@ import RouteTransition from './components/RouteTransition'
 import HeaderLogo from './components/HeaderLogo'
 import HeaderThemeToggle from './components/HeaderThemeToggle'
 import Hero from './pages/Hero'
-import Legal from './pages/Legal'
+import Legal from './pages/utility/Legal'
 import Mission from './pages/Mission'
-import Support from './pages/Support'
-import NotFound from './pages/NotFound'
+import Support from './pages/utility/Support'
+import NotFound from './pages/utility/NotFound'
 import Cursor from './components/Cursor'
 
 function App() {
@@ -103,20 +103,20 @@ function App() {
   }
 
   return (
-    <div className="App relative min-h-screen bg-white text-[#0c0c0c] font-sans font-medium overflow-x-hidden cursor-none dark:bg-[#0c0c0c] dark:text-[#f5f5f5]">
+    <div className="App relative min-h-screen bg-background text-primary font-sans font-medium overflow-x-hidden cursor-none">
       <Cursor />
       <RouteTransition
         active={isTransitioning}
         onCover={() => setDisplayLocation(pendingLocation)}
         onDone={() => setIsTransitioning(false)}
       />
-      <div className="app-header fixed top-4 left-2 right-2 z-header rounded-full">
-        <div className="flex h-full items-center justify-between px-2 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:px-3">
+      <div className="app-header fixed top-md left-xs right-xs z-header rounded-full">
+        <div className="flex h-full items-center justify-between px-xs sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:px-sm">
           <div className="order-2 sm:order-none sm:justify-self-start">
-            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-xs">
               <HeaderLogo />
               {displayLocation.pathname === '/support' ? (
-                <span className="mt-1 text-[10px] leading-none uppercase tracking-[0.2em] text-[#0c0c0c]/80 dark:text-white/80 sm:mt-0 sm:text-xs">
+                <span className="mt-xs text-[10px] leading-none uppercase tracking-[0.2em] text-primary/80 sm:mt-0 sm:text-xs">
                   Support Center
                 </span>
               ) : null}

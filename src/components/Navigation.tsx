@@ -28,7 +28,7 @@ function Navigation() {
   }, [])
 
   return (
-    <nav className="relative px-0 sm:px-4">
+    <nav className="relative px-0 sm:px-md">
       <button
         type="button"
         aria-label="Open menu"
@@ -37,12 +37,12 @@ function Navigation() {
         onClick={() => setIsOpen((prev) => !prev)}
         className="sm:hidden inline-flex h-10 w-10 items-center justify-center"
       >
-        <span className="flex flex-col gap-1">
-          <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-[#0c0c0c] dark:bg-white" />
-          <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-[#0c0c0c] dark:bg-white" />
+        <span className="flex flex-col gap-xs">
+          <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-primary" />
+          <span className="menu-toggle-line h-0.5 w-5 rounded-full bg-primary" />
         </span>
       </button>
-      <div className="hidden sm:flex h-11 items-center space-x-6 text-bodysmall bg-white/30 dark:bg-white/10 backdrop-blur-md border border-black/5 dark:border-white/10 rounded-full p-1 pl-4 shadow-sm">
+      <div className="hidden sm:flex items-center space-x-lg text-bodysmall bg-glass-subtle backdrop-blur-md border border-outline-subtle rounded-full p-xs pl-md">
         {navItems.map(({ to, label }) => (
           <NavLink
             key={to}
@@ -52,8 +52,8 @@ function Navigation() {
             {({ isActive }) => (
               <span className={
                 isActive
-                  ? 'text-[#0c0c0c] dark:text-white'
-                  : 'text-[#0c0c0c]/35 hover:text-[#0c0c0c]/70 dark:text-white/35 dark:hover:text-white/70'
+                  ? 'text-primary'
+                  : 'text-secondary hover:text-primary'
               }>
                 {label}
               </span>
@@ -76,14 +76,14 @@ function Navigation() {
             aria-hidden={!isOpen}
             className={`menu-overlay sm:hidden z-menu ${isOpen ? 'active' : ''}`}
           >
-            <div className="flex h-full flex-col justify-center px-8">
-              <div className="flex flex-col space-y-4 text-3xl text-white">
+            <div className="flex h-full flex-col justify-center px-xl">
+              <div className="flex flex-col space-y-md text-3xl text-menu-foreground">
                 {navItems.map(({ to, label }) => (
                   <NavLink
                     key={to}
                     to={to}
                     onClick={() => setIsOpen(false)}
-                    className="text-white/80 transition-colors duration-150 hover:text-white"
+                    className="text-menu-foreground/80 transition-colors duration-150 hover:text-menu-foreground"
                   >
                     {label}
                   </NavLink>
@@ -93,7 +93,7 @@ function Navigation() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="text-white/80 transition-colors duration-150 hover:text-white"
+                  className="text-menu-foreground/80 transition-colors duration-150 hover:text-menu-foreground"
                 >
                   Join Now
                 </a>

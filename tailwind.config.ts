@@ -14,6 +14,18 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        xs: "0.3rem",
+        sm: "0.75rem",
+        md: "1rem",
+        lg: "1.5rem",
+        xl: "2rem",
+        "2xl": "3rem",
+        "3xl": "4rem",
+        "4xl": "5rem",
+        "5xl": "6rem",
+        "6xl": "8rem",
+      },
       zIndex: {
         // Semantic layering scale.
         background: "0",
@@ -25,51 +37,24 @@ export default {
       },
       colors: {
         // CSS-variable driven color system.
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(280 80% 70%)",
-          dark: "hsl(280 70% 40%)",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        background: "var(--background)",
+        border: "var(--border)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        surface: "var(--surface)",
+        "surface-strong": "var(--surface-strong)",
+        "surface-strong-foreground": "var(--surface-strong-foreground)",
+        glass: "var(--glass-surface)",
+        "glass-subtle": "var(--glass-surface-subtle)",
+        "glass-hover": "var(--glass-surface-hover)",
+        "glass-border": "var(--glass-border)",
+        "glass-border-strong": "var(--glass-border-strong)",
+        "outline-subtle": "var(--outline-subtle)",
+        "menu-foreground": "var(--menu-foreground)",
+        support: "var(--support-bg)",
+        "support-splotch-1": "var(--support-splotch-1)",
+        "support-splotch-2": "var(--support-splotch-2)",
+        "support-splotch-3": "var(--support-splotch-3)",
       },
       fontFamily: {
         // Global font stack; used via `font-sans`.
@@ -78,9 +63,9 @@ export default {
       fontSize: {
         // Semantic type scale.
         h1plus: ["clamp(4rem, 23vw, 25rem)", { lineHeight: "0.7", fontWeight: "400", letterSpacing: "-0.08em" }],
-        h1: ["clamp(2.25rem, 7vw, 15rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.05em"  }],
-        h2: ["clamp(1.5rem, 3vw, 10rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.05em"  }],
-        h3: ["1.3rem", { lineHeight: "1.35", fontWeight: "400" }],
+        h1: ["clamp(2.25rem, 7vw, 15rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.03em"  }],
+        h2: ["clamp(1.8rem, 3vw, 10rem)", { lineHeight: "1.15", fontWeight: "400", letterSpacing: "-0.03em"  }],
+        h3: ["1.2rem", { lineHeight: "1.35", fontWeight: "400", letterSpacing: "0.02em"  }],
         body: ["1rem", { lineHeight: "1.4", letterSpacing: "0.02em", fontWeight: "350" }],
         bodysmall: ["0.775rem", { lineHeight: "1.3", letterSpacing: "0.02em", fontWeight: "350" }],
       },
@@ -90,49 +75,14 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        // Accordion animations (Radix).
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-      },
-      animation: {
-        // Accordion animation shortcuts.
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
     },
   },
   // Tailwind plugins and shared component utilities.
   plugins: [
     require("tailwindcss-animate"),
     function ({ addComponents, addUtilities }: PluginAPI) {
-      addComponents({
-        ".bg-top-splotches": {
-          backgroundImage:
-            "radial-gradient(95% 105% at 12% 0%, rgba(222, 11, 197, 0.75) 0%, rgba(222, 11, 197, 0) 75%), radial-gradient(100% 110% at 50% -2%, rgba(222, 11, 197, 0.6) 0%, rgba(222, 11, 197, 0) 76%), radial-gradient(105% 115% at 88% 0%, rgba(255, 106, 0, 0.75) 0%, rgba(255, 106, 0, 0) 75%)",
-          transform: "translateZ(0)",
-        },
-      });
-      addUtilities({
-        ".text-bodysmall": {
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-        },
-      });
+      addComponents({});
+      addUtilities({});
     },
   ],
 } satisfies Config;

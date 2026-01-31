@@ -1,0 +1,424 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
+@layer base {
+  :root {
+    --background: #ffffff;
+    --border: #e6e6e6;
+
+    --primary: #121212;
+    --secondary: #00000060;
+
+    --surface: #ffffff;
+    --surface-strong: #121212;
+    --surface-strong-foreground: #ffffff;
+
+    --glass-surface: #ffffff80;
+    --glass-surface-subtle: #ffffff4d;
+    --glass-surface-hover: #ffffffb3;
+    --glass-border: #ffffff99;
+    --glass-border-strong: #ffffffb3;
+    --outline-subtle: #0000000d;
+
+    --support-bg: #f6f2ee;
+    --support-splotch-1: #caa8ff80;
+    --support-splotch-2: #c599ffb3;
+    --support-splotch-3: #caa8ff80;
+
+    --menu-overlay-bg: #0a0a0a;
+    --menu-header-foreground: #ffffff;
+    --menu-foreground: #ffffff;
+
+    --selection-bg: #000000;
+    --selection-text: #ffffff;
+
+    --cursor-color: #ffffff;
+
+
+    --primary-button-bg: #121212;
+    --primary-button-text: #ffffff;
+    --primary-button-bg-hover: #121212d9;
+
+    --bg-splotch-1: #de0bc5bf;
+    --bg-splotch-2: #de0bc599;
+    --bg-splotch-3: #ff6a00bf;
+  }
+
+  .dark {
+    --background: #0d0d0d;
+    --border: #1d283a;
+
+    --primary: #ffffff;
+    --secondary: #ffffff90;
+    
+    --surface: #ffffff;
+    --surface-strong: #ffffff;
+    --surface-strong-foreground: #0d0d0d;
+
+    --glass-surface: #ffffff0d;
+    --glass-surface-subtle: #ffffff1a;
+    --glass-surface-hover: #ffffff1a;
+    --glass-border: #ffffff1a;
+    --glass-border-strong: #ffffff1a;
+    --outline-subtle: #ffffff1a;
+
+    --support-bg: #0d0d0d;
+    --support-splotch-1: #4b2a7a80;
+    --support-splotch-2: #4b2a7acc;
+    --support-splotch-3: #4b2a7a80;
+
+    --menu-overlay-bg: #0a0a0a;
+    --menu-header-foreground: #ffffff;
+    --menu-foreground: #ffffff;
+
+    --selection-bg: #ffffff;
+    --selection-text: #000000;
+    
+    --cursor-color: #ffffff;
+    
+    --primary-button-bg: #ffffff;
+    --primary-button-text: #121212;
+    --primary-button-bg-hover: #ffffffd9;
+
+    --bg-splotch-1: #de0bc5bf;
+    --bg-splotch-2: #de0bc599;
+    --bg-splotch-3: #ff6a00bf;
+  }
+
+  /* ============================================================
+     FONTS
+     ============================================================ */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ============================================================
+     SELECTION
+     ============================================================ */
+  ::selection {
+    background: var(--selection-bg);
+    color: var(--selection-text);
+  }
+}
+
+/* ============================================================
+   MENU + OVERLAY
+   ============================================================ */
+/* Menu overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 105vw;
+  height: 100svh;
+  min-height: 100vh;
+  background-color: var(--menu-overlay-bg);
+  transform-origin: top;
+  transform: translateX(-2.5vw) scaleY(0);
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1),
+    visibility 0s linear 0.7s;
+  visibility: hidden;
+}
+
+.menu-overlay.active {
+  transform: translateX(-2.5vw) scaleY(1);
+  visibility: visible;
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+/* Force header to white mode when menu is open. */
+.menu-open .app-header {
+  color: var(--menu-header-foreground);
+}
+
+.menu-open .app-header .menu-toggle-line {
+  background-color: var(--menu-header-foreground);
+  transform-origin: center;
+}
+
+.menu-open .app-header .menu-toggle-line:first-child {
+  transform: translateY(0.22rem) rotate(45deg);
+}
+
+.menu-open .app-header .menu-toggle-line:last-child {
+  transform: translateY(-0.22rem) rotate(-45deg);
+}
+
+.menu-open .app-header .logo-link img {
+  filter: invert(1);
+}
+
+.menu-open .app-header .mode-circle.white,
+.menu-open .app-header .mode-circle.black {
+  filter: invert(1);
+}
+
+.transition-logo-bg {
+  fill: var(--primary);
+}
+
+.transition-logo-mark {
+  fill: var(--background);
+}
+
+/* ============================================================
+   BACKGROUND SPLOTCHES
+   ============================================================ */
+.bg-top-splotches {
+  background-image:
+    radial-gradient(95% 105% at 12% 0%, var(--bg-splotch-1) 0%, transparent 75%),
+    radial-gradient(100% 110% at 50% -2%, var(--bg-splotch-2) 0%, transparent 76%),
+    radial-gradient(105% 115% at 88% 0%, var(--bg-splotch-3) 0%, transparent 75%);
+  transform: translateZ(0);
+}
+
+/* ============================================================
+   GLOBAL SCROLL + TRANSITIONS
+   ============================================================ */
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior: none;
+  background-color: var(--background);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html,
+body,
+.App {
+  transition: background-color 0.45s ease, color 0.45s ease;
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.App * {
+  transition: color 0.45s ease, border-color 0.45s ease, background-color 0.45s ease;
+}
+
+@media (max-width: 640px) {
+  .App {
+    transition: none;
+  }
+
+  .App * {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.App .button {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-text);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.primary-button:hover {
+  background-color: var(--primary-button-bg-hover);
+  transform: translateZ(0) scale(1.08);
+}
+
+.primary-button--sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.775rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  font-weight: 350;
+}
+
+.primary-button--md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.775rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  font-weight: 350;
+}
+
+/* ============================================================
+   TYPOGRAPHY TWEAKS
+   ============================================================ */
+.text-h1plus {
+  display: inline-block;
+  transform: translateX(-1rem);
+}
+
+/* ============================================================
+   LOGO + HEADER
+   ============================================================ */
+.App .logo-link {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.App .logo-link:hover {
+  transform: translateZ(0) scale(1.1);
+}
+
+.dark .App .logo-link img {
+  filter: invert(1);
+}
+
+.app-header {
+  transition: color 0.35s ease;
+}
+
+.app-header .menu-toggle-line,
+.app-header .logo-link img,
+.app-header .mode-circle.white,
+.app-header .mode-circle.black {
+  transition: filter 0.35s ease, background-color 0.35s ease, transform 0.3s ease;
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+#cursor {
+  background-color: var(--cursor-color);
+  border-radius: 25px;
+  height: 0.9vw;
+  width: 0.9vw;
+  position: fixed;
+  z-index: 10000;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: opacity 0.5s ease, transform 0.2s ease-out;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+#cursor.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 640px) {
+  #cursor {
+    display: none;
+  }
+
+  .App {
+    cursor: auto;
+  }
+
+  .App * {
+    cursor: auto;
+  }
+}
+
+#cursor.hover {
+  transform: scale(2.2);
+}
+
+/* ============================================================
+   CURSOR OVERRIDES
+   ============================================================ */
+button:hover,
+a:hover {
+  cursor: none;
+}
+
+.App * {
+  cursor: none;
+}
+
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  --toggle-swap: 1rem;
+}
+
+.mode-circle {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mode-circle.white {
+  background: transparent;
+}
+
+.mode-circle.black {
+  background: transparent;
+}
+
+.dark .mode-circle.white {
+  transform: translateX(var(--toggle-swap));
+}
+
+.dark .mode-circle.black {
+  transform: translateX(calc(var(--toggle-swap) * -1));
+}
+
+.dark .mode-circle.white,
+.dark .mode-circle.black {
+  filter: invert(1);
+}
