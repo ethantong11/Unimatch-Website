@@ -405,7 +405,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 2.4rem;
-  --toggle-swap: 1rem;
+  --toggle-swap: 0.6rem;
+  --toggle-offset: -0.2rem;
 }
 
 .mode-circle {
@@ -417,18 +418,20 @@ a:hover {
 
 .mode-circle.white {
   background: transparent;
+  transform: translateX(calc(var(--toggle-offset) * -1));
 }
 
 .mode-circle.black {
   background: transparent;
+  transform: translateX(var(--toggle-offset));
 }
 
 .dark .mode-circle.white {
-  transform: translateX(var(--toggle-swap));
+  transform: translateX(calc(var(--toggle-swap) - var(--toggle-offset)));
 }
 
 .dark .mode-circle.black {
-  transform: translateX(calc(var(--toggle-swap) * -1));
+  transform: translateX(calc(var(--toggle-swap) * -1 + var(--toggle-offset)));
 }
 
 .dark .mode-circle.white,
